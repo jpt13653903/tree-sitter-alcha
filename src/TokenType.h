@@ -30,8 +30,7 @@ typedef enum TokenTypeTag{
 
     ERROR_SENTINEL,
 
-    KEYWORD,
-    SPECIAL
+    KEYWORD
 } TokenType;
 //------------------------------------------------------------------------------
 

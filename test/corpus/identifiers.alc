@@ -51,3 +51,26 @@ __YEARDAY__
   (builtin_const)
   (builtin_const)
   (builtin_const))
+
+================================================================================
+Specials
+================================================================================
+
+__FILE__
+__LINE__
+__DATE__
+__TIME__
+__CLASS__
+__FUNCTION__
+__NAMESPACE__
+
+--------------------------------------------------------------------------------
+
+(design_file
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const))

@@ -86,14 +86,13 @@ static void register_constants(TokenTree* token_tree)
 
 static void register_specials(TokenTree* token_tree)
 {
-    token_tree_insert(token_tree, "__FILE__",      SPECIAL);
-    token_tree_insert(token_tree, "__LINE__",      SPECIAL);
-    token_tree_insert(token_tree, "__DATE__",      SPECIAL);
-    token_tree_insert(token_tree, "__TIME__",      SPECIAL);
-
-    token_tree_insert(token_tree, "__CLASS__",     SPECIAL);
-    token_tree_insert(token_tree, "__FUNCTION__",  SPECIAL);
-    token_tree_insert(token_tree, "__NAMESPACE__", SPECIAL);
+    token_tree_insert(token_tree, "__FILE__",      BUILTIN_CONST);
+    token_tree_insert(token_tree, "__LINE__",      BUILTIN_CONST);
+    token_tree_insert(token_tree, "__DATE__",      BUILTIN_CONST);
+    token_tree_insert(token_tree, "__TIME__",      BUILTIN_CONST);
+    token_tree_insert(token_tree, "__CLASS__",     BUILTIN_CONST);
+    token_tree_insert(token_tree, "__FUNCTION__",  BUILTIN_CONST);
+    token_tree_insert(token_tree, "__NAMESPACE__", BUILTIN_CONST);
 }
 //------------------------------------------------------------------------------
 

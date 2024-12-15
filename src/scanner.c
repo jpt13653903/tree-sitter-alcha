@@ -454,8 +454,9 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
             if(valid_symbols[HEX_LITERAL] && hex_digit(lexer->lookahead)){
                 hex_literal(lexer);
                 RETURN(HEX_LITERAL);
+            }
 
-            }else if((valid_symbols[IDENTIFIER] || valid_symbols[BUILTIN_CONST]) && non_digit(lexer->lookahead)){
+            if((valid_symbols[IDENTIFIER] || valid_symbols[BUILTIN_CONST]) && non_digit(lexer->lookahead)){
                 if(lexer->lookahead == 0x03C0){ // pi
                     lexer->advance(lexer, false);
                     if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
@@ -463,7 +464,7 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
                     }
                 }
                 TokenType type = token_tree_match(token_tree, lexer);
-                if(type == KEYWORD || type == SPECIAL){
+                if(type == KEYWORD){
                     if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
                         RETURN_FALSE;
                     }

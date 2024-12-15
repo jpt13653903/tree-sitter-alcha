@@ -30,7 +30,6 @@
             case ERROR_SENTINEL:  return "ERROR_SENTINEL";
 
             case KEYWORD:         return "KEYWORD";
-            case SPECIAL:         return "SPECIAL";
 
             default:              return "Unknown type";
         }
