@@ -17,6 +17,7 @@ module.exports = grammar({
         $.todo_comment,
 
         $.identifier,
+        $.builtin_const,
 
         $._string_byte,
         $.escape_sequence,
@@ -50,7 +51,8 @@ module.exports = grammar({
         design_file: $ => repeat(choice(
             $.literal,
             $.string,
-            $.identifier
+            $.identifier,
+            $.builtin_const
         )),
 
         literal: $ => seq(

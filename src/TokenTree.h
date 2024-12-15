@@ -40,7 +40,6 @@ void token_tree_balance(TokenTree* this);
 TokenType token_tree_match(TokenTree* this, TSLexer* lexer);
 //------------------------------------------------------------------------------
 
-
 #endif
 //------------------------------------------------------------------------------
 

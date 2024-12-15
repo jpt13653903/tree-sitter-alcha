@@ -9,6 +9,10 @@
       "required": false,
       "types": [
         {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -99,6 +103,10 @@
   },
   {
     "type": "block_comment",
+    "named": true
+  },
+  {
+    "type": "builtin_const",
     "named": true
   },
   {

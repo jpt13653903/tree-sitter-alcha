@@ -8,6 +8,7 @@
             case TODO_COMMENT:    return "TODO_COMMENT";
 
             case IDENTIFIER:      return "IDENTIFIER";
+            case BUILTIN_CONST:   return "BUILTIN_CONST";
 
             case STRING_BYTE:     return "STRING_BYTE";
             case ESCAPE_SEQUENCE: return "ESCAPE_SEQUENCE";

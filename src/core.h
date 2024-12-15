@@ -67,6 +67,23 @@ static void register_keywords(TokenTree* token_tree)
 }
 //------------------------------------------------------------------------------
 
+static void register_constants(TokenTree* token_tree)
+{
+    token_tree_insert(token_tree, "pi",          BUILTIN_CONST);
+    token_tree_insert(token_tree, "e",           BUILTIN_CONST);
+    token_tree_insert(token_tree, "i",           BUILTIN_CONST);
+    token_tree_insert(token_tree, "j",           BUILTIN_CONST);
+    token_tree_insert(token_tree, "__YEAR__",    BUILTIN_CONST);
+    token_tree_insert(token_tree, "__MONTH__",   BUILTIN_CONST);
+    token_tree_insert(token_tree, "__DAY__",     BUILTIN_CONST);
+    token_tree_insert(token_tree, "__HOUR__",    BUILTIN_CONST);
+    token_tree_insert(token_tree, "__MINUTE__",  BUILTIN_CONST);
+    token_tree_insert(token_tree, "__SECOND__",  BUILTIN_CONST);
+    token_tree_insert(token_tree, "__WEEKDAY__", BUILTIN_CONST);
+    token_tree_insert(token_tree, "__YEARDAY__", BUILTIN_CONST);
+}
+//------------------------------------------------------------------------------
+
 static void register_specials(TokenTree* token_tree)
 {
     token_tree_insert(token_tree, "__FILE__",      SPECIAL);
@@ -82,8 +99,9 @@ static void register_specials(TokenTree* token_tree)
 
 void register_core(TokenTree* token_tree)
 {
-    register_keywords(token_tree);
-    register_specials(token_tree);
+    register_keywords (token_tree);
+    register_constants(token_tree);
+    register_specials (token_tree);
 }
 //------------------------------------------------------------------------------
 

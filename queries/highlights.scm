@@ -24,8 +24,11 @@
 
 (exponent) @property
 
+(imag_suffix) @attribute.builtin
+
 (string) @spell @string
 (string
   (escape_sequence) @string.escape)
 
 (identifier) @variable
+(builtin_const) @constant.builtin

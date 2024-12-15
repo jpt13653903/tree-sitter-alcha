@@ -18,6 +18,10 @@
           {
             "type": "SYMBOL",
             "name": "identifier"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "builtin_const"
           }
         ]
       }
@@ -173,6 +177,10 @@
     {
       "type": "SYMBOL",
       "name": "identifier"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "builtin_const"
     },
     {
       "type": "SYMBOL",

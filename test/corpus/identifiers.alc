@@ -6,6 +6,7 @@ variable
 anotherVariable
 autoVariable
 αΓρεεκΩαριαβλε
+πΓρεεκΩαριαβλε
 
 --------------------------------------------------------------------------------
 
@@ -13,4 +14,40 @@ autoVariable
   (identifier)
   (identifier)
   (identifier)
+  (identifier)
   (identifier))
+
+================================================================================
+Constants
+================================================================================
+
+pi
+π
+e
+i
+j
+__YEAR__
+__MONTH__
+__DAY__
+__HOUR__
+__MINUTE__
+__SECOND__
+__WEEKDAY__
+__YEARDAY__
+
+--------------------------------------------------------------------------------
+
+(design_file
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const)
+  (builtin_const))

@@ -9,6 +9,7 @@ typedef enum TokenTypeTag{
     TODO_COMMENT,
 
     IDENTIFIER,
+    BUILTIN_CONST,
 
     STRING_BYTE,
     ESCAPE_SEQUENCE,
