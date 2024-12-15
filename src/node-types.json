@@ -9,6 +9,10 @@
       "required": false,
       "types": [
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -49,6 +53,10 @@
         },
         {
           "type": "hex_prefix",
+          "named": true
+        },
+        {
+          "type": "imag_suffix",
           "named": true
         },
         {
@@ -114,12 +122,12 @@
     "named": true
   },
   {
-    "type": "i",
-    "named": false
+    "type": "identifier",
+    "named": true
   },
   {
-    "type": "j",
-    "named": false
+    "type": "imag_suffix",
+    "named": true
   },
   {
     "type": "line_comment",

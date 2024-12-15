@@ -24,6 +24,7 @@
             case HEX_LITERAL:     return "HEX_LITERAL";
 
             case EXPONENT:        return "EXPONENT";
+            case IMAG_SUFFIX:     return "IMAG_SUFFIX";
 
             case ERROR_SENTINEL:  return "ERROR_SENTINEL";
 

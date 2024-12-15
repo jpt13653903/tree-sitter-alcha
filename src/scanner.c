@@ -81,8 +81,22 @@ void tree_sitter_alcha_external_scanner_deserialize(Scanner* scanner, const char
 
 static bool whitespace(int32_t character)
 {
-    return character == ' '  || character == '\t' ||
-           character == '\n' || character == '\r';
+    switch(character){
+        // Space
+        case 0x0020: case 0x0009: case 0x00A0: case 0x1680: case 0x2000:
+        case 0x2001: case 0x2002: case 0x2003: case 0x2004: case 0x2005:
+        case 0x2006: case 0x2007: case 0x2008: case 0x2009: case 0x200A:
+        case 0x202F: case 0x200B: case 0x205F: case 0x3000: case 0xFEFF:
+            return true;
+
+        // Newline
+        case 0x0A: case 0x0D: case 0x0B: case 0x0C: case 0x85:
+        case 0x2028: case 0x2029:
+            return true;
+
+        default:
+            return false;
+    }
 }
 //------------------------------------------------------------------------------
 
@@ -92,111 +106,6 @@ static void skip_whitespace(TSLexer* lexer)
         lexer->advance(lexer, true);
     }
 }
-//------------------------------------------------------------------------------
-
-// static bool bounded_token(TSLexer* lexer, int32_t bound)
-// {
-//     while(!lexer->eof(lexer)){
-//         if(lexer->lookahead == bound){
-//             lexer->advance(lexer, false);
-//             lexer->mark_end(lexer);
-//             if(lexer->lookahead != bound) return true;
-//         }
-//         if(lexer->lookahead == '\r') return false;
-//         if(lexer->lookahead == '\n') return false;
-//         lexer->advance(lexer, false);
-//     }
-//     return false;
-// }
-//------------------------------------------------------------------------------
-
-// static bool is_letter_or_digit(int32_t lookahead)
-// {
-//     return (lookahead >= 'a' && lookahead <= 'z') ||
-//            (lookahead >= '0' && lookahead <= '9');
-// }
-//------------------------------------------------------------------------------
-
-// static bool finish_identifier(TSLexer* lexer, bool expect_letter)
-// {
-//     int32_t lookahead = lowercase(lexer->lookahead);
-//     bool    result = false;
-//
-//     if(expect_letter){
-//         if(!is_letter_or_digit(lookahead)) return false;
-//     }
-//
-//     while(!lexer->eof(lexer)){
-//         lexer->mark_end(lexer);
-//         if(lookahead == '_') lookahead = advance(lexer);
-//         if(!is_letter_or_digit(lookahead)) return result;
-//         lookahead = advance(lexer);
-//         result = true;
-//     }
-//     return result;
-// }
-//------------------------------------------------------------------------------
-
-// static bool is_special_value(int32_t value)
-// {
-//     switch(value){
-//         case 'u':
-//         case 'x':
-//         case 'z':
-//         case 'w':
-//         case 'l':
-//         case 'h':
-//         case '-':
-//             return true;
-//         default:
-//             return false;
-//     }
-// }
-//------------------------------------------------------------------------------
-
-// static bool binary_string_literal(TSLexer* lexer)
-// {
-//     while(!lexer->eof(lexer)){
-//         if(lexer->lookahead == '_') lexer->advance(lexer, false);
-//         if((lexer->lookahead < '0' || lexer->lookahead > '1') &&
-//            !is_special_value(lowercase(lexer->lookahead))) break;
-//         lexer->advance(lexer, false);
-//     }
-//     if(lexer->lookahead != '"') return false;
-//     lexer->advance(lexer, false);
-//     lexer->mark_end(lexer);
-//     return true;
-// }
-//------------------------------------------------------------------------------
-
-// static bool octal_string_literal(TSLexer* lexer)
-// {
-//     while(!lexer->eof(lexer)){
-//         if(lexer->lookahead == '_') lexer->advance(lexer, false);
-//         if((lexer->lookahead < '0' || lexer->lookahead > '7') &&
-//            !is_special_value(lowercase(lexer->lookahead))) break;
-//         lexer->advance(lexer, false);
-//     }
-//     if(lexer->lookahead != '"') return false;
-//     lexer->advance(lexer, false);
-//     lexer->mark_end(lexer);
-//     return true;
-// }
-//------------------------------------------------------------------------------
-
-// static bool decimal_string_literal(TSLexer* lexer)
-// {
-//     while(!lexer->eof(lexer)){
-//         if(lexer->lookahead == '_') lexer->advance(lexer, false);
-//         if((lexer->lookahead < '0' || lexer->lookahead > '9') &&
-//            !is_special_value(lowercase(lexer->lookahead))) break;
-//         lexer->advance(lexer, false);
-//     }
-//     if(lexer->lookahead != '"') return false;
-//     lexer->advance(lexer, false);
-//     lexer->mark_end(lexer);
-//     return true;
-// }
 //------------------------------------------------------------------------------
 
 static void line_comment(TSLexer* lexer)
@@ -259,10 +168,16 @@ static void bin_literal(TSLexer* lexer)
 }
 //------------------------------------------------------------------------------
 
+static bool oct_digit(int32_t character)
+{
+    return (character >= '0' && character <= '7');
+}
+//------------------------------------------------------------------------------
+
 static void oct_literal(TSLexer* lexer)
 {
     while(!lexer->eof(lexer)){
-        if((lexer->lookahead < '0' || lexer->lookahead > '7') &&
+        if(!oct_digit(lexer->lookahead) &&
            lexer->lookahead != '_' &&
            lexer->lookahead != '.' ) return;
         lexer->advance(lexer, false);
@@ -270,10 +185,25 @@ static void oct_literal(TSLexer* lexer)
 }
 //------------------------------------------------------------------------------
 
+static void oct_chars(TSLexer* lexer)
+{
+    while(!lexer->eof(lexer)){
+        if(!oct_digit(lexer->lookahead)) return;
+        lexer->advance(lexer, false);
+    }
+}
+//------------------------------------------------------------------------------
+
+static bool dec_digit(int32_t character)
+{
+    return (character >= '0' && character <= '9');
+}
+//------------------------------------------------------------------------------
+
 static void dec_literal(TSLexer* lexer)
 {
     while(!lexer->eof(lexer)){
-        if((lexer->lookahead < '0' || lexer->lookahead > '9') &&
+        if(!dec_digit(lexer->lookahead) &&
            lexer->lookahead != '_' &&
            lexer->lookahead != '.' ) return;
         lexer->advance(lexer, false);
@@ -300,16 +230,7 @@ static void hex_literal(TSLexer* lexer)
 }
 //------------------------------------------------------------------------------
 
-static void oct_char(TSLexer* lexer)
-{
-    while(!lexer->eof(lexer)){
-        if(lexer->lookahead < '0' || lexer->lookahead > '7') return;
-        lexer->advance(lexer, false);
-    }
-}
-//------------------------------------------------------------------------------
-
-static void hex_char(TSLexer* lexer, int length)
+static void hex_chars(TSLexer* lexer, int length)
 {
     lexer->advance(lexer, false);
 
@@ -319,6 +240,15 @@ static void hex_char(TSLexer* lexer, int length)
         length--;
         if(length == 0) return;
     }
+}
+//------------------------------------------------------------------------------
+
+static bool non_digit(int32_t character)
+{
+    return (character >= 'a' && character <= 'z') ||
+           (character >= 'A' && character <= 'Z') ||
+           (character == '_'                    ) ||
+           (character >= 0x80 && !whitespace(character));
 }
 //------------------------------------------------------------------------------
 
@@ -341,16 +271,16 @@ static void escape_sequence(TSLexer* lexer)
 
     switch(lexer->lookahead){
         case 'x':
-            hex_char(lexer, 2);
+            hex_chars(lexer, 2);
             break;
         case 'u':
-            hex_char(lexer, 4);
+            hex_chars(lexer, 4);
             break;
         case 'U':
-            hex_char(lexer, 8);
+            hex_chars(lexer, 8);
             break;
         case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7':
-            oct_char(lexer);
+            oct_chars(lexer);
             break;
         case '&':
             html_name(lexer);
@@ -370,8 +300,18 @@ static void exponent(TSLexer* lexer)
         lexer->advance(lexer, false);
 
     while(!lexer->eof(lexer)){
-        if(lexer->lookahead < '0' || lexer->lookahead > '9') return;
+        if(!dec_digit(lexer->lookahead)) return;
         lexer->advance(lexer, false);
+    }
+}
+//------------------------------------------------------------------------------
+
+static void identifier(TSLexer* lexer)
+{
+    while(!lexer->eof(lexer)){
+        if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)) return;
+        lexer->advance(lexer, false);
+        lexer->mark_end(lexer);
     }
 }
 //------------------------------------------------------------------------------
@@ -382,7 +322,7 @@ static void exponent(TSLexer* lexer)
     return valid_symbols[type];                                                        \
 }while(0);
 
-#define RETURN_FALSE do{          \
+#define RETURN_FALSE do{         \
     debug("Returning false..."); \
     return false;                \
 }while(0);
@@ -428,11 +368,23 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
         }
     }
 
+    if(valid_symbols[IMAG_SUFFIX] && !valid_symbols[ERROR_SENTINEL]){
+        switch(lexer->lookahead){
+            case 'i': case 'j':
+                lexer->advance(lexer, false);
+                RETURN(IMAG_SUFFIX);
+            default:
+                break;
+        }
+    }
+
     if(!valid_symbols[BIN_LITERAL] &&
        !valid_symbols[OCT_LITERAL] &&
        !valid_symbols[HEX_LITERAL]) skip_whitespace(lexer);
 
     if(lexer->eof(lexer)) RETURN_FALSE;
+
+    if(lexer->lookahead >= 0x80) debug("Character = 0x%u", lexer->lookahead);
 
     switch(lexer->lookahead){
         case '/':
@@ -503,8 +455,15 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
                 hex_literal(lexer);
                 RETURN(HEX_LITERAL);
 
-            }else if(valid_symbols[IDENTIFIER]){
-                // TODO
+            }else if(valid_symbols[IDENTIFIER] && non_digit(lexer->lookahead)){
+                TokenType type = token_tree_match(token_tree, lexer);
+                if(type == KEYWORD || type == SPECIAL){
+                    if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
+                        RETURN_FALSE;
+                    }
+                }
+                identifier(lexer);
+                RETURN(IDENTIFIER);
             }
             RETURN_FALSE;
     }

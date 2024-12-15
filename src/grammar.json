@@ -14,6 +14,10 @@
           {
             "type": "SYMBOL",
             "name": "string"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
           }
         ]
       }
@@ -85,23 +89,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "i"
-                  }
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "j"
-                  }
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "imag_suffix"
             },
             {
               "type": "BLANK"
@@ -224,6 +213,10 @@
     {
       "type": "SYMBOL",
       "name": "exponent"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "imag_suffix"
     },
     {
       "type": "SYMBOL",

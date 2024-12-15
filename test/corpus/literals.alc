@@ -39,7 +39,8 @@ Literals
     (hex_literal)
     (exponent))
   (literal
-    (dec_literal))
+    (dec_literal)
+    (imag_suffix))
   (string)
   (string)
   (string

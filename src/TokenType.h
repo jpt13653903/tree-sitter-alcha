@@ -25,6 +25,7 @@ typedef enum TokenTypeTag{
     HEX_LITERAL,
 
     EXPONENT,
+    IMAG_SUFFIX,
 
     ERROR_SENTINEL,
 

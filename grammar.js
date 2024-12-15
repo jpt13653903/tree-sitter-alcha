@@ -33,6 +33,7 @@ module.exports = grammar({
         $.hex_literal,
 
         $.exponent,
+        $.imag_suffix,
 
         $.error_sentinel
     ],
@@ -48,7 +49,8 @@ module.exports = grammar({
     rules: {
         design_file: $ => repeat(choice(
             $.literal,
-            $.string
+            $.string,
+            $.identifier
         )),
 
         literal: $ => seq(
@@ -59,7 +61,7 @@ module.exports = grammar({
                 seq($.hex_prefix, $.hex_literal),
             ),
             optional($.exponent),
-            optional(choice(token.immediate('i'), token.immediate('j')))
+            optional($.imag_suffix)
         ),
 
         string: $ => seq('"', repeat(choice($._string_byte, $.escape_sequence)), '"'),
