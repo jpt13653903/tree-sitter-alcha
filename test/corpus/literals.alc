@@ -1,0 +1,53 @@
+================================================================================
+Literals
+================================================================================
+
+123.456
+0b101.0101
+0o123.456
+0xABC.DEF
+123_456_e7
+123_456_p7
+0x123_ABC_p7
+8.9j
+"A"
+"ABC"
+"ABC\nlkjh\rklkjh\123hi\&rightArrow;\xab\uabcdefg\Uabcdef1234567"
+
+--------------------------------------------------------------------------------
+
+(design_file
+  (literal
+    (dec_literal))
+  (literal
+    (bin_prefix)
+    (bin_literal))
+  (literal
+    (oct_prefix)
+    (oct_literal))
+  (literal
+    (hex_prefix)
+    (hex_literal))
+  (literal
+    (dec_literal)
+    (exponent))
+  (literal
+    (dec_literal)
+    (exponent))
+  (literal
+    (hex_prefix)
+    (hex_literal)
+    (exponent))
+  (literal
+    (dec_literal))
+  (string)
+  (string)
+  (string
+    (escape_sequence)
+    (escape_sequence)
+    (escape_sequence)
+    (escape_sequence)
+    (escape_sequence)
+    (escape_sequence)
+    (escape_sequence)))
+

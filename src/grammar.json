@@ -1,0 +1,235 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "alcha",
+  "rules": {
+    "design_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "string"
+          }
+        ]
+      }
+    },
+    "literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "bin_prefix"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "bin_literal"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "oct_prefix"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "oct_literal"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dec_literal"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "hex_prefix"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "hex_literal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "exponent"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "i"
+                  }
+                },
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "j"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_string_byte"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "escape_sequence"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "line_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "nested_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "todo_comment"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\s+"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "line_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "nested_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "todo_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_string_byte"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "escape_sequence"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "bin_prefix"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "bin_literal"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "oct_prefix"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "oct_literal"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "dec_literal"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "hex_prefix"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "hex_literal"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "exponent"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "error_sentinel"
+    }
+  ],
+  "inline": [],
+  "supertypes": []
+}

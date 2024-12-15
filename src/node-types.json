@@ -1,0 +1,144 @@
+[
+  {
+    "type": "design_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_literal",
+          "named": true
+        },
+        {
+          "type": "bin_prefix",
+          "named": true
+        },
+        {
+          "type": "dec_literal",
+          "named": true
+        },
+        {
+          "type": "exponent",
+          "named": true
+        },
+        {
+          "type": "hex_literal",
+          "named": true
+        },
+        {
+          "type": "hex_prefix",
+          "named": true
+        },
+        {
+          "type": "oct_literal",
+          "named": true
+        },
+        {
+          "type": "oct_prefix",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "bin_literal",
+    "named": true
+  },
+  {
+    "type": "bin_prefix",
+    "named": true
+  },
+  {
+    "type": "block_comment",
+    "named": true
+  },
+  {
+    "type": "dec_literal",
+    "named": true
+  },
+  {
+    "type": "escape_sequence",
+    "named": true
+  },
+  {
+    "type": "exponent",
+    "named": true
+  },
+  {
+    "type": "hex_literal",
+    "named": true
+  },
+  {
+    "type": "hex_prefix",
+    "named": true
+  },
+  {
+    "type": "i",
+    "named": false
+  },
+  {
+    "type": "j",
+    "named": false
+  },
+  {
+    "type": "line_comment",
+    "named": true
+  },
+  {
+    "type": "nested_comment",
+    "named": true
+  },
+  {
+    "type": "oct_literal",
+    "named": true
+  },
+  {
+    "type": "oct_prefix",
+    "named": true
+  },
+  {
+    "type": "todo_comment",
+    "named": true
+  }
+]
