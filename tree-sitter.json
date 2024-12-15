@@ -1,0 +1,27 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "alcha",
+      "path": ".",
+      "scope": "source.alcha",
+      "file-types": [
+        ".alcha"
+      ],
+      "injection-regex": "^alcha$",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "links": {
+      "repository": "https://github.com/jpt13653903/tree-sitter-alcha"
+    },
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "John-Philip Taylor"
+      }
+    ]
+  }
+}
