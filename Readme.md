@@ -4,7 +4,7 @@
 [![discord][discord]](https://discord.gg/w7nTvsVJhm)
 [![matrix][matrix]](https://matrix.to/#/#tree-sitter-chat:matrix.org)
 
-A Tree-sitter parser for alcha files.
+A Tree-sitter parser for ALCHA files.
 
 ## References
 
