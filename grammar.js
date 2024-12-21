@@ -382,7 +382,7 @@ module.exports = grammar({
             )),
 
             attribute_reference: $ => prec.left(25, seq(
-                $._expression, "'", $._identifier
+                optional($._expression), "'", $._identifier
             )),
 
             cast: $ => prec.left(26, seq(
@@ -394,7 +394,7 @@ module.exports = grammar({
             )),
 
             _primary: $ => prec(27, choice(
-                seq(optional("'"), $._identifier),
+                $._identifier,
                 $.literal,
                 'true',
                 'false',
@@ -425,10 +425,10 @@ module.exports = grammar({
                 '(', optional(seq($._parameter, repeat(seq(',', $._parameter)))), ')'
             ),
 
-            _parameter: $ => choice(
+            _parameter: $ => prec(28, choice(
                 field('value', $._expression),
                 $.assigned_param
-            ),
+            )),
 
             assigned_param: $ => seq(
                 field('parameter', $._identifier), choice('=', ':='), field('value', $._expression)

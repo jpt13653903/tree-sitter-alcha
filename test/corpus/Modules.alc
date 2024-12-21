@@ -1430,6 +1430,10 @@ rtl(Clk, Reset){
     A = 5;
     B = C + 3;
 }
+rtl(Clk){
+    A = 5;
+    B = C + 3;
+}
 rtl{
     A = 5;
     B = C + 3;
@@ -1511,6 +1515,20 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
   (rtl
     (parameter_list
       value: (identifier)
+      value: (identifier))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (additive
+          (identifier)
+          (literal
+            (dec_literal))))))
+  (rtl
+    (parameter_list
       value: (identifier))
     (statement_block
       (assignment

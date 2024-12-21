@@ -350,7 +350,8 @@ X = (A+B);
     (identifier))
   (assignment
     (identifier)
-    (identifier))
+    (attribute_reference
+      (identifier)))
   (assignment
     (identifier)
     (literal
