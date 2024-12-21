@@ -2316,6 +2316,21 @@
     }
   },
   {
+    "type": "filename",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "for",
     "named": true,
     "fields": {},
@@ -3067,15 +3082,30 @@
           "named": true
         },
         {
+          "type": "hdl_files",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
           "type": "stimulus",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "hdl_files",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
         {
-          "type": "string",
+          "type": "filename",
           "named": true
         }
       ]
@@ -3248,11 +3278,11 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "filename",
           "named": true
         },
         {
-          "type": "string",
+          "type": "identifier",
           "named": true
         }
       ]

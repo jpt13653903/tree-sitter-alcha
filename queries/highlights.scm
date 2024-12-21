@@ -30,6 +30,10 @@
 (string
   (escape_sequence) @string.escape)
 
+(filename) @string
+(filename
+  (escape_sequence) @string.escape)
+
 (identifier) @variable
 (builtin_const) @constant.builtin
 (builtin_func) @function.builtin
@@ -37,7 +41,7 @@
 [
   "true"
   "false"
-] @constant.builtin
+] @boolean
 
 [
   "rtl"
@@ -201,11 +205,29 @@
   "<" @punctuation.bracket
   ">" @punctuation.bracket)
 
-(type_identifier) @type
+(member_reference
+  (_)
+  (identifier) @variable.member)
+
+(type_identifier
+  (identifier) @type .)
 (class_definition
   name: (identifier) @type)
 
-(function_call) @function.call
+(function_call
+  (identifier) @function.call)
 (function_def
   name: (identifier) @function)
+
+(attribute_reference
+  (_)
+  (identifier) @attribute)
+
+(import
+  (identifier) @module)
+
+(label
+  (identifier) @label)
+(goto
+  (identifier) @label)
 

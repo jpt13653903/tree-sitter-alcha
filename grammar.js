@@ -167,7 +167,7 @@ module.exports = grammar({
             ),
 
             import: $ => seq(
-                'import', $.string, optional(seq('as', $._identifier)), ';'
+                'import', alias($.string, $.filename), optional(seq('as', $._identifier)), ';'
             ),
 
             struct: $ => seq(
@@ -241,9 +241,13 @@ module.exports = grammar({
             ),
 
             hdl: $ => seq(
-                'hdl', optional($.attribute_list), '(', $.string, repeat(seq(',', $.string)), ')', $._identifier,
+                'hdl', optional($.attribute_list), $.hdl_files, $._identifier,
                 optional(seq('(', repeat($.assignment), ')')),
                 '{', repeat(choice($.definition, $.stimulus)), '}'
+            ),
+
+            hdl_files: $ => seq(
+                '(', alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))), ')'
             ),
 
         // Expressions

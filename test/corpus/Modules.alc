@@ -629,11 +629,11 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
 Function Definition
 ================================================================================
 
-auto ABC[5](num A, pin B[2], net C){
+auto ABC[5](num A, pin B[], net C){
     A = 3;
     B = 5;
 }
-auto ABC(num A, pin B, net C){
+auto ABC(num A, pin B, net C = 5){
     A = 3;
     B = 5;
 }
@@ -659,9 +659,7 @@ void ABC(A, B, C){
             (identifier))
           (def_parameter
             (base_type)
-            (identifier)
-            (ERROR
-              (dec_literal)))
+            (identifier))
           (def_parameter
             (base_type)
             (identifier)))
@@ -687,7 +685,10 @@ void ABC(A, B, C){
             (identifier))
           (def_parameter
             (base_type)
-            (identifier)))
+            (identifier)
+            (initialiser
+              (literal
+                (dec_literal)))))
         (assignment
           (identifier)
           (literal
@@ -788,9 +789,9 @@ group<voltage = 3.3, capacitance = 10e-12,
         (identifier))
       (identifier)))
   (import
-    (string))
+    (filename))
   (import
-    (string)
+    (filename)
     (identifier))
   (struct
     (attribute_list
@@ -1452,8 +1453,8 @@ fsm{
 }
 
 hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
-    A = 3,
-    B = 5
+    A = 3;
+    B = 5;
 ){
     pin Clk;
     pin Reset;
@@ -1613,8 +1614,9 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
       (attribute_assignment
         (identifier)
         (string)))
-    (string)
-    (string)
+    (hdl_files
+      (filename)
+      (filename))
     (identifier)
     (assignment
       (identifier)
@@ -1623,8 +1625,7 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
     (assignment
       (identifier)
       (literal
-        (dec_literal))
-      (MISSING ";"))
+        (dec_literal)))
     (definition
       (base_type)
       (identifier_list
