@@ -1468,10 +1468,12 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
     A = 3;
     B = 5;
 ){
-    pin Clk;
-    pin Reset;
+    input  pin     Clk;
+    input  pin     Reset;
 
-    pin(16) Data;
+    output pin(16) Data;
+
+    pin(16, 5) AnotherPin;
 }
 
 --------------------------------------------------------------------------------
@@ -1652,19 +1654,32 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
       (identifier)
       (literal
         (dec_literal)))
+    (direction_specifier)
     (definition
       (base_type)
       (identifier_list
         (variable_def
           (identifier))))
+    (direction_specifier)
     (definition
       (base_type)
+      (identifier_list
+        (variable_def
+          (identifier))))
+    (direction_specifier)
+    (definition
+      (base_type)
+      (parameter_list
+        value: (literal
+          (dec_literal)))
       (identifier_list
         (variable_def
           (identifier))))
     (definition
       (base_type)
       (parameter_list
+        value: (literal
+          (dec_literal))
         value: (literal
           (dec_literal)))
       (identifier_list

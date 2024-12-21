@@ -3150,6 +3150,10 @@
           "named": true
         },
         {
+          "type": "direction_specifier",
+          "named": true
+        },
+        {
           "type": "hdl_files",
           "named": true
         },
