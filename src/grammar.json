@@ -3344,6 +3344,10 @@
         {
           "type": "SYMBOL",
           "name": "sequence"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },

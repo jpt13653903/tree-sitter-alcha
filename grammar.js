@@ -462,7 +462,7 @@ module.exports = grammar({
             ),
 
             assert: $ => seq(
-                'assert', $.sequence
+                'assert', $.sequence, ';'
             ),
 
             sequence: $ => $._expression,

@@ -136,8 +136,6 @@
   "~^"
   "~"
   "!"
-  ":("
-  ":["
   "`"
   "+"
   "-"
@@ -171,7 +169,6 @@
   "<<="
   ">>="
   "$"
-  "$("
   "@"
   "#"
   "##"
@@ -200,7 +197,22 @@
   "]"
   "{"
   "}"
+  ":("
+  ":["
+  "$("
 ] @punctuation.bracket
+
+(vector_concat
+  .
+  ":(" @operator
+  ")"  @operator
+  .)
+
+(array_concat
+  .
+  ":[" @operator
+  "]"  @operator
+  .)
 
 (attribute_list
   "<" @punctuation.bracket
@@ -227,6 +239,8 @@
 (attribute_reference
   (_)
   (identifier) @attribute)
+(attribute_reference
+  . (identifier) @attribute .)
 
 (import
   (identifier) @module)
