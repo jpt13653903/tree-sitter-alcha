@@ -479,8 +479,27 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
                     lexer->advance(lexer, false);
                     RETURN(HEX_PREFIX);
                 default:
-                    dec_literal(lexer);
-                    RETURN(DEC_LITERAL);
+                    if(!valid_symbols[ERROR_SENTINEL]){
+                        if(valid_symbols[BIN_LITERAL]){
+                            bin_literal(lexer);
+                            RETURN(BIN_LITERAL);
+                        }else if(valid_symbols[OCT_LITERAL]){
+                            oct_literal(lexer);
+                            RETURN(OCT_LITERAL);
+                        }else if(valid_symbols[DEC_LITERAL]){
+                            dec_literal(lexer);
+                            RETURN(DEC_LITERAL);
+                        }else if(valid_symbols[HEX_LITERAL]){
+                            hex_literal(lexer);
+                            RETURN(HEX_LITERAL);
+                        }
+                    }else{
+                        if(valid_symbols[DEC_LITERAL]){
+                            dec_literal(lexer);
+                            RETURN(DEC_LITERAL);
+                        }
+                    }
+                    RETURN_FALSE;
             }
 
         case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
