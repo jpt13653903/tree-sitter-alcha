@@ -149,7 +149,8 @@ module.exports = grammar({
             ),
 
             def_parameter: $ => seq(
-                optional(choice($.base_type, $._type_identifier)), $._identifier, repeat(seq('[', ']')), optional($.initialiser)
+                optional(seq(choice($.base_type, $._type_identifier), optional($.parameter_list))),
+                $._identifier, repeat(seq('[', ']')), optional($.initialiser)
             ),
 
             attribute_list: $ => seq(

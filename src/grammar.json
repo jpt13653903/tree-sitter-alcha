@@ -854,15 +854,32 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "base_type"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "base_type"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_type_identifier"
+                    }
+                  ]
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_type_identifier"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "parameter_list"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
                 }
               ]
             },

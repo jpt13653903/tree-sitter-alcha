@@ -1711,6 +1711,10 @@
           "named": true
         },
         {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
           "type": "type_identifier",
           "named": true
         }
