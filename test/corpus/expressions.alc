@@ -1,0 +1,305 @@
+================================================================================
+Basic Expressions
+================================================================================
+
+A ?  B : C;
+A ?: B;
+A  | B;
+A ~| B;
+A  & B;
+A ~& B;
+A  ^ B;
+A ~^ B;
+A == B;
+A != B;
+A <  B;
+A >  B;
+A <= B;
+A >= B;
+A << B;
+A >> B;
+A +  B;
+A -  B;
+A *  B;
+A /  B;
+A %  B;
+A ** B;
+
+--------------------------------------------------------------------------------
+
+(design_file
+  (ternary
+    condition:  (identifier)
+    true_part:  (identifier)
+    false_part: (identifier))
+  (ternary
+    condition:  (identifier)
+    false_part: (identifier))
+      (bitwise_or
+        (identifier)
+        (identifier))
+      (bitwise_or
+        (identifier)
+        (identifier))
+      (bitwise_and
+        (identifier)
+        (identifier))
+      (bitwise_and
+        (identifier)
+        (identifier))
+      (bitwise_xor
+        (identifier)
+        (identifier))
+      (bitwise_xor
+        (identifier)
+        (identifier))
+      (equality
+        (identifier)
+        (identifier))
+      (equality
+        (identifier)
+        (identifier))
+      (relational
+        (identifier)
+        (identifier))
+      (relational
+        (identifier)
+        (identifier))
+      (relational
+        (identifier)
+        (identifier))
+      (relational
+        (identifier)
+        (identifier))
+      (shift
+        (identifier)
+        (identifier))
+      (shift
+        (identifier)
+        (identifier))
+      (additive
+        (identifier)
+        (identifier))
+      (additive
+        (identifier)
+        (identifier))
+      (multiplicative
+        (identifier)
+        (identifier))
+      (multiplicative
+        (identifier)
+        (identifier))
+      (multiplicative
+        (identifier)
+        (identifier))
+      (exponential
+        (identifier)
+        (identifier)))
+
+================================================================================
+Other Expressions
+================================================================================
+
+A`B;
+$A;
+$(A);
+$(A, B);
+ &A;
+~&A;
+ |A;
+~|A;
+ ^A;
+~^A;
+ !A;
+A..B;
+A..B:C;
+ -A;
+ ~A;
+ :A;
+++A;
+--A;
+A[B, C, D];
+A(A, B, C);
+A.B;
+A?.B;
+A'B;
+A++;
+A--;
+A!;
+A@B;
+A@123;
+A@(A, B, C);
+A;
+'A;
+123;
+true;
+false;
+:(A, B, C);
+:[A, B, C];
+[A, B, C];
+"Hello There";
+(A+B);
+
+--------------------------------------------------------------------------------
+
+(design_file
+  (replication
+    (identifier)
+    (identifier))
+  (stringification
+    (identifier))
+  (stringification
+    (identifier))
+  (stringification
+    (identifier)
+    (identifier))
+  (reduction
+    (identifier))
+  (reduction
+    (identifier))
+  (reduction
+    (identifier))
+  (reduction
+    (identifier))
+  (reduction
+    (identifier))
+  (reduction
+    (identifier))
+  (reduction
+    (identifier))
+  (range
+    (identifier)
+    (identifier))
+  (range
+    (identifier)
+    (identifier)
+    (identifier))
+  (unary
+    (identifier))
+  (unary
+    (identifier))
+  (unary
+    (identifier))
+  (unary
+    (identifier))
+  (unary
+    (identifier))
+  (slice
+    (identifier)
+    (array
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (function_call
+    (identifier)
+    (parameter_list
+      value: (identifier)
+      value: (identifier)
+      value: (identifier)))
+  (member_reference
+    (identifier)
+    (identifier))
+  (member_reference
+    (identifier)
+    (identifier))
+  (attribute_reference
+    (identifier)
+    (identifier))
+  (postfix
+    (identifier))
+  (postfix
+    (identifier))
+  (postfix
+    (identifier))
+  (cast
+    (identifier)
+    (identifier))
+  (cast
+    (identifier)
+    (literal
+      (dec_literal)))
+  (cast
+    (identifier)
+    (expression_list
+      (identifier)
+      (identifier)
+      (identifier)))
+  (identifier)
+  (identifier)
+  (literal
+    (dec_literal))
+  (vector_concat
+    (expression_list
+      (identifier)
+      (identifier)
+      (identifier)))
+  (array_concat
+    (expression_list
+      (identifier)
+      (identifier)
+      (identifier)))
+  (array
+    (expression_list
+      (identifier)
+      (identifier)
+      (identifier)))
+  (string)
+  (additive
+    (identifier)
+    (identifier)))
+
+================================================================================
+Compound Expressions
+================================================================================
+
+A + B * C - D;
+&A + D@6;
+A.B.C'E;
+A.B.C(E, F, G);
+A(B = C, D := E);
+
+--------------------------------------------------------------------------------
+
+(design_file
+  (additive
+    (additive
+      (identifier)
+      (multiplicative
+        (identifier)
+        (identifier)))
+    (identifier))
+  (additive
+    (reduction
+      (identifier))
+    (cast
+      (identifier)
+      (literal
+        (dec_literal))))
+  (attribute_reference
+    (member_reference
+      (member_reference
+        (identifier)
+        (identifier))
+      (identifier))
+    (identifier))
+  (function_call
+    (member_reference
+      (member_reference
+        (identifier)
+        (identifier))
+      (identifier))
+    (parameter_list
+      value: (identifier)
+      value: (identifier)
+      value: (identifier)))
+  (function_call
+    (identifier)
+    (parameter_list
+      (assigned_param
+        parameter: (identifier)
+        value: (identifier))
+      (assigned_param
+        parameter: (identifier)
+        value: (identifier)))))
+
