@@ -6,7 +6,7 @@
       "path": ".",
       "scope": "source.alcha",
       "file-types": [
-        ".alcha"
+        ".alc"
       ],
       "injection-regex": "^alcha$",
       "highlights": "queries/highlights.scm"

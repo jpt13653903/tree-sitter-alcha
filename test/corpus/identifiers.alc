@@ -1,0 +1,127 @@
+================================================================================
+Identifiers
+================================================================================
+
+X = variable;
+X = anotherVariable;
+X = autoVariable;
+X = αΓρεεκΩαριαβλε;
+X = πΓρεεκΩαριαβλε;
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier)))
+
+================================================================================
+Constants
+================================================================================
+
+X = pi;
+X = π;
+X = e;
+X = i;
+X = j;
+X = __YEAR__;
+X = __MONTH__;
+X = __DAY__;
+X = __HOUR__;
+X = __MINUTE__;
+X = __SECOND__;
+X = __WEEKDAY__;
+X = __YEARDAY__;
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const)))
+
+================================================================================
+Specials
+================================================================================
+
+X = __FILE__;
+X = __LINE__;
+X = __DATE__;
+X = __TIME__;
+X = __CLASS__;
+X = __FUNCTION__;
+X = __NAMESPACE__;
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const)))
+

@@ -1,0 +1,466 @@
+================================================================================
+Basic Expressions
+================================================================================
+
+X = A ?  B : C;
+X = A ?: B;
+X = A  | B;
+X = A ~| B;
+X = A  & B;
+X = A ~& B;
+X = A  ^ B;
+X = A ~^ B;
+X = A == B;
+X = A != B;
+X = A <  B;
+X = A >  B;
+X = A <= B;
+X = A >= B;
+X = A << B;
+X = A >> B;
+X = A +  B;
+X = A -  B;
+X = A *  B;
+X = A /  B;
+X = A %  B;
+X = A ** B;
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (ternary
+      condition: (identifier)
+      true_part: (identifier)
+      false_part: (identifier)))
+  (assignment
+    (identifier)
+    (ternary
+      condition: (identifier)
+      false_part: (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_or
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_or
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_and
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_and
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_xor
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_xor
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (equality
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (equality
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (shift
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (shift
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (additive
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (additive
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (multiplicative
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (multiplicative
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (multiplicative
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (exponential
+      (identifier)
+      (identifier))))
+
+================================================================================
+Other Expressions
+================================================================================
+
+X = A`B;
+X = $A;
+X = $(A);
+X = $(A, B);
+X =  &A;
+X = ~&A;
+X =  |A;
+X = ~|A;
+X =  ^A;
+X = ~^A;
+X =  !A;
+X = 1..6;
+X = 1..6:3;
+X = A..B;
+X = A..B:C;
+X =  -A;
+X =  ~A;
+X =  :A;
+X = ++A;
+X = --A;
+X = A[B, C, D];
+X = A(A, B, C);
+X = A.B;
+X = A?.B;
+X = A'B;
+X = A++;
+X = A--;
+X = A!;
+X = A@B;
+X = A@123;
+X = A@(A, B, C);
+X = A;
+X = 'A;
+X = 123;
+X = true;
+X = false;
+X = :(A, B, C);
+X = :[A, B, C];
+X = [A, B, C];
+X = "Hello There";
+X = (A+B);
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (replication
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (stringification
+      (identifier)))
+  (assignment
+    (identifier)
+    (stringification
+      (identifier)))
+  (assignment
+    (identifier)
+    (stringification
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (range
+      (literal
+        (dec_literal))
+      (literal
+        (dec_literal))))
+  (assignment
+    (identifier)
+    (range
+      (literal
+        (dec_literal))
+      (literal
+        (dec_literal))
+      (literal
+        (dec_literal))))
+  (assignment
+    (identifier)
+    (range
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (range
+      (identifier)
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (slice
+      (identifier)
+      (array
+        (expression_list
+          (identifier)
+          (identifier)
+          (identifier)))))
+  (assignment
+    (identifier)
+    (function_call
+      (identifier)
+      (parameter_list
+        value: (identifier)
+        value: (identifier)
+        value: (identifier))))
+  (assignment
+    (identifier)
+    (member_reference
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (member_reference
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (attribute_reference
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (postfix
+      (identifier)))
+  (assignment
+    (identifier)
+    (postfix
+      (identifier)))
+  (assignment
+    (identifier)
+    (postfix
+      (identifier)))
+  (assignment
+    (identifier)
+    (cast
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (cast
+      (identifier)
+      (literal
+        (dec_literal))))
+  (assignment
+    (identifier)
+    (cast
+      (identifier)
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (attribute_reference
+      (identifier)))
+  (assignment
+    (identifier)
+    (literal
+      (dec_literal)))
+  (assignment
+    (identifier))
+  (assignment
+    (identifier))
+  (assignment
+    (identifier)
+    (vector_concat
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
+    (identifier)
+    (array_concat
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
+    (identifier)
+    (array
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
+    (identifier)
+    (string))
+  (assignment
+    (identifier)
+    (additive
+      (identifier)
+      (identifier))))
+
+================================================================================
+Compound Expressions
+================================================================================
+
+X = A + B * C - D;
+X = &A + D@6;
+X = A.B.C'E;
+X = A.B.C(E, F, G);
+X = A(B = C, D := E);
+X = <A = B, C = D>;
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (additive
+      (additive
+        (identifier)
+        (multiplicative
+          (identifier)
+          (identifier)))
+      (identifier)))
+  (assignment
+    (identifier)
+    (additive
+      (reduction
+        (identifier))
+      (cast
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (assignment
+    (identifier)
+    (attribute_reference
+      (member_reference
+        (member_reference
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier)))
+  (assignment
+    (identifier)
+    (function_call
+      (member_reference
+        (member_reference
+          (identifier)
+          (identifier))
+        (identifier))
+      (parameter_list
+        value: (identifier)
+        value: (identifier)
+        value: (identifier))))
+  (assignment
+    (identifier)
+    (function_call
+      (identifier)
+      (parameter_list
+        (assigned_param
+          parameter: (identifier)
+          value: (identifier))
+        (assigned_param
+          parameter: (identifier)
+          value: (identifier)))))
+  (assignment
+    (identifier)
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (identifier))
+      (attribute_assignment
+        (identifier)
+        (identifier)))))
+

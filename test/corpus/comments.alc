@@ -1,0 +1,20 @@
+================================================================================
+Comments
+================================================================================
+
+// Line Comment
+/* Block comment
+   on multiple lines */
+/+ Nested comment
+/+ with more nested stuff
+/+ and more stuff +/+/
+   and the final line +/
+!! A todo comment
+
+--------------------------------------------------------------------------------
+
+(module
+  (line_comment)
+  (block_comment)
+  (nested_comment)
+  (todo_comment))

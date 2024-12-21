@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-alcha",
   "version": "0.1.0",
-  "description": "Alcha grammar for tree-sitter",
+  "description": "ALCHA grammar for tree-sitter",
   "repository": "https://github.com/jpt13653903/tree-sitter-alcha",
   "license": "MIT",
   "author": {
@@ -46,5 +46,15 @@
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.alcha",
+      "injection-regex": "^alcha$",
+      "file-types": [
+        "alc"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ]
 }
