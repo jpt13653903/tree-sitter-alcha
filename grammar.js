@@ -260,7 +260,7 @@ module.exports = grammar({
             ),
 
             hdl_files: $ => seq(
-                '(', alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))), ')'
+                '(', optional(seq(alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))))), ')'
             ),
 
         // Expressions
