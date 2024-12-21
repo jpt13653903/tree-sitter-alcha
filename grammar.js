@@ -77,7 +77,7 @@ module.exports = grammar({
             )),
 
             class_definition: $ => seq(
-                'class', optional($.attribute_list), $._identifier,
+                'class', optional($.attribute_list), field('name', $._identifier),
                 optional(seq('(', optional($.def_parameter_list), ')')),
                 optional(seq(
                     ':', $._type_identifier, optional($.parameter_list),
@@ -118,7 +118,7 @@ module.exports = grammar({
             ),
 
             function_def: $ => seq(
-                optional('inline'), $._identifier, repeat($.array_definition),
+                optional('inline'), field('name', $._identifier), repeat($.array_definition),
                 '(', optional($.def_parameter_list), ')',
                 '{', repeat($._statement), '}'
             ),

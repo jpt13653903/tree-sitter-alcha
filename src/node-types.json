@@ -1535,10 +1535,29 @@
   {
     "type": "class_definition",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "access_direction_group",
@@ -1558,14 +1577,6 @@
         },
         {
           "type": "attribute_list",
-          "named": true
-        },
-        {
-          "type": "builtin_const",
-          "named": true
-        },
-        {
-          "type": "builtin_func",
           "named": true
         },
         {
@@ -1614,10 +1625,6 @@
         },
         {
           "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -2730,10 +2737,29 @@
   {
     "type": "function_def",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "access_direction_group",
@@ -2753,14 +2779,6 @@
         },
         {
           "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "builtin_const",
-          "named": true
-        },
-        {
-          "type": "builtin_func",
           "named": true
         },
         {
@@ -2809,10 +2827,6 @@
         },
         {
           "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {

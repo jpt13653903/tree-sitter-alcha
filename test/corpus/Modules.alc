@@ -440,7 +440,7 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
 
 (module
   (class_definition
-    (identifier)
+    name: (identifier)
     (assignment
       (identifier)
       (identifier))
@@ -451,7 +451,7 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
       (identifier)
       (identifier)))
   (class_definition
-    (identifier)
+    name: (identifier)
     (def_parameter_list
       (def_parameter
         (base_type)
@@ -485,7 +485,7 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (identifier)
         (literal
           (dec_literal))))
-    (identifier)
+    name: (identifier)
     (def_parameter_list
       (def_parameter
         (base_type)
@@ -506,7 +506,7 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
       (identifier)
       (identifier)))
   (class_definition
-    (identifier)
+    name: (identifier)
     (def_parameter_list
       (def_parameter
         (base_type)
@@ -552,7 +552,7 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (identifier)
         (literal
           (dec_literal))))
-    (identifier)
+    name: (identifier)
     (def_parameter_list
       (def_parameter
         (base_type)
@@ -592,7 +592,7 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (identifier)
         (literal
           (dec_literal))))
-    (identifier)
+    name: (identifier)
     (def_parameter_list
       (def_parameter
         (base_type)
@@ -624,6 +624,98 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     (assignment
       (identifier)
       (identifier))))
+
+================================================================================
+Function Definition
+================================================================================
+
+auto ABC[5](num A, pin B[2], net C){
+    A = 3;
+    B = 5;
+}
+auto ABC(num A, pin B, net C){
+    A = 3;
+    B = 5;
+}
+void ABC(A, B, C){
+    A = 3;
+    B = 5;
+}
+
+--------------------------------------------------------------------------------
+
+(module
+  (definition
+    (base_type)
+    (identifier_list
+      (function_def
+        name: (identifier)
+        (array_definition
+          (literal
+            (dec_literal)))
+        (def_parameter_list
+          (def_parameter
+            (base_type)
+            (identifier))
+          (def_parameter
+            (base_type)
+            (identifier)
+            (ERROR
+              (dec_literal)))
+          (def_parameter
+            (base_type)
+            (identifier)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal))))))
+  (definition
+    (base_type)
+    (identifier_list
+      (function_def
+        name: (identifier)
+        (def_parameter_list
+          (def_parameter
+            (base_type)
+            (identifier))
+          (def_parameter
+            (base_type)
+            (identifier))
+          (def_parameter
+            (base_type)
+            (identifier)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal))))))
+  (definition
+    (base_type)
+    (identifier_list
+      (function_def
+        name: (identifier)
+        (def_parameter_list
+          (def_parameter
+            (identifier))
+          (def_parameter
+            (identifier))
+          (def_parameter
+            (identifier)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))))))
 
 ================================================================================
 Enum Definition

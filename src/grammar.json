@@ -222,8 +222,12 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_identifier"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
         },
         {
           "type": "CHOICE",
@@ -520,8 +524,12 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_identifier"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
         },
         {
           "type": "REPEAT",
