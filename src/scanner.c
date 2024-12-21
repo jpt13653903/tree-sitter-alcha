@@ -507,9 +507,17 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
             RETURN_FALSE;
 
         default:
-            if(valid_symbols[HEX_LITERAL] && hex_digit(lexer->lookahead)){
-                hex_literal(lexer);
-                RETURN(HEX_LITERAL);
+            if(!valid_symbols[ERROR_SENTINEL] && (hex_digit(lexer->lookahead) || lexer->lookahead == '_')){
+                if(valid_symbols[BIN_LITERAL]){
+                    bin_literal(lexer);
+                    RETURN(BIN_LITERAL);
+                }else if(valid_symbols[OCT_LITERAL]){
+                    oct_literal(lexer);
+                    RETURN(OCT_LITERAL);
+                }else if(valid_symbols[HEX_LITERAL]){
+                    hex_literal(lexer);
+                    RETURN(HEX_LITERAL);
+                }
             }
 
             if((valid_symbols[IDENTIFIER] || valid_symbols[BUILTIN_CONST] || valid_symbols[BUILTIN_FUNC]) && non_digit(lexer->lookahead)){
