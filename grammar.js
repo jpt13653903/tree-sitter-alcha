@@ -246,13 +246,13 @@ module.exports = grammar({
                 'goto', $._identifier, ';'
             ),
 
-            rtl: $ => seq(
+            rtl: $ => prec(28, seq(
                 'rtl', optional($.attribute_list), optional($.parameter_list), $.statement_block
-            ),
+            )),
 
-            fsm: $ => seq(
+            fsm: $ => prec(28, seq(
                 'fsm', optional($.attribute_list), optional($.parameter_list), $.statement_block
-            ),
+            )),
 
             hdl: $ => seq(
                 'hdl', optional($.attribute_list), $.hdl_files, $._identifier,
@@ -290,7 +290,7 @@ module.exports = grammar({
                 $.member_reference,
                 $.attribute_reference,
                 $.cast,
-                $._primary,
+                $._primary
             )),
 
             ternary: $ => prec.left(11, choice(
@@ -401,6 +401,7 @@ module.exports = grammar({
                 'false',
                 $.vector_concat,
                 $.array_concat,
+                $.attribute_list,
                 $.array,
                 $.string,
                 seq('(', $._expression, ')'),

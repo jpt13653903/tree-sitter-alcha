@@ -399,6 +399,7 @@ X = &A + D@6;
 X = A.B.C'E;
 X = A.B.C(E, F, G);
 X = A(B = C, D := E);
+X = <A = B, C = D>;
 
 --------------------------------------------------------------------------------
 
@@ -452,5 +453,14 @@ X = A(B = C, D := E);
           value: (identifier))
         (assigned_param
           parameter: (identifier)
-          value: (identifier))))))
+          value: (identifier)))))
+  (assignment
+    (identifier)
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (identifier))
+      (attribute_assignment
+        (identifier)
+        (identifier)))))
 
