@@ -2755,7 +2755,7 @@
     "fields": {
       "name": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "builtin_const",
@@ -2866,6 +2866,10 @@
         },
         {
           "type": "namespace_push",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -4351,6 +4355,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "parameter_list",
@@ -7289,6 +7298,10 @@
     "named": false
   },
   {
+    "type": "&&&",
+    "named": false
+  },
+  {
     "type": "&=",
     "named": false
   },
@@ -7651,6 +7664,10 @@
   {
     "type": "oct_prefix",
     "named": true
+  },
+  {
+    "type": "operator",
+    "named": false
   },
   {
     "type": "output",

@@ -118,9 +118,22 @@ module.exports = grammar({
             ),
 
             function_def: $ => seq(
-                optional('inline'), field('name', $._identifier), repeat($.array_definition),
+                optional('inline'), choice(
+                    seq(field('name', $._identifier), repeat($.array_definition)),
+                    seq('operator', $.operator)
+                ),
                 '(', optional($.def_parameter_list), ')',
                 '{', repeat($._statement), '}'
+            ),
+
+            operator: $ => choice(
+                '++', '--',
+                '&', '~&', '|', '~|', '^', '~^', '~', '!',
+                '`', '+', '-', '*', '/', '%', '**',
+                '<<', '>>', '<', '>', '<=', '>=', '==', '!=',
+                '=', ':=', '~=', '+=', '-=', '*=', '/=', '%=',
+                '^=', '&=', '|=', '**=', '<<=', '>>=',
+                '@', '||', '&&', '&&&'
             ),
 
             array_definition: $ => seq(

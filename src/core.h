@@ -54,6 +54,7 @@ static void register_keywords(TokenTree* token_tree)
 
     token_tree_insert(token_tree, "func",      KEYWORD);
     token_tree_insert(token_tree, "inline",    KEYWORD);
+    token_tree_insert(token_tree, "operator",  KEYWORD);
 
     token_tree_insert(token_tree, "rtl",       KEYWORD);
     token_tree_insert(token_tree, "fsm",       KEYWORD);

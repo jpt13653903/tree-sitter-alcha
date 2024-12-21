@@ -47,6 +47,7 @@
   "rtl"
   "fsm"
   "hdl"
+  "operator"
 ] @keyword
 
 [
@@ -181,7 +182,7 @@
   ; "|=>"
   "||"
   "&&"
-  ; "&&&"
+  "&&&"
 ] @operator
 
 [
@@ -204,6 +205,10 @@
 (attribute_list
   "<" @punctuation.bracket
   ">" @punctuation.bracket)
+
+(attribute_assignment
+  .
+  (identifier) @attribute)
 
 (member_reference
   (_)
