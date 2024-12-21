@@ -13,7 +13,7 @@ Comments
 
 --------------------------------------------------------------------------------
 
-(design_file
+(module
   (line_comment)
   (block_comment)
   (nested_comment)

@@ -18,6 +18,7 @@ module.exports = grammar({
 
         $.identifier,
         $.builtin_const,
+        $.builtin_func,
 
         $._string_byte,
         $.escape_sequence,
@@ -47,9 +48,203 @@ module.exports = grammar({
         /\s+/
     ],
 
+    conflicts: $ => [
+        [$.access_direction_group],
+        [$._type_identifier, $._expression],
+        [$._type_identifier, $._primary]
+    ],
+
     rules: {
         // Module
-            design_file: $ => repeat(seq($._expression, ';')),
+            module: $ => repeat($._statement),
+
+            _statement: $ => seq(optional($.wait), choice(
+                $.label, $.definition, $.class_definition, $.enum_definition,
+                $.alias, $.import, $.struct, $.group, $.access_direction_group,
+                $.if_statement, $.for, $.while , $.loop, $.switch, $.jump, $.goto,
+                $.function_call_statement, $.namespace_push, $.assignment,
+                $.rtl, $.fsm, $.hdl,
+                $.stimulus, $.emulate, $.fork_join, $.assert,
+                ';'
+            )),
+
+            label: $ => seq(
+                $._identifier, ':'
+            ),
+
+            definition: $ => prec(25, seq(
+                choice($.base_type, $._type_identifier), optional($.parameter_list), optional($.attribute_list), $.identifier_list,
+            )),
+
+            class_definition: $ => seq(
+                'class', optional($.attribute_list), $._identifier,
+                optional(seq('(', optional($.def_parameter_list), ')')),
+                optional(seq(
+                    ':', $._type_identifier, optional($.parameter_list),
+                    repeat(seq(',', $._type_identifier, optional($.parameter_list)))
+                )), '{', repeat($._statement), '}'
+            ),
+
+            access_direction_group: $ => seq(
+                choice(
+                    $.access_specifier,
+                    $.direction_specifier,
+                    seq($.access_specifier, $.direction_specifier)
+                ), $.statement_block
+            ),
+
+            access_specifier: $ => choice(
+                'public', 'private', 'protected'
+            ),
+
+            direction_specifier: $ => choice(
+                'input', 'output'
+            ),
+
+            base_type: $ => choice(
+                'pin',  'net',
+                'void', 'auto',
+                'byte', 'char', 'num',
+                'func'
+            ),
+
+            identifier_list: $ => choice(
+                    $.function_def,
+                    seq($.variable_def, repeat(seq(',', $.variable_def)), ';')
+            ),
+
+            variable_def: $ => seq(
+                $._identifier, repeat($.array_definition), optional($.initialiser)
+            ),
+
+            function_def: $ => seq(
+                optional('inline'), $._identifier, repeat($.array_definition),
+                '(', optional($.def_parameter_list), ')',
+                '{', repeat($._statement), '}'
+            ),
+
+            array_definition: $ => seq(
+                '[', optional($._expression), ']'
+            ),
+
+            initialiser: $ => seq(
+                choice('=', ':='), $._expression
+            ),
+
+            def_parameter_list: $ => seq(
+                $.def_parameter, repeat(seq(',', $.def_parameter))
+            ),
+
+            def_parameter: $ => seq(
+                optional(choice($.base_type, $._type_identifier)), $._identifier, repeat(seq('[', ']')), optional($.initialiser)
+            ),
+
+            attribute_list: $ => seq(
+                '<', $.attribute_assignment, repeat(seq(',', $.attribute_assignment)), '>'
+            ),
+
+            attribute_assignment: $ => seq(
+                $._identifier, '=', $._primary
+            ),
+
+            enum_definition: $ => seq(
+                'enum', $._identifier, '{', $._identifier, repeat(seq(',', $._identifier)), '}'
+            ),
+
+            _type_identifier: $ => prec(10, choice(
+                prec(27, alias($._identifier, $.type_identifier)),
+                alias($.member_reference, $.type_identifier),
+            )),
+
+        // Statements
+            statement_block: $ => choice(
+                $._statement,
+                seq('{', repeat($._statement), '}')
+            ),
+
+            alias: $ => seq(
+                'alias', $._identifier, '=', $._expression, ';'
+            ),
+
+            import: $ => seq(
+                'import', $.string, optional(seq('as', $._identifier)), ';'
+            ),
+
+            struct: $ => seq(
+                'struct', optional($.attribute_list), optional($._identifier), '{', repeat(choice($.definition, $.struct)), '}'
+            ),
+
+            group: $ => seq(
+                'group', optional($.attribute_list), optional($._identifier), '{', repeat($._statement), '}'
+            ),
+
+            function_call_statement: $ => seq(
+                $.function_call, choice(',', ';')
+            ),
+
+            namespace_push: $ => prec.left(35, seq(
+                $._postfix, '.{', repeat($._statement), '}'
+            )),
+
+            assignment: $ => seq(
+                $._postfix,
+                choice(
+                    seq(
+                        choice('=', ':=', '~=', '+=' , '-=' , '*=' , '/=' , '**=', '%=', '&=', '|=', '^=', '<<=', '>>='),
+                        $._expression
+                    ),
+                    '++',
+                    '--'
+                ),
+                choice(',', ';')
+            ),
+
+            if_statement: $ => prec.right(seq(
+                'if', '(', $._expression, ')', $.statement_block, optional(seq('else', $.statement_block))
+            )),
+
+            for: $ => seq(
+                'for', '(', $._identifier, 'in', $._expression, ')', $.statement_block
+            ),
+
+            while: $ => seq(
+                'while', '(', $._expression, ')', $.statement_block
+            ),
+
+            loop: $ => seq(
+                'loop', optional(seq('(', $._expression, ')')), $.statement_block
+            ),
+
+            switch: $ => seq(
+                'switch', '(', $._expression, ')', '{',
+                repeat(seq(
+                    'case', '(', $.expression_list, ')', $.statement_block)),
+                optional(seq(
+                    'default', $.statement_block
+                )), '}'
+            ),
+
+            jump: $ => seq(
+                choice('return', 'break', 'continue'), optional($._expression), ';'
+            ),
+
+            goto: $ => seq(
+                'goto', $._identifier, ';'
+            ),
+
+            rtl: $ => seq(
+                'rtl', optional($.attribute_list), optional($.parameter_list), $.statement_block
+            ),
+
+            fsm: $ => seq(
+                'fsm', optional($.attribute_list), optional($.parameter_list), $.statement_block
+            ),
+
+            hdl: $ => seq(
+                'hdl', optional($.attribute_list), '(', $.string, repeat(seq(',', $.string)), ')', $._identifier,
+                optional(seq('(', repeat($.assignment), ')')),
+                '{', repeat(choice($.definition, $.stimulus)), '}'
+            ),
 
         // Expressions
             _expression: $ => prec(10, choice(
@@ -142,6 +337,15 @@ module.exports = grammar({
                 repeat1(choice('-', '~', ':', '++', '--')), $._expression
             )),
 
+            _postfix: $ => prec(24, choice(
+                $._primary,
+                $.cast,
+                $.slice,
+                $.function_call,
+                $.member_reference,
+                $.attribute_reference
+            )),
+
             postfix: $ => prec.left(24, choice(
                 seq($._expression, '++'),
                 seq($._expression, '--'),
@@ -152,7 +356,7 @@ module.exports = grammar({
                 $._expression, $.array
             )),
 
-            function_call: $ => prec.left(25, seq(
+            function_call: $ => prec(25, seq(
                 $._expression, $.parameter_list
             )),
 
@@ -200,18 +404,50 @@ module.exports = grammar({
                 $._expression, repeat(seq(',', $._expression))
             )),
 
-            parameter_list: $ => prec(32, seq(
+            parameter_list: $ => seq(
                 '(', optional(seq($._parameter, repeat(seq(',', $._parameter)))), ')'
-            )),
+            ),
 
-            _parameter: $ => prec(33, choice(
+            _parameter: $ => choice(
                 field('value', $._expression),
                 $.assigned_param
-            )),
+            ),
 
-            assigned_param: $ => prec(34, seq(
+            assigned_param: $ => seq(
                 field('parameter', $._identifier), choice('=', ':='), field('value', $._expression)
-            )),
+            ),
+
+        // Verification
+            stimulus: $ => seq(
+                'stimulus', optional($.attribute_list), optional($.parameter_list),
+                optional($._identifier), '{', repeat($._statement), '}'
+            ),
+
+            emulate: $ => seq(
+                'emulate', optional($.attribute_list), optional($.parameter_list),
+                optional($._identifier), '{', repeat($._statement), '}'
+            ),
+
+            fork_join: $ => seq(
+                '{', repeat($._statement), '}', repeat1(seq(choice('||', '&&'), '{', repeat($._statement), '}'))
+            ),
+
+            wait: $ => choice(
+                seq('wait', '(', $.sequence, ')'),
+                seq('@(', $.sensitivity_list, ')'),
+                seq(choice('#', '##'), $._primary)
+            ),
+
+            sensitivity_list: $ => seq(
+                optional(choice('posedge', 'negedge')), $._expression,
+                repeat(seq(',', optional(choice('posedge', 'negedge')), $._expression))
+            ),
+
+            assert: $ => seq(
+                'assert', $.sequence
+            ),
+
+            sequence: $ => $._expression,
 
         // Scanner
             literal: $ => seq(
@@ -227,7 +463,8 @@ module.exports = grammar({
 
             _identifier: $ => choice(
                 $.identifier,
-                $.builtin_const
+                $.builtin_const,
+                $.builtin_func
             ),
 
             string: $ => seq('"', repeat(choice($._string_byte, $.escape_sequence)), '"'),

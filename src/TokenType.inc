@@ -9,6 +9,7 @@
 
             case IDENTIFIER:      return "IDENTIFIER";
             case BUILTIN_CONST:   return "BUILTIN_CONST";
+            case BUILTIN_FUNC:    return "BUILTIN_FUNC";
 
             case STRING_BYTE:     return "STRING_BYTE";
             case ESCAPE_SEQUENCE: return "ESCAPE_SEQUENCE";

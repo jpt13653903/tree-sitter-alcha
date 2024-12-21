@@ -2,75 +2,126 @@
 Identifiers
 ================================================================================
 
-variable;
-anotherVariable;
-autoVariable;
-αΓρεεκΩαριαβλε;
-πΓρεεκΩαριαβλε;
+X = variable;
+X = anotherVariable;
+X = autoVariable;
+X = αΓρεεκΩαριαβλε;
+X = πΓρεεκΩαριαβλε;
 
 --------------------------------------------------------------------------------
 
-(design_file
-  (identifier)
-  (identifier)
-  (identifier)
-  (identifier)
-  (identifier))
+(module
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier))
+  (assignment
+    (identifier)
+    (identifier)))
 
 ================================================================================
 Constants
 ================================================================================
 
-pi;
-π;
-e;
-i;
-j;
-__YEAR__;
-__MONTH__;
-__DAY__;
-__HOUR__;
-__MINUTE__;
-__SECOND__;
-__WEEKDAY__;
-__YEARDAY__;
+X = pi;
+X = π;
+X = e;
+X = i;
+X = j;
+X = __YEAR__;
+X = __MONTH__;
+X = __DAY__;
+X = __HOUR__;
+X = __MINUTE__;
+X = __SECOND__;
+X = __WEEKDAY__;
+X = __YEARDAY__;
 
 --------------------------------------------------------------------------------
 
-(design_file
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const))
+(module
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const)))
 
 ================================================================================
 Specials
 ================================================================================
 
-__FILE__;
-__LINE__;
-__DATE__;
-__TIME__;
-__CLASS__;
-__FUNCTION__;
-__NAMESPACE__;
+X = __FILE__;
+X = __LINE__;
+X = __DATE__;
+X = __TIME__;
+X = __CLASS__;
+X = __FUNCTION__;
+X = __NAMESPACE__;
 
 --------------------------------------------------------------------------------
 
-(design_file
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const)
-  (builtin_const))
+(module
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const))
+  (assignment
+    (identifier)
+    (builtin_const)))
+

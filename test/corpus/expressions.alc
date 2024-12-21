@@ -2,304 +2,454 @@
 Basic Expressions
 ================================================================================
 
-A ?  B : C;
-A ?: B;
-A  | B;
-A ~| B;
-A  & B;
-A ~& B;
-A  ^ B;
-A ~^ B;
-A == B;
-A != B;
-A <  B;
-A >  B;
-A <= B;
-A >= B;
-A << B;
-A >> B;
-A +  B;
-A -  B;
-A *  B;
-A /  B;
-A %  B;
-A ** B;
+X = A ?  B : C;
+X = A ?: B;
+X = A  | B;
+X = A ~| B;
+X = A  & B;
+X = A ~& B;
+X = A  ^ B;
+X = A ~^ B;
+X = A == B;
+X = A != B;
+X = A <  B;
+X = A >  B;
+X = A <= B;
+X = A >= B;
+X = A << B;
+X = A >> B;
+X = A +  B;
+X = A -  B;
+X = A *  B;
+X = A /  B;
+X = A %  B;
+X = A ** B;
 
 --------------------------------------------------------------------------------
 
-(design_file
-  (ternary
-    condition:  (identifier)
-    true_part:  (identifier)
-    false_part: (identifier))
-  (ternary
-    condition:  (identifier)
-    false_part: (identifier))
-      (bitwise_or
-        (identifier)
-        (identifier))
-      (bitwise_or
-        (identifier)
-        (identifier))
-      (bitwise_and
-        (identifier)
-        (identifier))
-      (bitwise_and
-        (identifier)
-        (identifier))
-      (bitwise_xor
-        (identifier)
-        (identifier))
-      (bitwise_xor
-        (identifier)
-        (identifier))
-      (equality
-        (identifier)
-        (identifier))
-      (equality
-        (identifier)
-        (identifier))
-      (relational
-        (identifier)
-        (identifier))
-      (relational
-        (identifier)
-        (identifier))
-      (relational
-        (identifier)
-        (identifier))
-      (relational
-        (identifier)
-        (identifier))
-      (shift
-        (identifier)
-        (identifier))
-      (shift
-        (identifier)
-        (identifier))
-      (additive
-        (identifier)
-        (identifier))
-      (additive
-        (identifier)
-        (identifier))
-      (multiplicative
-        (identifier)
-        (identifier))
-      (multiplicative
-        (identifier)
-        (identifier))
-      (multiplicative
-        (identifier)
-        (identifier))
-      (exponential
-        (identifier)
-        (identifier)))
+(module
+  (assignment
+    (identifier)
+    (ternary
+      condition: (identifier)
+      true_part: (identifier)
+      false_part: (identifier)))
+  (assignment
+    (identifier)
+    (ternary
+      condition: (identifier)
+      false_part: (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_or
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_or
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_and
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_and
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_xor
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (bitwise_xor
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (equality
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (equality
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (relational
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (shift
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (shift
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (additive
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (additive
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (multiplicative
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (multiplicative
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (multiplicative
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (exponential
+      (identifier)
+      (identifier))))
 
 ================================================================================
 Other Expressions
 ================================================================================
 
-A`B;
-$A;
-$(A);
-$(A, B);
- &A;
-~&A;
- |A;
-~|A;
- ^A;
-~^A;
- !A;
-A..B;
-A..B:C;
- -A;
- ~A;
- :A;
-++A;
---A;
-A[B, C, D];
-A(A, B, C);
-A.B;
-A?.B;
-A'B;
-A++;
-A--;
-A!;
-A@B;
-A@123;
-A@(A, B, C);
-A;
-'A;
-123;
-true;
-false;
-:(A, B, C);
-:[A, B, C];
-[A, B, C];
-"Hello There";
-(A+B);
+X = A`B;
+X = $A;
+X = $(A);
+X = $(A, B);
+X =  &A;
+X = ~&A;
+X =  |A;
+X = ~|A;
+X =  ^A;
+X = ~^A;
+X =  !A;
+X = 1..6;
+X = 1..6:3;
+X = A..B;
+X = A..B:C;
+X =  -A;
+X =  ~A;
+X =  :A;
+X = ++A;
+X = --A;
+X = A[B, C, D];
+X = A(A, B, C);
+X = A.B;
+X = A?.B;
+X = A'B;
+X = A++;
+X = A--;
+X = A!;
+X = A@B;
+X = A@123;
+X = A@(A, B, C);
+X = A;
+X = 'A;
+X = 123;
+X = true;
+X = false;
+X = :(A, B, C);
+X = :[A, B, C];
+X = [A, B, C];
+X = "Hello There";
+X = (A+B);
 
 --------------------------------------------------------------------------------
 
-(design_file
-  (replication
+(module
+  (assignment
+    (identifier)
+    (replication
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (stringification
+      (identifier)))
+  (assignment
+    (identifier)
+    (stringification
+      (identifier)))
+  (assignment
+    (identifier)
+    (stringification
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (reduction
+      (identifier)))
+  (assignment
+    (identifier)
+    (range
+      (literal
+        (dec_literal))
+      (literal
+        (dec_literal))))
+  (assignment
+    (identifier)
+    (range
+      (literal
+        (dec_literal))
+      (literal
+        (dec_literal))
+      (literal
+        (dec_literal))))
+  (assignment
+    (identifier)
+    (range
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (range
+      (identifier)
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (unary
+      (identifier)))
+  (assignment
+    (identifier)
+    (slice
+      (identifier)
+      (array
+        (expression_list
+          (identifier)
+          (identifier)
+          (identifier)))))
+  (assignment
+    (identifier)
+    (function_call
+      (identifier)
+      (parameter_list
+        value: (identifier)
+        value: (identifier)
+        value: (identifier))))
+  (assignment
+    (identifier)
+    (member_reference
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (member_reference
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (attribute_reference
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (postfix
+      (identifier)))
+  (assignment
+    (identifier)
+    (postfix
+      (identifier)))
+  (assignment
+    (identifier)
+    (postfix
+      (identifier)))
+  (assignment
+    (identifier)
+    (cast
+      (identifier)
+      (identifier)))
+  (assignment
+    (identifier)
+    (cast
+      (identifier)
+      (literal
+        (dec_literal))))
+  (assignment
+    (identifier)
+    (cast
+      (identifier)
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
     (identifier)
     (identifier))
-  (stringification
-    (identifier))
-  (stringification
-    (identifier))
-  (stringification
+  (assignment
     (identifier)
     (identifier))
-  (reduction
-    (identifier))
-  (reduction
-    (identifier))
-  (reduction
-    (identifier))
-  (reduction
-    (identifier))
-  (reduction
-    (identifier))
-  (reduction
-    (identifier))
-  (reduction
-    (identifier))
-  (range
+  (assignment
     (identifier)
+    (literal
+      (dec_literal)))
+  (assignment
     (identifier))
-  (range
+  (assignment
+    (identifier))
+  (assignment
     (identifier)
+    (vector_concat
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
     (identifier)
-    (identifier))
-  (unary
-    (identifier))
-  (unary
-    (identifier))
-  (unary
-    (identifier))
-  (unary
-    (identifier))
-  (unary
-    (identifier))
-  (slice
+    (array_concat
+      (expression_list
+        (identifier)
+        (identifier)
+        (identifier))))
+  (assignment
     (identifier)
     (array
       (expression_list
         (identifier)
         (identifier)
         (identifier))))
-  (function_call
+  (assignment
     (identifier)
-    (parameter_list
-      value: (identifier)
-      value: (identifier)
-      value: (identifier)))
-  (member_reference
+    (string))
+  (assignment
     (identifier)
-    (identifier))
-  (member_reference
-    (identifier)
-    (identifier))
-  (attribute_reference
-    (identifier)
-    (identifier))
-  (postfix
-    (identifier))
-  (postfix
-    (identifier))
-  (postfix
-    (identifier))
-  (cast
-    (identifier)
-    (identifier))
-  (cast
-    (identifier)
-    (literal
-      (dec_literal)))
-  (cast
-    (identifier)
-    (expression_list
+    (additive
       (identifier)
-      (identifier)
-      (identifier)))
-  (identifier)
-  (identifier)
-  (literal
-    (dec_literal))
-  (vector_concat
-    (expression_list
-      (identifier)
-      (identifier)
-      (identifier)))
-  (array_concat
-    (expression_list
-      (identifier)
-      (identifier)
-      (identifier)))
-  (array
-    (expression_list
-      (identifier)
-      (identifier)
-      (identifier)))
-  (string)
-  (additive
-    (identifier)
-    (identifier)))
+      (identifier))))
 
 ================================================================================
 Compound Expressions
 ================================================================================
 
-A + B * C - D;
-&A + D@6;
-A.B.C'E;
-A.B.C(E, F, G);
-A(B = C, D := E);
+X = A + B * C - D;
+X = &A + D@6;
+X = A.B.C'E;
+X = A.B.C(E, F, G);
+X = A(B = C, D := E);
 
 --------------------------------------------------------------------------------
 
-(design_file
-  (additive
-    (additive
-      (identifier)
-      (multiplicative
-        (identifier)
-        (identifier)))
-    (identifier))
-  (additive
-    (reduction
-      (identifier))
-    (cast
-      (identifier)
-      (literal
-        (dec_literal))))
-  (attribute_reference
-    (member_reference
-      (member_reference
-        (identifier)
-        (identifier))
-      (identifier))
-    (identifier))
-  (function_call
-    (member_reference
-      (member_reference
-        (identifier)
-        (identifier))
-      (identifier))
-    (parameter_list
-      value: (identifier)
-      value: (identifier)
-      value: (identifier)))
-  (function_call
+(module
+  (assignment
     (identifier)
-    (parameter_list
-      (assigned_param
-        parameter: (identifier)
-        value: (identifier))
-      (assigned_param
-        parameter: (identifier)
-        value: (identifier)))))
+    (additive
+      (additive
+        (identifier)
+        (multiplicative
+          (identifier)
+          (identifier)))
+      (identifier)))
+  (assignment
+    (identifier)
+    (additive
+      (reduction
+        (identifier))
+      (cast
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (assignment
+    (identifier)
+    (attribute_reference
+      (member_reference
+        (member_reference
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier)))
+  (assignment
+    (identifier)
+    (function_call
+      (member_reference
+        (member_reference
+          (identifier)
+          (identifier))
+        (identifier))
+      (parameter_list
+        value: (identifier)
+        value: (identifier)
+        value: (identifier))))
+  (assignment
+    (identifier)
+    (function_call
+      (identifier)
+      (parameter_list
+        (assigned_param
+          parameter: (identifier)
+          value: (identifier))
+        (assigned_param
+          parameter: (identifier)
+          value: (identifier))))))
 

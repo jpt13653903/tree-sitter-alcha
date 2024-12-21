@@ -10,6 +10,7 @@ typedef enum TokenTypeTag{
 
     IDENTIFIER,
     BUILTIN_CONST,
+    BUILTIN_FUNC,
 
     STRING_BYTE,
     ESCAPE_SEQUENCE,

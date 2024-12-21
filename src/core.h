@@ -64,6 +64,9 @@ static void register_keywords(TokenTree* token_tree)
     token_tree_insert(token_tree, "sequence",  KEYWORD);
     token_tree_insert(token_tree, "assert",    KEYWORD);
     token_tree_insert(token_tree, "wait",      KEYWORD);
+
+    token_tree_insert(token_tree, "posedge",   KEYWORD);
+    token_tree_insert(token_tree, "negedge",   KEYWORD);
 }
 //------------------------------------------------------------------------------
 
@@ -96,11 +99,22 @@ static void register_specials(TokenTree* token_tree)
 }
 //------------------------------------------------------------------------------
 
+static void register_functions(TokenTree* token_tree)
+{
+    token_tree_insert(token_tree, "print",  BUILTIN_FUNC);
+    token_tree_insert(token_tree, "rose",   BUILTIN_FUNC);
+    token_tree_insert(token_tree, "fell",   BUILTIN_FUNC);
+    token_tree_insert(token_tree, "stable", BUILTIN_FUNC);
+    token_tree_insert(token_tree, "past",   BUILTIN_FUNC);
+}
+//------------------------------------------------------------------------------
+
 void register_core(TokenTree* token_tree)
 {
     register_keywords (token_tree);
     register_constants(token_tree);
     register_specials (token_tree);
+    register_functions(token_tree);
 }
 //------------------------------------------------------------------------------
 

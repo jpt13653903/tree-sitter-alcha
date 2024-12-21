@@ -157,14 +157,31 @@ static void nested_comment(TSLexer* lexer)
 }
 //------------------------------------------------------------------------------
 
+static bool bin_digit(int32_t character)
+{
+    return (character >= '0' && character <= '1');
+}
+//------------------------------------------------------------------------------
+
 static void bin_literal(TSLexer* lexer)
 {
+    if(!bin_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
     while(!lexer->eof(lexer)){
-        if((lexer->lookahead < '0' || lexer->lookahead > '1') &&
-           lexer->lookahead != '_' &&
-           lexer->lookahead != '.' ) return;
+        if(!bin_digit(lexer->lookahead) && lexer->lookahead != '_') break;
         lexer->advance(lexer, false);
     }
+    lexer->mark_end(lexer);
+
+    if(lexer->lookahead != '.' ) return;
+    lexer->advance(lexer, false);
+    if(!bin_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
+    while(!lexer->eof(lexer)){
+        if(!bin_digit(lexer->lookahead) && lexer->lookahead != '_') break;
+        lexer->advance(lexer, false);
+    }
+    lexer->mark_end(lexer);
 }
 //------------------------------------------------------------------------------
 
@@ -176,12 +193,23 @@ static bool oct_digit(int32_t character)
 
 static void oct_literal(TSLexer* lexer)
 {
+    if(!oct_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
     while(!lexer->eof(lexer)){
-        if(!oct_digit(lexer->lookahead) &&
-           lexer->lookahead != '_' &&
-           lexer->lookahead != '.' ) return;
+        if(!oct_digit(lexer->lookahead) && lexer->lookahead != '_') break;
         lexer->advance(lexer, false);
     }
+    lexer->mark_end(lexer);
+
+    if(lexer->lookahead != '.' ) return;
+    lexer->advance(lexer, false);
+    if(!oct_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
+    while(!lexer->eof(lexer)){
+        if(!oct_digit(lexer->lookahead) && lexer->lookahead != '_') break;
+        lexer->advance(lexer, false);
+    }
+    lexer->mark_end(lexer);
 }
 //------------------------------------------------------------------------------
 
@@ -202,12 +230,23 @@ static bool dec_digit(int32_t character)
 
 static void dec_literal(TSLexer* lexer)
 {
+    if(!dec_digit(lexer->lookahead)) return;
+    lexer->advance(lexer, false);
     while(!lexer->eof(lexer)){
-        if(!dec_digit(lexer->lookahead) &&
-           lexer->lookahead != '_' &&
-           lexer->lookahead != '.' ) return;
+        if(!dec_digit(lexer->lookahead) && lexer->lookahead != '_') break;
         lexer->advance(lexer, false);
     }
+    lexer->mark_end(lexer);
+
+    if(lexer->lookahead != '.' ) return;
+    lexer->advance(lexer, false);
+    if(!dec_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
+    while(!lexer->eof(lexer)){
+        if(!dec_digit(lexer->lookahead) && lexer->lookahead != '_') break;
+        lexer->advance(lexer, false);
+    }
+    lexer->mark_end(lexer);
 }
 //------------------------------------------------------------------------------
 
@@ -221,12 +260,23 @@ static bool hex_digit(int32_t character)
 
 static void hex_literal(TSLexer* lexer)
 {
+    if(!hex_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
     while(!lexer->eof(lexer)){
-        if(!hex_digit(lexer->lookahead) &&
-           lexer->lookahead != '_' &&
-           lexer->lookahead != '.' ) return;
+        if(!hex_digit(lexer->lookahead) && lexer->lookahead != '_') break;
         lexer->advance(lexer, false);
     }
+    lexer->mark_end(lexer);
+
+    if(lexer->lookahead != '.' ) return;
+    lexer->advance(lexer, false);
+    if(!hex_digit(lexer->lookahead) && lexer->lookahead != '_') return;
+    lexer->advance(lexer, false);
+    while(!lexer->eof(lexer)){
+        if(!hex_digit(lexer->lookahead) && lexer->lookahead != '_') break;
+        lexer->advance(lexer, false);
+    }
+    lexer->mark_end(lexer);
 }
 //------------------------------------------------------------------------------
 
@@ -309,10 +359,10 @@ static void exponent(TSLexer* lexer)
 static void identifier(TSLexer* lexer)
 {
     while(!lexer->eof(lexer)){
-        if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)) return;
+        if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)) break;
         lexer->advance(lexer, false);
-        lexer->mark_end(lexer);
     }
+    lexer->mark_end(lexer);
 }
 //------------------------------------------------------------------------------
 
@@ -434,21 +484,27 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
             }
 
         case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
-            if(valid_symbols[BIN_LITERAL]){
-                bin_literal(lexer);
-                RETURN(BIN_LITERAL);
-            }else if(valid_symbols[OCT_LITERAL]){
-                oct_literal(lexer);
-                RETURN(OCT_LITERAL);
-            }else if(valid_symbols[DEC_LITERAL]){
-                dec_literal(lexer);
-                RETURN(DEC_LITERAL);
-            }else if(valid_symbols[HEX_LITERAL]){
-                hex_literal(lexer);
-                RETURN(HEX_LITERAL);
+            if(!valid_symbols[ERROR_SENTINEL]){
+                if(valid_symbols[BIN_LITERAL]){
+                    bin_literal(lexer);
+                    RETURN(BIN_LITERAL);
+                }else if(valid_symbols[OCT_LITERAL]){
+                    oct_literal(lexer);
+                    RETURN(OCT_LITERAL);
+                }else if(valid_symbols[DEC_LITERAL]){
+                    dec_literal(lexer);
+                    RETURN(DEC_LITERAL);
+                }else if(valid_symbols[HEX_LITERAL]){
+                    hex_literal(lexer);
+                    RETURN(HEX_LITERAL);
+                }
             }else{
-                RETURN_FALSE;
+                if(valid_symbols[DEC_LITERAL]){
+                    dec_literal(lexer);
+                    RETURN(DEC_LITERAL);
+                }
             }
+            RETURN_FALSE;
 
         default:
             if(valid_symbols[HEX_LITERAL] && hex_digit(lexer->lookahead)){
@@ -456,7 +512,7 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
                 RETURN(HEX_LITERAL);
             }
 
-            if((valid_symbols[IDENTIFIER] || valid_symbols[BUILTIN_CONST]) && non_digit(lexer->lookahead)){
+            if((valid_symbols[IDENTIFIER] || valid_symbols[BUILTIN_CONST] || valid_symbols[BUILTIN_FUNC]) && non_digit(lexer->lookahead)){
                 if(lexer->lookahead == 0x03C0){ // pi
                     lexer->advance(lexer, false);
                     if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
@@ -464,13 +520,12 @@ bool tree_sitter_alcha_external_scanner_scan(Scanner* scanner, TSLexer* lexer, c
                     }
                 }
                 TokenType type = token_tree_match(token_tree, lexer);
-                if(type == KEYWORD){
-                    if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
-                        RETURN_FALSE;
-                    }
-                }else if(type == BUILTIN_CONST){
-                    if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
-                        RETURN(BUILTIN_CONST);
+                if(!dec_digit(lexer->lookahead) && !non_digit(lexer->lookahead)){
+                    switch(type){
+                        case KEYWORD:       RETURN_FALSE;
+                        case BUILTIN_CONST: RETURN(BUILTIN_CONST);
+                        case BUILTIN_FUNC:  RETURN(BUILTIN_FUNC);
+                        default:            break;
                     }
                 }
                 identifier(lexer);
