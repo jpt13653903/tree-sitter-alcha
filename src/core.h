@@ -138,6 +138,8 @@ static void register_functions(TokenTree* token_tree)
     token_tree_insert(token_tree, "textappend", BUILTIN_FUNC);
     token_tree_insert(token_tree, "print",      BUILTIN_FUNC);
 
+    token_tree_insert(token_tree, "finally",    BUILTIN_FUNC);
+
     token_tree_insert(token_tree, "eval",       BUILTIN_FUNC);
     token_tree_insert(token_tree, "shell",      BUILTIN_FUNC);
 

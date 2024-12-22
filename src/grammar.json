@@ -1019,7 +1019,7 @@
     },
     "_type_identifier": {
       "type": "PREC",
-      "value": 10,
+      "value": 8,
       "content": {
         "type": "CHOICE",
         "members": [
@@ -1912,7 +1912,7 @@
     },
     "_expression": {
       "type": "PREC",
-      "value": 10,
+      "value": 8,
       "content": {
         "type": "CHOICE",
         "members": [
@@ -2021,7 +2021,7 @@
     },
     "ternary": {
       "type": "PREC_LEFT",
-      "value": 11,
+      "value": 9,
       "content": {
         "type": "CHOICE",
         "members": [
@@ -2092,7 +2092,7 @@
     },
     "bitwise_or": {
       "type": "PREC_LEFT",
-      "value": 12,
+      "value": 10,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2122,7 +2122,7 @@
     },
     "bitwise_xor": {
       "type": "PREC_LEFT",
-      "value": 12,
+      "value": 11,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2152,7 +2152,7 @@
     },
     "bitwise_and": {
       "type": "PREC_LEFT",
-      "value": 13,
+      "value": 12,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2182,7 +2182,7 @@
     },
     "equality": {
       "type": "PREC_LEFT",
-      "value": 14,
+      "value": 13,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2212,7 +2212,7 @@
     },
     "relational": {
       "type": "PREC_LEFT",
-      "value": 15,
+      "value": 14,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2250,7 +2250,7 @@
     },
     "shift": {
       "type": "PREC_LEFT",
-      "value": 16,
+      "value": 15,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2280,7 +2280,7 @@
     },
     "additive": {
       "type": "PREC_LEFT",
-      "value": 17,
+      "value": 16,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2310,7 +2310,7 @@
     },
     "multiplicative": {
       "type": "PREC_LEFT",
-      "value": 18,
+      "value": 17,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2344,7 +2344,7 @@
     },
     "exponential": {
       "type": "PREC_LEFT",
-      "value": 19,
+      "value": 18,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2365,7 +2365,7 @@
     },
     "replication": {
       "type": "PREC_LEFT",
-      "value": 20,
+      "value": 19,
       "content": {
         "type": "SEQ",
         "members": [

@@ -485,7 +485,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
           (base_type)
           (identifier_list
             (function_def
-              name: (identifier)
+              name: (builtin_func)
               (function_call_statement
                 (function_call
                   (identifier)

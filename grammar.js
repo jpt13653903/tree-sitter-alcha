@@ -165,7 +165,7 @@ module.exports = grammar({
                 'enum', $._identifier, '{', $._identifier, repeat(seq(',', $._identifier)), '}'
             ),
 
-            _type_identifier: $ => prec(10, choice(
+            _type_identifier: $ => prec(8, choice(
                 prec(27, alias($._identifier, $.type_identifier)),
                 alias($.member_reference, $.type_identifier),
             )),
@@ -265,7 +265,7 @@ module.exports = grammar({
             ),
 
         // Expressions
-            _expression: $ => prec(10, choice(
+            _expression: $ => prec(8, choice(
                 $.ternary,
                 $.bitwise_or,
                 $.bitwise_xor,
@@ -293,48 +293,48 @@ module.exports = grammar({
                 $._primary
             )),
 
-            ternary: $ => prec.left(11, choice(
+            ternary: $ => prec.left(9, choice(
                 seq(field('condition', $._expression), '?' , field('true_part', $._expression), ':', field('false_part', $._expression)),
                 seq(field('condition', $._expression), '?:',                                         field('false_part', $._expression))
             )),
 
-            bitwise_or: $ => prec.left(12, seq(
+            bitwise_or: $ => prec.left(10, seq(
                 $._expression, choice('|', '~|'), $._expression
             )),
 
-            bitwise_xor: $ => prec.left(12, seq(
+            bitwise_xor: $ => prec.left(11, seq(
                 $._expression, choice('^', '~^'), $._expression
             )),
 
-            bitwise_and: $ => prec.left(13, seq(
+            bitwise_and: $ => prec.left(12, seq(
                 $._expression, choice('&', '~&'), $._expression
             )),
 
-            equality: $ => prec.left(14, seq(
+            equality: $ => prec.left(13, seq(
                 $._expression, choice('==', '!='), $._expression
             )),
 
-            relational: $ => prec.left(15, seq(
+            relational: $ => prec.left(14, seq(
                 $._expression, choice('<', '>', '<=', '>='), $._expression
             )),
 
-            shift: $ => prec.left(16, seq(
+            shift: $ => prec.left(15, seq(
                 $._expression, choice('<<', '>>'), $._expression
             )),
 
-            additive: $ => prec.left(17, seq(
+            additive: $ => prec.left(16, seq(
                 $._expression, choice('+', '-'), $._expression
             )),
 
-            multiplicative: $ => prec.left(18, seq(
+            multiplicative: $ => prec.left(17, seq(
                 $._expression, choice('*', '/', '%'), $._expression
             )),
 
-            exponential: $ => prec.left(19, seq(
+            exponential: $ => prec.left(18, seq(
                 $._expression, '**', $._expression
             )),
 
-            replication: $ => prec.left(20, seq(
+            replication: $ => prec.left(19, seq(
                 $._expression, '`', $._primary
             )),
 
