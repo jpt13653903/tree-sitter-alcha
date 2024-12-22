@@ -61,7 +61,7 @@ module.exports = grammar({
             _statement: $ => seq(optional($.wait), choice(
                 $.label, $.definition, $.class_definition, $.enum_definition,
                 $.alias, $.import, $.struct, $.group, $.access_direction_group,
-                $.if_statement, $.for, $.while , $.loop, $.switch, $.jump, $.goto,
+                $.if_statement, $.for, $.while , $.loop, $.switch, $.case, $.jump, $.goto,
                 $.function_call_statement, $.namespace_push, $.assignment,
                 $.rtl, $.fsm, $.hdl,
                 $.stimulus, $.emulate, $.fork_join, $.assert,
@@ -230,12 +230,12 @@ module.exports = grammar({
             ),
 
             switch: $ => seq(
-                'switch', '(', $._expression, ')', '{',
-                repeat(seq(
-                    'case', '(', $.expression_list, ')', $.statement_block)),
-                optional(seq(
-                    'default', $.statement_block
-                )), '}'
+                'switch', '(', $._expression, ')', $.statement_block
+            ),
+
+            case: $ => choice(
+                seq('case', '(', $.expression_list, ')', $.statement_block),
+                seq('default', $.statement_block),
             ),
 
             jump: $ => seq(
@@ -416,7 +416,7 @@ module.exports = grammar({
             )),
 
             array: $ => prec(30, seq(
-                '[', $.expression_list, ']'
+                '[', optional($.expression_list), ']'
             )),
 
             expression_list: $ => prec.left(31, seq(
