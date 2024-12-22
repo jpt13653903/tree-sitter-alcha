@@ -1379,34 +1379,39 @@ goto Label;
         (identifier))))
   (switch
     (identifier)
-    (expression_list
-      (identifier))
-    (statement_block
-      (line_comment)
-      (assignment
-        (identifier)
-        (identifier)))
-    (expression_list
-      (identifier))
-    (statement_block
-      (line_comment)
-      (assignment
-        (identifier)
-        (identifier)))
-    (expression_list
-      (identifier))
-    (statement_block
-      (line_comment)
-      (assignment
-        (identifier)
-        (identifier)))
-    (statement_block
-      (line_comment)
-      (function_call_statement
-        (function_call
-          (builtin_func)
-          (parameter_list
-            value: (string))))))
+      (statement_block
+        (case
+          (expression_list
+            (identifier))
+          (statement_block
+            (line_comment)
+            (assignment
+              (identifier)
+              (identifier))))
+        (case
+          (expression_list
+            (identifier))
+          (statement_block
+            (line_comment)
+            (assignment
+              (identifier)
+              (identifier))))
+        (case
+          (expression_list
+            (identifier))
+          (statement_block
+            (line_comment)
+            (assignment
+              (identifier)
+              (identifier))))
+        (case
+          (statement_block
+            (line_comment)
+            (function_call_statement
+              (function_call
+                (builtin_func)
+                (parameter_list
+                  value: (string))))))))
   (jump)
   (jump)
   (jump)

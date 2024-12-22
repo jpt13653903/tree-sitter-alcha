@@ -1,0 +1,514 @@
+================================================================================
+Autogen
+================================================================================
+
+class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
+  Bus.Attach(this);
+  //----------------------------------------------------------------------------
+
+  private{
+    'RdRegisters   = [];
+    'WrRegisters   = [];
+    'LiveRegisters = [];
+    num Count = 0;
+  }
+  //----------------------------------------------------------------------------
+
+  public{
+    // Register direction as seen by the controller
+    void ReadOnly(Register){
+      Register'Address = Count++;
+      'RdRegisters.append(Register);
+    }
+    void Writeable(Register){
+      Register'Address = Count++;
+      'WrRegisters.append(Register);
+    }
+    void Live(RdRegister, WrRegister, WrStrobe){
+      RdRegister'Address = Count;
+      WrRegister'Address = Count;
+      WrStrobe  'Address = Count;
+      'LiveRegisters.append(< Read   = RdRegister,
+                              Write  = WrRegister,
+                              Strobe = WrStrobe >);
+      Count++;
+    }
+    //--------------------------------------------------------------------------
+
+    net(32) Resize(x){
+      result := x; // Raw-assign the bits
+      num N = x'width;
+      if((x'fullscale < 0) & (N < 31)) // Sign-extend
+        result(31..(N+1)) := (x(N))`(31-N);
+    }
+    //--------------------------------------------------------------------------
+
+    void GenerateRegs(){
+      rtl(Bus.Clock, Bus.Reset){
+        WaitRequest = 0;
+
+        switch(Address){
+          for(Register in 'RdRegisters){
+            case(Register'Address) ReadData = Resize(Register);
+          }
+          for(Register in 'WrRegisters){
+            case(Register'Address) ReadData = Resize(Register);
+          }
+          for(Register in 'LiveRegisters){
+            case(Register'Read'Address) ReadData = Resize(Register'Read);
+          }
+        }
+        ReadValid = Read;
+
+        if(Write){
+          switch(Address){
+            for(Register in 'WrRegisters){
+              case(Register'Address) Register := WriteData;
+            }
+            for(Register in 'LiveRegisters){
+              case(Register'Write'Address) Register'Write := WriteData;
+            }
+          }
+          for(Register in 'LiveRegisters){
+            Register'Strobe = ((Address == Register'Strobe'Address) & Write);
+          }
+        }
+      }
+    }
+    //--------------------------------------------------------------------------
+
+    void GenerateCpp(string Filename){
+      !! Generate the C++ source and header files
+      !! Base the structure on the Register'identifier attribute, which is the
+      !! full name of the object (including the full name-space path)
+    }
+    //--------------------------------------------------------------------------
+
+    void GenerateLaTeX(string Filename){
+      !! Generate the LaTeX documentation files
+    }
+    //--------------------------------------------------------------------------
+
+    string CppFilename   = "";
+    string LaTeXFilename = "";
+
+    void finally(){
+      GenerateRegs();
+      if(CppFilename  'length) GenerateCpp  (CppFilename  );
+      if(LaTeXFilename'langth) GenerateLaTeX(LaTeXFilename);
+    }
+  }
+}
+//------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+(module
+  (class_definition
+    name: (identifier)
+    (def_parameter_list
+      (def_parameter
+        (identifier)))
+    (type_identifier
+      (identifier))
+    (parameter_list
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (hex_prefix)
+        (hex_literal)))
+    (function_call_statement
+      (function_call
+        (member_reference
+          (identifier)
+          (identifier))
+        (parameter_list
+          value: (identifier))))
+    (line_comment)
+    (access_direction_group
+      (access_specifier)
+      (statement_block
+        (assignment
+          (attribute_reference
+            (identifier))
+          (array))
+        (assignment
+          (attribute_reference
+            (identifier))
+          (array))
+        (assignment
+          (attribute_reference
+            (identifier))
+          (array))
+        (definition
+          (base_type)
+          (identifier_list
+            (variable_def
+              (identifier)
+              (initialiser
+                (literal
+                  (dec_literal))))))))
+    (line_comment)
+    (access_direction_group
+      (access_specifier)
+      (statement_block
+        (line_comment)
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (def_parameter_list
+                (def_parameter
+                  (identifier)))
+              (assignment
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (postfix
+                  (identifier)))
+              (function_call_statement
+                (function_call
+                  (member_reference
+                    (attribute_reference
+                      (identifier))
+                    (builtin_func))
+                  (parameter_list
+                    value: (identifier)))))))
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (def_parameter_list
+                (def_parameter
+                  (identifier)))
+              (assignment
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (postfix
+                  (identifier)))
+              (function_call_statement
+                (function_call
+                  (member_reference
+                    (attribute_reference
+                      (identifier))
+                    (builtin_func))
+                  (parameter_list
+                    value: (identifier)))))))
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (def_parameter_list
+                (def_parameter
+                  (identifier))
+                (def_parameter
+                  (identifier))
+                (def_parameter
+                  (identifier)))
+              (assignment
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (assignment
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (assignment
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (function_call_statement
+                (function_call
+                  (member_reference
+                    (attribute_reference
+                      (identifier))
+                    (builtin_func))
+                  (parameter_list
+                    value: (attribute_list
+                      (attribute_assignment
+                        (identifier)
+                        (identifier))
+                      (attribute_assignment
+                        (identifier)
+                        (identifier))
+                      (attribute_assignment
+                        (identifier)
+                        (identifier))))))
+              (assignment
+                (identifier)))))
+        (line_comment)
+        (definition
+          (base_type)
+          (parameter_list
+            value: (literal
+              (dec_literal)))
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (def_parameter_list
+                (def_parameter
+                  (identifier)))
+              (assignment
+                (identifier)
+                (identifier))
+              (line_comment)
+              (definition
+                (base_type)
+                (identifier_list
+                  (variable_def
+                    (identifier)
+                    (initialiser
+                      (attribute_reference
+                        (identifier)
+                        (identifier))))))
+              (if_statement
+                (bitwise_and
+                  (relational
+                    (attribute_reference
+                      (identifier)
+                      (identifier))
+                    (literal
+                      (dec_literal)))
+                  (relational
+                    (identifier)
+                    (literal
+                      (dec_literal))))
+                (line_comment)
+                (statement_block
+                  (assignment
+                    (function_call
+                      (identifier)
+                      (parameter_list
+                        value: (range
+                          (literal
+                            (dec_literal))
+                          (additive
+                            (identifier)
+                            (literal
+                              (dec_literal))))))
+                    (replication
+                      (function_call
+                        (identifier)
+                        (parameter_list
+                          value: (identifier)))
+                      (additive
+                        (literal
+                          (dec_literal))
+                        (identifier)))))))))
+        (line_comment)
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (rtl
+                (parameter_list
+                  value: (member_reference
+                    (identifier)
+                    (identifier))
+                  value: (member_reference
+                    (identifier)
+                    (identifier)))
+                (statement_block
+                  (assignment
+                    (identifier)
+                    (literal
+                      (dec_literal)))
+                  (switch
+                    (identifier)
+                    (statement_block
+                      (for
+                        (identifier)
+                        (attribute_reference
+                          (identifier))
+                        (statement_block
+                          (case
+                            (expression_list
+                              (attribute_reference
+                                (identifier)
+                                (identifier)))
+                            (statement_block
+                              (assignment
+                                (identifier)
+                                (function_call
+                                  (identifier)
+                                  (parameter_list
+                                    value: (identifier))))))))
+                      (for
+                        (identifier)
+                        (attribute_reference
+                          (identifier))
+                        (statement_block
+                          (case
+                            (expression_list
+                              (attribute_reference
+                                (identifier)
+                                (identifier)))
+                            (statement_block
+                              (assignment
+                                (identifier)
+                                (function_call
+                                  (identifier)
+                                  (parameter_list
+                                    value: (identifier))))))))
+                      (for
+                        (identifier)
+                        (attribute_reference
+                          (identifier))
+                        (statement_block
+                          (case
+                            (expression_list
+                              (attribute_reference
+                                (attribute_reference
+                                  (identifier)
+                                  (identifier))
+                                (identifier)))
+                            (statement_block
+                              (assignment
+                                (identifier)
+                                (function_call
+                                  (identifier)
+                                  (parameter_list
+                                    value: (attribute_reference
+                                      (identifier)
+                                      (identifier)))))))))))
+                  (assignment
+                    (identifier)
+                    (identifier))
+                  (if_statement
+                    (identifier)
+                    (statement_block
+                      (switch
+                        (identifier)
+                        (statement_block
+                          (for
+                            (identifier)
+                            (attribute_reference
+                              (identifier))
+                            (statement_block
+                              (case
+                                (expression_list
+                                  (attribute_reference
+                                    (identifier)
+                                    (identifier)))
+                                (statement_block
+                                  (assignment
+                                    (identifier)
+                                    (identifier))))))
+                          (for
+                            (identifier)
+                            (attribute_reference
+                              (identifier))
+                            (statement_block
+                              (case
+                                (expression_list
+                                  (attribute_reference
+                                    (attribute_reference
+                                      (identifier)
+                                      (identifier))
+                                    (identifier)))
+                                (statement_block
+                                  (assignment
+                                    (attribute_reference
+                                      (identifier)
+                                      (identifier))
+                                    (identifier))))))))
+                      (for
+                        (identifier)
+                        (attribute_reference
+                          (identifier))
+                        (statement_block
+                          (assignment
+                            (attribute_reference
+                              (identifier)
+                              (identifier))
+                            (bitwise_and
+                              (equality
+                                (identifier)
+                                (attribute_reference
+                                  (attribute_reference
+                                    (identifier)
+                                    (identifier))
+                                  (identifier)))
+                              (identifier))))))))))))
+        (line_comment)
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (def_parameter_list
+                (def_parameter
+                  (type_identifier
+                    (identifier))
+                  (identifier)))
+              (todo_comment)
+              (todo_comment)
+              (todo_comment))))
+        (line_comment)
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (def_parameter_list
+                (def_parameter
+                  (type_identifier
+                    (identifier))
+                  (identifier)))
+              (todo_comment))))
+        (line_comment)
+        (definition
+          (type_identifier
+            (identifier))
+          (identifier_list
+            (variable_def
+              (identifier)
+              (initialiser
+                (string)))))
+        (definition
+          (type_identifier
+            (identifier))
+          (identifier_list
+            (variable_def
+              (identifier)
+              (initialiser
+                (string)))))
+        (definition
+          (base_type)
+          (identifier_list
+            (function_def
+              name: (identifier)
+              (function_call_statement
+                (function_call
+                  (identifier)
+                  (parameter_list)))
+              (if_statement
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (statement_block
+                  (function_call_statement
+                    (function_call
+                      (identifier)
+                      (parameter_list
+                        value: (identifier))))))
+              (if_statement
+                (attribute_reference
+                  (identifier)
+                  (identifier))
+                (statement_block
+                  (function_call_statement
+                    (function_call
+                      (identifier)
+                      (parameter_list
+                        value: (identifier))))))))))))
+  (line_comment))
+
