@@ -73,7 +73,7 @@ module.exports = grammar({
             ),
 
             definition: $ => prec(25, seq(
-                choice($.base_type, $._type_identifier), optional($.parameter_list), optional($.attribute_list), $.identifier_list,
+                optional('inline'), choice($.base_type, $._type_identifier), optional($.parameter_list), optional($.attribute_list), $.identifier_list,
             )),
 
             class_definition: $ => seq(
@@ -118,7 +118,7 @@ module.exports = grammar({
             ),
 
             function_def: $ => seq(
-                optional('inline'), choice(
+                choice(
                     seq(field('name', $._identifier), repeat($.array_definition)),
                     seq('operator', $.operator)
                 ),

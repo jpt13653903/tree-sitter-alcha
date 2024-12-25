@@ -641,6 +641,10 @@ void ABC(A, B, C){
     A = 3;
     B = 5;
 }
+inline void ABC(A, B, C){
+    A = 3;
+    B = 5;
+}
 
 --------------------------------------------------------------------------------
 
@@ -697,6 +701,26 @@ void ABC(A, B, C){
             (initialiser
               (literal
                 (dec_literal)))))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal))))))
+  (definition
+    (base_type)
+    (identifier_list
+      (function_def
+        name: (identifier)
+        (def_parameter_list
+          (def_parameter
+            (identifier))
+          (def_parameter
+            (identifier))
+          (def_parameter
+            (identifier)))
         (assignment
           (identifier)
           (literal
