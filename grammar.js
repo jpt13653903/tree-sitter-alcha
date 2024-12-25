@@ -73,7 +73,11 @@ module.exports = grammar({
             ),
 
             definition: $ => prec(25, seq(
-                optional('inline'), choice($.base_type, $._type_identifier), optional($.parameter_list), optional($.attribute_list), $.identifier_list,
+                optional('inline'),
+                choice($.base_type, $._type_identifier),
+                optional($.parameter_list),
+                optional($.attribute_list),
+                choice($.identifier_list, $.function_def, $.operator_overload)
             )),
 
             class_definition: $ => seq(
@@ -108,9 +112,8 @@ module.exports = grammar({
                 'func'
             ),
 
-            identifier_list: $ => choice(
-                    $.function_def,
-                    seq($.variable_def, repeat(seq(',', $.variable_def)), ';')
+            identifier_list: $ => seq(
+                $.variable_def, repeat(seq(',', $.variable_def)), ';'
             ),
 
             variable_def: $ => seq(
@@ -118,10 +121,13 @@ module.exports = grammar({
             ),
 
             function_def: $ => seq(
-                choice(
-                    seq(field('name', $._identifier), repeat($.array_definition)),
-                    seq('operator', $.operator)
-                ),
+                seq(field('name', $._identifier), repeat($.array_definition)),
+                '(', optional($.def_parameter_list), ')',
+                '{', repeat($._statement), '}'
+            ),
+
+            operator_overload: $ => seq(
+                seq('operator', $.operator),
                 '(', optional($.def_parameter_list), ')',
                 '{', repeat($._statement), '}'
             ),

@@ -155,315 +155,308 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
         (line_comment)
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (def_parameter_list
-                (def_parameter
-                  (identifier)))
-              (assignment
-                (attribute_reference
-                  (identifier)
-                  (identifier))
-                (postfix
-                  (identifier)))
-              (function_call_statement
-                (function_call
-                  (member_reference
-                    (attribute_reference
-                      (identifier))
-                    (builtin_func))
-                  (parameter_list
-                    value: (identifier)))))))
+          (function_def
+            name: (identifier)
+            (def_parameter_list
+              (def_parameter
+                (identifier)))
+            (assignment
+              (attribute_reference
+                (identifier)
+                (identifier))
+              (postfix
+                (identifier)))
+            (function_call_statement
+              (function_call
+                (member_reference
+                  (attribute_reference
+                    (identifier))
+                  (builtin_func))
+                (parameter_list
+                  value: (identifier))))))
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (def_parameter_list
-                (def_parameter
-                  (identifier)))
-              (assignment
-                (attribute_reference
-                  (identifier)
-                  (identifier))
-                (postfix
-                  (identifier)))
-              (function_call_statement
-                (function_call
-                  (member_reference
-                    (attribute_reference
-                      (identifier))
-                    (builtin_func))
-                  (parameter_list
-                    value: (identifier)))))))
+          (function_def
+            name: (identifier)
+            (def_parameter_list
+              (def_parameter
+                (identifier)))
+            (assignment
+              (attribute_reference
+                (identifier)
+                (identifier))
+              (postfix
+                (identifier)))
+            (function_call_statement
+              (function_call
+                (member_reference
+                  (attribute_reference
+                    (identifier))
+                  (builtin_func))
+                (parameter_list
+                  value: (identifier))))))
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (def_parameter_list
-                (def_parameter
-                  (identifier))
-                (def_parameter
-                  (identifier))
-                (def_parameter
-                  (identifier)))
-              (assignment
-                (attribute_reference
-                  (identifier)
-                  (identifier))
+          (function_def
+            name: (identifier)
+            (def_parameter_list
+              (def_parameter
                 (identifier))
-              (assignment
-                (attribute_reference
-                  (identifier)
-                  (identifier))
+              (def_parameter
                 (identifier))
-              (assignment
-                (attribute_reference
-                  (identifier)
-                  (identifier))
+              (def_parameter
+                (identifier)))
+            (assignment
+              (attribute_reference
+                (identifier)
                 (identifier))
-              (function_call_statement
-                (function_call
-                  (member_reference
-                    (attribute_reference
+              (identifier))
+            (assignment
+              (attribute_reference
+                (identifier)
+                (identifier))
+              (identifier))
+            (assignment
+              (attribute_reference
+                (identifier)
+                (identifier))
+              (identifier))
+            (function_call_statement
+              (function_call
+                (member_reference
+                  (attribute_reference
+                    (identifier))
+                  (builtin_func))
+                (parameter_list
+                  value: (attribute_list
+                    (attribute_assignment
+                      (identifier)
                       (identifier))
-                    (builtin_func))
-                  (parameter_list
-                    value: (attribute_list
-                      (attribute_assignment
-                        (identifier)
-                        (identifier))
-                      (attribute_assignment
-                        (identifier)
-                        (identifier))
-                      (attribute_assignment
-                        (identifier)
-                        (identifier))))))
-              (assignment
-                (identifier)))))
+                    (attribute_assignment
+                      (identifier)
+                      (identifier))
+                    (attribute_assignment
+                      (identifier)
+                      (identifier))))))
+            (assignment
+              (identifier))))
         (line_comment)
         (definition
           (base_type)
           (parameter_list
             value: (literal
               (dec_literal)))
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (def_parameter_list
-                (def_parameter
-                  (identifier)))
-              (assignment
-                (identifier)
-                (identifier))
-              (line_comment)
-              (definition
-                (base_type)
-                (identifier_list
-                  (variable_def
-                    (identifier)
-                    (initialiser
-                      (attribute_reference
-                        (identifier)
-                        (identifier))))))
-              (if_statement
-                (bitwise_and
-                  (relational
+          (function_def
+            name: (identifier)
+            (def_parameter_list
+              (def_parameter
+                (identifier)))
+            (assignment
+              (identifier)
+              (identifier))
+            (line_comment)
+            (definition
+              (base_type)
+              (identifier_list
+                (variable_def
+                  (identifier)
+                  (initialiser
                     (attribute_reference
                       (identifier)
-                      (identifier))
-                    (literal
-                      (dec_literal)))
-                  (relational
+                      (identifier))))))
+            (if_statement
+              (bitwise_and
+                (relational
+                  (attribute_reference
                     (identifier)
-                    (literal
-                      (dec_literal))))
-                (line_comment)
-                (statement_block
-                  (assignment
+                    (identifier))
+                  (literal
+                    (dec_literal)))
+                (relational
+                  (identifier)
+                  (literal
+                    (dec_literal))))
+              (line_comment)
+              (statement_block
+                (assignment
+                  (function_call
+                    (identifier)
+                    (parameter_list
+                      value: (range
+                        (literal
+                          (dec_literal))
+                        (additive
+                          (identifier)
+                          (literal
+                            (dec_literal))))))
+                  (replication
                     (function_call
                       (identifier)
                       (parameter_list
-                        value: (range
-                          (literal
-                            (dec_literal))
-                          (additive
-                            (identifier)
-                            (literal
-                              (dec_literal))))))
-                    (replication
-                      (function_call
-                        (identifier)
-                        (parameter_list
-                          value: (identifier)))
-                      (additive
-                        (literal
-                          (dec_literal))
-                        (identifier)))))))))
+                        value: (identifier)))
+                    (additive
+                      (literal
+                        (dec_literal))
+                      (identifier))))))))
         (line_comment)
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (rtl
-                (parameter_list
-                  value: (member_reference
-                    (identifier)
-                    (identifier))
-                  value: (member_reference
-                    (identifier)
-                    (identifier)))
-                (statement_block
-                  (assignment
-                    (identifier)
-                    (literal
-                      (dec_literal)))
-                  (switch
-                    (identifier)
-                    (statement_block
-                      (for
-                        (identifier)
-                        (attribute_reference
-                          (identifier))
-                        (statement_block
-                          (case
-                            (expression_list
-                              (attribute_reference
-                                (identifier)
-                                (identifier)))
-                            (statement_block
-                              (assignment
-                                (identifier)
-                                (function_call
-                                  (identifier)
-                                  (parameter_list
-                                    value: (identifier))))))))
-                      (for
-                        (identifier)
-                        (attribute_reference
-                          (identifier))
-                        (statement_block
-                          (case
-                            (expression_list
-                              (attribute_reference
-                                (identifier)
-                                (identifier)))
-                            (statement_block
-                              (assignment
-                                (identifier)
-                                (function_call
-                                  (identifier)
-                                  (parameter_list
-                                    value: (identifier))))))))
-                      (for
-                        (identifier)
-                        (attribute_reference
-                          (identifier))
-                        (statement_block
-                          (case
-                            (expression_list
-                              (attribute_reference
-                                (attribute_reference
-                                  (identifier)
-                                  (identifier))
-                                (identifier)))
-                            (statement_block
-                              (assignment
-                                (identifier)
-                                (function_call
-                                  (identifier)
-                                  (parameter_list
-                                    value: (attribute_reference
-                                      (identifier)
-                                      (identifier)))))))))))
-                  (assignment
-                    (identifier)
-                    (identifier))
-                  (if_statement
-                    (identifier)
-                    (statement_block
-                      (switch
-                        (identifier)
-                        (statement_block
-                          (for
-                            (identifier)
-                            (attribute_reference
-                              (identifier))
-                            (statement_block
-                              (case
-                                (expression_list
-                                  (attribute_reference
-                                    (identifier)
-                                    (identifier)))
-                                (statement_block
-                                  (assignment
-                                    (identifier)
-                                    (identifier))))))
-                          (for
-                            (identifier)
-                            (attribute_reference
-                              (identifier))
-                            (statement_block
-                              (case
-                                (expression_list
-                                  (attribute_reference
-                                    (attribute_reference
-                                      (identifier)
-                                      (identifier))
-                                    (identifier)))
-                                (statement_block
-                                  (assignment
-                                    (attribute_reference
-                                      (identifier)
-                                      (identifier))
-                                    (identifier))))))))
-                      (for
-                        (identifier)
-                        (attribute_reference
-                          (identifier))
-                        (statement_block
-                          (assignment
+          (function_def
+            name: (identifier)
+            (rtl
+              (parameter_list
+                value: (member_reference
+                  (identifier)
+                  (identifier))
+                value: (member_reference
+                  (identifier)
+                  (identifier)))
+              (statement_block
+                (assignment
+                  (identifier)
+                  (literal
+                    (dec_literal)))
+                (switch
+                  (identifier)
+                  (statement_block
+                    (for
+                      (identifier)
+                      (attribute_reference
+                        (identifier))
+                      (statement_block
+                        (case
+                          (expression_list
                             (attribute_reference
                               (identifier)
-                              (identifier))
-                            (bitwise_and
-                              (equality
+                              (identifier)))
+                          (statement_block
+                            (assignment
+                              (identifier)
+                              (function_call
                                 (identifier)
+                                (parameter_list
+                                  value: (identifier))))))))
+                    (for
+                      (identifier)
+                      (attribute_reference
+                        (identifier))
+                      (statement_block
+                        (case
+                          (expression_list
+                            (attribute_reference
+                              (identifier)
+                              (identifier)))
+                          (statement_block
+                            (assignment
+                              (identifier)
+                              (function_call
+                                (identifier)
+                                (parameter_list
+                                  value: (identifier))))))))
+                    (for
+                      (identifier)
+                      (attribute_reference
+                        (identifier))
+                      (statement_block
+                        (case
+                          (expression_list
+                            (attribute_reference
+                              (attribute_reference
+                                (identifier)
+                                (identifier))
+                              (identifier)))
+                          (statement_block
+                            (assignment
+                              (identifier)
+                              (function_call
+                                (identifier)
+                                (parameter_list
+                                  value: (attribute_reference
+                                    (identifier)
+                                    (identifier)))))))))))
+                (assignment
+                  (identifier)
+                  (identifier))
+                (if_statement
+                  (identifier)
+                  (statement_block
+                    (switch
+                      (identifier)
+                      (statement_block
+                        (for
+                          (identifier)
+                          (attribute_reference
+                            (identifier))
+                          (statement_block
+                            (case
+                              (expression_list
+                                (attribute_reference
+                                  (identifier)
+                                  (identifier)))
+                              (statement_block
+                                (assignment
+                                  (identifier)
+                                  (identifier))))))
+                        (for
+                          (identifier)
+                          (attribute_reference
+                            (identifier))
+                          (statement_block
+                            (case
+                              (expression_list
                                 (attribute_reference
                                   (attribute_reference
                                     (identifier)
                                     (identifier))
                                   (identifier)))
-                              (identifier))))))))))))
+                              (statement_block
+                                (assignment
+                                  (attribute_reference
+                                    (identifier)
+                                    (identifier))
+                                  (identifier))))))))
+                    (for
+                      (identifier)
+                      (attribute_reference
+                        (identifier))
+                      (statement_block
+                        (assignment
+                          (attribute_reference
+                            (identifier)
+                            (identifier))
+                          (bitwise_and
+                            (equality
+                              (identifier)
+                              (attribute_reference
+                                (attribute_reference
+                                  (identifier)
+                                  (identifier))
+                                (identifier)))
+                            (identifier)))))))))))
         (line_comment)
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (def_parameter_list
-                (def_parameter
-                  (type_identifier
-                    (identifier))
-                  (identifier)))
-              (todo_comment)
-              (todo_comment)
-              (todo_comment))))
+          (function_def
+            name: (identifier)
+            (def_parameter_list
+              (def_parameter
+                (type_identifier
+                  (identifier))
+                (identifier)))
+            (todo_comment)
+            (todo_comment)
+            (todo_comment)))
         (line_comment)
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (identifier)
-              (def_parameter_list
-                (def_parameter
-                  (type_identifier
-                    (identifier))
-                  (identifier)))
-              (todo_comment))))
+          (function_def
+            name: (identifier)
+            (def_parameter_list
+              (def_parameter
+                (type_identifier
+                  (identifier))
+                (identifier)))
+            (todo_comment)))
         (line_comment)
         (definition
           (type_identifier
@@ -483,32 +476,31 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                 (string)))))
         (definition
           (base_type)
-          (identifier_list
-            (function_def
-              name: (builtin_func)
-              (function_call_statement
-                (function_call
-                  (identifier)
-                  (parameter_list)))
-              (if_statement
-                (attribute_reference
-                  (identifier)
-                  (identifier))
-                (statement_block
-                  (function_call_statement
-                    (function_call
-                      (identifier)
-                      (parameter_list
-                        value: (identifier))))))
-              (if_statement
-                (attribute_reference
-                  (identifier)
-                  (identifier))
-                (statement_block
-                  (function_call_statement
-                    (function_call
-                      (identifier)
-                      (parameter_list
-                        value: (identifier))))))))))))
+          (function_def
+            name: (builtin_func)
+            (function_call_statement
+              (function_call
+                (identifier)
+                (parameter_list)))
+            (if_statement
+              (attribute_reference
+                (identifier)
+                (identifier))
+              (statement_block
+                (function_call_statement
+                  (function_call
+                    (identifier)
+                    (parameter_list
+                      value: (identifier))))))
+            (if_statement
+              (attribute_reference
+                (identifier)
+                (identifier))
+              (statement_block
+                (function_call_statement
+                  (function_call
+                    (identifier)
+                    (parameter_list
+                      value: (identifier)))))))))))
   (line_comment))
 

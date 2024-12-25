@@ -212,8 +212,21 @@
             ]
           },
           {
-            "type": "SYMBOL",
-            "name": "identifier_list"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier_list"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "function_def"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "operator_overload"
+              }
+            ]
           }
         ]
       }
@@ -459,40 +472,31 @@
       ]
     },
     "identifier_list": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "function_def"
+          "name": "variable_def"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "variable_def"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "variable_def"
-                  }
-                ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "variable_def"
               }
-            },
-            {
-              "type": "STRING",
-              "value": ";"
-            }
-          ]
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -528,40 +532,75 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_identifier"
+              }
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "array_definition"
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "FIELD",
-                  "name": "name",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_identifier"
-                  }
-                },
-                {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "array_definition"
-                  }
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "def_parameter_list"
             },
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "operator"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "operator"
-                }
-              ]
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "operator_overload": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "operator"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "operator"
             }
           ]
         },

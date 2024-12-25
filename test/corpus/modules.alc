@@ -651,104 +651,100 @@ inline void ABC(A, B, C){
 (module
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        name: (identifier)
-        (array_definition
-          (literal
-            (dec_literal)))
-        (def_parameter_list
-          (def_parameter
-            (base_type)
-            (identifier))
-          (def_parameter
-            (base_type)
-            (identifier))
-          (def_parameter
-            (base_type)
-            (identifier)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal))))))
+    (function_def
+      name: (identifier)
+      (array_definition
+        (literal
+          (dec_literal)))
+      (def_parameter_list
+        (def_parameter
+          (base_type)
+          (identifier))
+        (def_parameter
+          (base_type)
+          (identifier))
+        (def_parameter
+          (base_type)
+          (identifier)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        name: (identifier)
-        (def_parameter_list
-          (def_parameter
-            (base_type)
-            (identifier))
-          (def_parameter
-            (base_type)
-            (parameter_list
-              value: (literal
-                (dec_literal)))
-            (identifier))
-          (def_parameter
-            (base_type)
-            (parameter_list
-              value: (literal
-                (dec_literal))
-              value: (literal
-                (dec_literal)))
-            (identifier)
-            (initialiser
-              (literal
-                (dec_literal)))))
-        (assignment
+    (function_def
+      name: (identifier)
+      (def_parameter_list
+        (def_parameter
+          (base_type)
+          (identifier))
+        (def_parameter
+          (base_type)
+          (parameter_list
+            value: (literal
+              (dec_literal)))
+          (identifier))
+        (def_parameter
+          (base_type)
+          (parameter_list
+            value: (literal
+              (dec_literal))
+            value: (literal
+              (dec_literal)))
           (identifier)
-          (literal
-            (dec_literal)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal))))))
+          (initialiser
+            (literal
+              (dec_literal)))))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        name: (identifier)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal))))))
+    (function_def
+      name: (identifier)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        name: (identifier)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal)))
-        (assignment
-          (identifier)
-          (literal
-            (dec_literal)))))))
+    (function_def
+      name: (identifier)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal))))))
 
 ================================================================================
 Enum Definition
@@ -2142,518 +2138,475 @@ num operator&&& (A, B){ return A; }
 (module
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier)))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier))))
   (definition
     (base_type)
-    (identifier_list
-      (function_def
-        (operator)
-        (def_parameter_list
-          (def_parameter
-            (identifier))
-          (def_parameter
-            (identifier)))
-        (jump
-          (identifier))))))
+    (operator_overload
+      (operator)
+      (def_parameter_list
+        (def_parameter
+          (identifier))
+        (def_parameter
+          (identifier)))
+      (jump
+        (identifier)))))
 
