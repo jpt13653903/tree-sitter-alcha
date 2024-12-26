@@ -455,13 +455,13 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     (def_parameter_list
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier)))
+        parameter: (identifier)))
     (assignment
       (identifier)
       (identifier))
@@ -489,13 +489,13 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     (def_parameter_list
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier)))
+        parameter: (identifier)))
     (assignment
       (identifier)
       (identifier))
@@ -510,13 +510,13 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     (def_parameter_list
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier)))
+        parameter: (identifier)))
     (type_identifier
       (identifier))
     (parameter_list
@@ -556,13 +556,13 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     (def_parameter_list
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier)))
+        parameter: (identifier)))
     (type_identifier
       (identifier))
     (parameter_list
@@ -596,13 +596,13 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     (def_parameter_list
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier))
+        parameter: (identifier))
       (def_parameter
         (base_type)
-        (identifier)))
+        parameter: (identifier)))
     (type_identifier
       (identifier))
     (parameter_list
@@ -659,13 +659,13 @@ inline void ABC(A, B, C){
       (def_parameter_list
         (def_parameter
           (base_type)
-          (identifier))
+          parameter: (identifier))
         (def_parameter
           (base_type)
-          (identifier))
+          parameter: (identifier))
         (def_parameter
           (base_type)
-          (identifier)))
+          parameter: (identifier)))
       (assignment
         (identifier)
         (literal
@@ -681,13 +681,13 @@ inline void ABC(A, B, C){
       (def_parameter_list
         (def_parameter
           (base_type)
-          (identifier))
+          parameter: (identifier))
         (def_parameter
           (base_type)
           (parameter_list
             value: (literal
               (dec_literal)))
-          (identifier))
+          parameter: (identifier))
         (def_parameter
           (base_type)
           (parameter_list
@@ -695,7 +695,7 @@ inline void ABC(A, B, C){
               (dec_literal))
             value: (literal
               (dec_literal)))
-          (identifier)
+          parameter: (identifier)
           (initialiser
             (literal
               (dec_literal)))))
@@ -713,11 +713,11 @@ inline void ABC(A, B, C){
       name: (identifier)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (assignment
         (identifier)
         (literal
@@ -732,11 +732,11 @@ inline void ABC(A, B, C){
       name: (identifier)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (assignment
         (identifier)
         (literal
@@ -757,13 +757,15 @@ enum ABC { A, B, C }
 
 (module
   (enum_definition
-    (identifier)
-    (identifier))
+    name: (identifier)
+    (enum_body
+      (identifier)))
   (enum_definition
-    (identifier)
-    (identifier)
-    (identifier)
-    (identifier)))
+    name: (identifier)
+    (enum_body
+      (identifier)
+      (identifier)
+      (identifier))))
 
 ================================================================================
 Alias, Import, Struct, Group and AccessDirectionGroup
@@ -821,7 +823,7 @@ group<voltage = 3.3, capacitance = 10e-12,
   (import
     (filename)
     (identifier))
-  (struct
+  (struct_definition
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -831,29 +833,8 @@ group<voltage = 3.3, capacitance = 10e-12,
         (identifier)
         (literal
           (dec_literal))))
-    (identifier)
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal))
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))
-        (variable_def
-          (identifier))))
-    (struct
-      (identifier)
+    name: (identifier)
+    (struct_body
       (definition
         (base_type)
         (parameter_list
@@ -873,13 +854,36 @@ group<voltage = 3.3, capacitance = 10e-12,
           (variable_def
             (identifier))
           (variable_def
-            (identifier)))))
-    (definition
-      (base_type)
-      (identifier_list
-        (variable_def
-          (identifier)))))
-  (struct
+            (identifier))))
+      (struct_definition
+        name: (identifier)
+        (struct_body
+          (definition
+            (base_type)
+            (parameter_list
+              value: (literal
+                (dec_literal))
+              value: (literal
+                (dec_literal)))
+            (identifier_list
+              (variable_def
+                (identifier))))
+          (definition
+            (base_type)
+            (parameter_list
+              value: (literal
+                (dec_literal)))
+            (identifier_list
+              (variable_def
+                (identifier))
+              (variable_def
+                (identifier))))))
+      (definition
+        (base_type)
+        (identifier_list
+          (variable_def
+            (identifier))))))
+  (struct_definition
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -889,27 +893,7 @@ group<voltage = 3.3, capacitance = 10e-12,
         (identifier)
         (literal
           (dec_literal))))
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal))
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))
-        (variable_def
-          (identifier))))
-    (struct
+    (struct_body
       (definition
         (base_type)
         (parameter_list
@@ -929,13 +913,35 @@ group<voltage = 3.3, capacitance = 10e-12,
           (variable_def
             (identifier))
           (variable_def
-            (identifier)))))
-    (definition
-      (base_type)
-      (identifier_list
-        (variable_def
-          (identifier)))))
-  (group
+            (identifier))))
+      (struct_definition
+        (struct_body
+          (definition
+            (base_type)
+            (parameter_list
+              value: (literal
+                (dec_literal))
+              value: (literal
+                (dec_literal)))
+            (identifier_list
+              (variable_def
+                (identifier))))
+          (definition
+            (base_type)
+            (parameter_list
+              value: (literal
+                (dec_literal)))
+            (identifier_list
+              (variable_def
+                (identifier))
+              (variable_def
+                (identifier))))))
+      (definition
+        (base_type)
+        (identifier_list
+          (variable_def
+            (identifier))))))
+  (group_definition
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -945,38 +951,8 @@ group<voltage = 3.3, capacitance = 10e-12,
         (identifier)
         (literal
           (dec_literal))))
-    (identifier)
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal))
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))
-        (variable_def
-          (identifier))))
-    (group
-      (attribute_list
-        (attribute_assignment
-          (identifier)
-          (literal
-            (dec_literal)))
-        (attribute_assignment
-          (identifier)
-          (literal
-            (dec_literal))))
-      (identifier)
+    name: (identifier)
+    (group_body
       (definition
         (base_type)
         (parameter_list
@@ -996,13 +972,45 @@ group<voltage = 3.3, capacitance = 10e-12,
           (variable_def
             (identifier))
           (variable_def
-            (identifier)))))
-    (definition
-      (base_type)
-      (identifier_list
-        (variable_def
-          (identifier)))))
-  (group
+            (identifier))))
+      (group_definition
+        (attribute_list
+          (attribute_assignment
+            (identifier)
+            (literal
+              (dec_literal)))
+          (attribute_assignment
+            (identifier)
+            (literal
+              (dec_literal))))
+        name: (identifier)
+        (group_body
+          (definition
+            (base_type)
+            (parameter_list
+              value: (literal
+                (dec_literal))
+              value: (literal
+                (dec_literal)))
+            (identifier_list
+              (variable_def
+                (identifier))))
+          (definition
+            (base_type)
+            (parameter_list
+              value: (literal
+                (dec_literal)))
+            (identifier_list
+              (variable_def
+                (identifier))
+              (variable_def
+                (identifier))))))
+      (definition
+        (base_type)
+        (identifier_list
+          (variable_def
+            (identifier))))))
+  (group_definition
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -1023,42 +1031,43 @@ group<voltage = 3.3, capacitance = 10e-12,
         (literal
           (dec_literal)
           (exponent))))
-    (identifier)
-    (definition
-      (base_type)
-      (attribute_list
-        (attribute_assignment
-          (identifier)
-          (string)))
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (definition
-      (base_type)
-      (attribute_list
-        (attribute_assignment
-          (identifier)
-          (string)))
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal)))
-      (attribute_list
-        (attribute_assignment
-          (identifier)
-          (array
-            (expression_list
-              (string)
-              (string)
-              (string)
-              (string)))))
-      (identifier_list
-        (variable_def
-          (identifier))))))
+    name: (identifier)
+    (group_body
+      (definition
+        (base_type)
+        (attribute_list
+          (attribute_assignment
+            (identifier)
+            (string)))
+        (identifier_list
+          (variable_def
+            (identifier))))
+      (definition
+        (base_type)
+        (attribute_list
+          (attribute_assignment
+            (identifier)
+            (string)))
+        (identifier_list
+          (variable_def
+            (identifier))))
+      (definition
+        (base_type)
+        (parameter_list
+          value: (literal
+            (dec_literal)))
+        (attribute_list
+          (attribute_assignment
+            (identifier)
+            (array
+              (expression_list
+                (string)
+                (string)
+                (string)
+                (string)))))
+        (identifier_list
+          (variable_def
+            (identifier)))))))
 
 ================================================================================
 Arrays and Initialisers
@@ -1386,11 +1395,12 @@ goto Label;
       (assignment
         (identifier))))
   (enum_definition
-    (identifier)
-    (identifier)
-    (identifier)
-    (identifier)
-    (identifier))
+    name: (identifier)
+    (enum_body
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)))
   (definition
     (type_identifier
       (identifier))
@@ -2142,9 +2152,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2153,9 +2163,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2164,9 +2174,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2175,9 +2185,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2186,9 +2196,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2197,9 +2207,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2208,9 +2218,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2219,9 +2229,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2230,9 +2240,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2241,9 +2251,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2252,9 +2262,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2263,9 +2273,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2274,9 +2284,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2285,9 +2295,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2296,9 +2306,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2307,9 +2317,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2318,9 +2328,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2329,9 +2339,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2340,9 +2350,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2351,9 +2361,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2362,9 +2372,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2373,9 +2383,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2384,9 +2394,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2395,9 +2405,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2406,9 +2416,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2417,9 +2427,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2428,9 +2438,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2439,9 +2449,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2450,9 +2460,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2461,9 +2471,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2472,9 +2482,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2483,9 +2493,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2494,9 +2504,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2505,9 +2515,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2516,9 +2526,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2527,9 +2537,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2538,9 +2548,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2549,9 +2559,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2560,9 +2570,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2571,9 +2581,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2582,9 +2592,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2593,9 +2603,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier))))
   (definition
@@ -2604,9 +2614,9 @@ num operator&&& (A, B){ return A; }
       (operator)
       (def_parameter_list
         (def_parameter
-          (identifier))
+          parameter: (identifier))
         (def_parameter
-          (identifier)))
+          parameter: (identifier)))
       (jump
         (identifier)))))
 

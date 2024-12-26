@@ -108,7 +108,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
     name: (identifier)
     (def_parameter_list
       (def_parameter
-        (identifier)))
+        parameter: (identifier)))
     (type_identifier
       (identifier))
     (parameter_list
@@ -159,7 +159,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
             name: (identifier)
             (def_parameter_list
               (def_parameter
-                (identifier)))
+                parameter: (identifier)))
             (assignment
               (attribute_reference
                 (identifier)
@@ -180,7 +180,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
             name: (identifier)
             (def_parameter_list
               (def_parameter
-                (identifier)))
+                parameter: (identifier)))
             (assignment
               (attribute_reference
                 (identifier)
@@ -201,11 +201,11 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
             name: (identifier)
             (def_parameter_list
               (def_parameter
-                (identifier))
+                parameter: (identifier))
               (def_parameter
-                (identifier))
+                parameter: (identifier))
               (def_parameter
-                (identifier)))
+                parameter: (identifier)))
             (assignment
               (attribute_reference
                 (identifier)
@@ -250,7 +250,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
             name: (identifier)
             (def_parameter_list
               (def_parameter
-                (identifier)))
+                parameter: (identifier)))
             (assignment
               (identifier)
               (identifier))
@@ -442,7 +442,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
               (def_parameter
                 (type_identifier
                   (identifier))
-                (identifier)))
+                parameter: (identifier)))
             (todo_comment)
             (todo_comment)
             (todo_comment)))
@@ -455,7 +455,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
               (def_parameter
                 (type_identifier
                   (identifier))
-                (identifier)))
+                parameter: (identifier)))
             (todo_comment)))
         (line_comment)
         (definition

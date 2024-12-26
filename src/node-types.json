@@ -1683,7 +1683,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -1727,7 +1727,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -1752,25 +1752,32 @@
   {
     "type": "def_parameter",
     "named": true,
-    "fields": {},
+    "fields": {
+      "parameter": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "base_type",
-          "named": true
-        },
-        {
-          "type": "builtin_const",
-          "named": true
-        },
-        {
-          "type": "builtin_func",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -1924,7 +1931,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -1972,7 +1979,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -1991,7 +1998,7 @@
     }
   },
   {
-    "type": "enum_definition",
+    "type": "enum_body",
     "named": true,
     "fields": {},
     "children": {
@@ -2008,6 +2015,40 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_body",
           "named": true
         }
       ]
@@ -2621,7 +2662,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -2661,7 +2702,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -2944,7 +2985,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -2984,7 +3025,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -3026,7 +3067,7 @@
     }
   },
   {
-    "type": "group",
+    "type": "group_body",
     "named": true,
     "fields": {},
     "children": {
@@ -3047,18 +3088,6 @@
         },
         {
           "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "attribute_list",
-          "named": true
-        },
-        {
-          "type": "builtin_const",
-          "named": true
-        },
-        {
-          "type": "builtin_func",
           "named": true
         },
         {
@@ -3102,15 +3131,11 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
           "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -3146,7 +3171,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -3159,6 +3184,44 @@
         },
         {
           "type": "while",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "group_body",
           "named": true
         }
       ]
@@ -4067,7 +4130,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -4107,7 +4170,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -4377,7 +4440,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -4469,7 +4532,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -4573,7 +4636,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -4617,7 +4680,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -6060,7 +6123,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -6100,7 +6163,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -6195,7 +6258,7 @@
           "named": true
         },
         {
-          "type": "group",
+          "type": "group_definition",
           "named": true
         },
         {
@@ -6243,7 +6306,7 @@
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_definition",
           "named": true
         },
         {
@@ -6408,7 +6471,7 @@
     }
   },
   {
-    "type": "struct",
+    "type": "struct_body",
     "named": true,
     "fields": {},
     "children": {
@@ -6416,27 +6479,49 @@
       "required": false,
       "types": [
         {
-          "type": "attribute_list",
-          "named": true
-        },
-        {
-          "type": "builtin_const",
-          "named": true
-        },
-        {
-          "type": "builtin_func",
-          "named": true
-        },
-        {
           "type": "definition",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "struct_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_list",
           "named": true
         },
         {
-          "type": "struct",
+          "type": "struct_body",
           "named": true
         }
       ]
@@ -7804,6 +7889,18 @@
     "named": false
   },
   {
+    "type": "[*",
+    "named": false
+  },
+  {
+    "type": "[->",
+    "named": false
+  },
+  {
+    "type": "[=",
+    "named": false
+  },
+  {
     "type": "]",
     "named": false
   },
@@ -8080,7 +8177,15 @@
     "named": false
   },
   {
+    "type": "|->",
+    "named": false
+  },
+  {
     "type": "|=",
+    "named": false
+  },
+  {
+    "type": "|=>",
     "named": false
   },
   {

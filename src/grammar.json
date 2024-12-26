@@ -53,11 +53,11 @@
             },
             {
               "type": "SYMBOL",
-              "name": "struct"
+              "name": "struct_definition"
             },
             {
               "type": "SYMBOL",
-              "name": "group"
+              "name": "group_definition"
             },
             {
               "type": "SYMBOL",
@@ -802,6 +802,26 @@
         },
         {
           "type": "STRING",
+          "value": "[*"
+        },
+        {
+          "type": "STRING",
+          "value": "[->"
+        },
+        {
+          "type": "STRING",
+          "value": "[="
+        },
+        {
+          "type": "STRING",
+          "value": "|->"
+        },
+        {
+          "type": "STRING",
+          "value": "|=>"
+        },
+        {
+          "type": "STRING",
           "value": "@"
         },
         {
@@ -932,8 +952,12 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_identifier"
+          "type": "FIELD",
+          "name": "parameter",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
         },
         {
           "type": "REPEAT",
@@ -1023,9 +1047,22 @@
           "value": "enum"
         },
         {
-          "type": "SYMBOL",
-          "name": "_identifier"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
         },
+        {
+          "type": "SYMBOL",
+          "name": "enum_body"
+        }
+      ]
+    },
+    "enum_body": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "STRING",
           "value": "{"
@@ -1184,7 +1221,7 @@
         }
       ]
     },
-    "struct": {
+    "struct_definition": {
       "type": "SEQ",
       "members": [
         {
@@ -1207,14 +1244,27 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_identifier"
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_identifier"
+              }
             },
             {
               "type": "BLANK"
             }
           ]
         },
+        {
+          "type": "SYMBOL",
+          "name": "struct_body"
+        }
+      ]
+    },
+    "struct_body": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "STRING",
           "value": "{"
@@ -1230,7 +1280,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "struct"
+                "name": "struct_definition"
               }
             ]
           }
@@ -1241,7 +1291,7 @@
         }
       ]
     },
-    "group": {
+    "group_definition": {
       "type": "SEQ",
       "members": [
         {
@@ -1264,14 +1314,27 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_identifier"
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_identifier"
+              }
             },
             {
               "type": "BLANK"
             }
           ]
         },
+        {
+          "type": "SYMBOL",
+          "name": "group_body"
+        }
+      ]
+    },
+    "group_body": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "STRING",
           "value": "{"

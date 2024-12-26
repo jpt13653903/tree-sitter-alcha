@@ -60,7 +60,7 @@ module.exports = grammar({
 
             _statement: $ => seq(optional($.wait), choice(
                 $.label, $.definition, $.class_definition, $.enum_definition,
-                $.alias, $.import, $.struct, $.group, $.access_direction_group,
+                $.alias, $.import, $.struct_definition, $.group_definition, $.access_direction_group,
                 $.if_statement, $.for, $.while , $.loop, $.switch, $.case, $.jump, $.goto,
                 $.function_call_statement, $.namespace_push, $.assignment,
                 $.rtl, $.fsm, $.hdl,
@@ -139,6 +139,7 @@ module.exports = grammar({
                 '<<', '>>', '<', '>', '<=', '>=', '==', '!=',
                 '=', ':=', '~=', '+=', '-=', '*=', '/=', '%=',
                 '^=', '&=', '|=', '**=', '<<=', '>>=',
+                "[*", "[->", "[=", "|->", "|=>",
                 '@', '||', '&&', '&&&'
             ),
 
@@ -156,7 +157,7 @@ module.exports = grammar({
 
             def_parameter: $ => seq(
                 optional(seq(choice($.base_type, $._type_identifier), optional($.parameter_list))),
-                $._identifier, repeat(seq('[', ']')), optional($.initialiser)
+                field('parameter', $._identifier), repeat(seq('[', ']')), optional($.initialiser)
             ),
 
             attribute_list: $ => seq(
@@ -168,7 +169,11 @@ module.exports = grammar({
             ),
 
             enum_definition: $ => seq(
-                'enum', $._identifier, '{', $._identifier, repeat(seq(',', $._identifier)), '}'
+                'enum', field('name', $._identifier), $.enum_body
+            ),
+
+            enum_body: $ => seq(
+                '{', $._identifier, repeat(seq(',', $._identifier)), '}'
             ),
 
             _type_identifier: $ => prec(8, choice(
@@ -190,12 +195,20 @@ module.exports = grammar({
                 'import', alias($.string, $.filename), optional(seq('as', $._identifier)), ';'
             ),
 
-            struct: $ => seq(
-                'struct', optional($.attribute_list), optional($._identifier), '{', repeat(choice($.definition, $.struct)), '}'
+            struct_definition: $ => seq(
+                'struct', optional($.attribute_list), optional(field('name', $._identifier)), $.struct_body
             ),
 
-            group: $ => seq(
-                'group', optional($.attribute_list), optional($._identifier), '{', repeat($._statement), '}'
+            struct_body: $ => seq(
+                '{', repeat(choice($.definition, $.struct_definition)), '}'
+            ),
+
+            group_definition: $ => seq(
+                'group', optional($.attribute_list), optional(field('name', $._identifier)), $.group_body
+            ),
+
+            group_body: $ => seq(
+                '{', repeat($._statement), '}'
             ),
 
             function_call_statement: $ => seq(
