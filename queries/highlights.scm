@@ -168,7 +168,6 @@
   "**="
   "<<="
   ">>="
-  "$"
   "@"
   "#"
   "##"
@@ -197,9 +196,6 @@
   "]"
   "{"
   "}"
-  ":("
-  ":["
-  "$("
 ] @punctuation.bracket
 
 (vector_concat
@@ -212,6 +208,22 @@
   .
   ":[" @operator
   "]"  @operator
+  .)
+
+(wait
+  .
+  "@(" @operator
+  ")" @operator
+  .)
+
+[
+  "$"
+] @string
+
+(stringification
+  .
+  "$(" @string
+  ")" @string
   .)
 
 (attribute_list
