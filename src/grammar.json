@@ -273,7 +273,7 @@
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "def_parameter_list"
+                      "name": "parameter_def_list"
                     },
                     {
                       "type": "BLANK"
@@ -549,7 +549,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "def_parameter_list"
+              "name": "parameter_def_list"
             },
             {
               "type": "BLANK"
@@ -591,7 +591,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "def_parameter_list"
+              "name": "parameter_def_list"
             },
             {
               "type": "BLANK"
@@ -852,12 +852,12 @@
         }
       ]
     },
-    "def_parameter_list": {
+    "parameter_def_list": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "def_parameter"
+          "name": "parameter_def"
         },
         {
           "type": "REPEAT",
@@ -870,14 +870,14 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "def_parameter"
+                "name": "parameter_def"
               }
             ]
           }
         }
       ]
     },
-    "def_parameter": {
+    "parameter_def": {
       "type": "SEQ",
       "members": [
         {

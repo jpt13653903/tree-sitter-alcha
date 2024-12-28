@@ -453,14 +453,14 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (identifier))))
   (class_definition
     name: (identifier)
-    (def_parameter_list
-      (def_parameter
+    (parameter_def_list
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier)))
     (statement_block
@@ -488,14 +488,14 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (literal
           (dec_literal))))
     name: (identifier)
-    (def_parameter_list
-      (def_parameter
+    (parameter_def_list
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier)))
     (statement_block
@@ -510,14 +510,14 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (identifier))))
   (class_definition
     name: (identifier)
-    (def_parameter_list
-      (def_parameter
+    (parameter_def_list
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier)))
     (type_identifier
@@ -557,14 +557,14 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (literal
           (dec_literal))))
     name: (identifier)
-    (def_parameter_list
-      (def_parameter
+    (parameter_def_list
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier)))
     (type_identifier
@@ -598,14 +598,14 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (literal
           (dec_literal))))
     name: (identifier)
-    (def_parameter_list
-      (def_parameter
+    (parameter_def_list
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier))
-      (def_parameter
+      (parameter_def
         (base_type)
         parameter: (identifier)))
     (type_identifier
@@ -662,14 +662,14 @@ inline void ABC(A, B, C){
       (array_definition
         (literal
           (dec_literal)))
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           (base_type)
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           (base_type)
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           (base_type)
           parameter: (identifier)))
       (statement_block
@@ -685,17 +685,17 @@ inline void ABC(A, B, C){
     (base_type)
     (function_def
       name: (identifier)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           (base_type)
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           (base_type)
           (parameter_list
             value: (literal
               (dec_literal)))
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           (base_type)
           (parameter_list
             value: (literal
@@ -719,12 +719,12 @@ inline void ABC(A, B, C){
     (base_type)
     (function_def
       name: (identifier)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (assignment
@@ -739,12 +739,12 @@ inline void ABC(A, B, C){
     (base_type)
     (function_def
       name: (identifier)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (assignment
@@ -2176,10 +2176,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2188,10 +2188,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2200,10 +2200,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2212,10 +2212,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2224,10 +2224,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2236,10 +2236,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2248,10 +2248,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2260,10 +2260,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2272,10 +2272,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2284,10 +2284,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2296,10 +2296,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2308,10 +2308,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2320,10 +2320,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2332,10 +2332,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2344,10 +2344,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2356,10 +2356,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2368,10 +2368,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2380,10 +2380,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2392,10 +2392,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2404,10 +2404,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2416,10 +2416,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2428,10 +2428,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2440,10 +2440,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2452,10 +2452,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2464,10 +2464,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2476,10 +2476,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2488,10 +2488,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2500,10 +2500,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2512,10 +2512,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2524,10 +2524,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2536,10 +2536,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2548,10 +2548,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2560,10 +2560,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2572,10 +2572,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2584,10 +2584,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2596,10 +2596,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2608,10 +2608,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2620,10 +2620,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2632,10 +2632,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2644,10 +2644,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2656,10 +2656,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2668,10 +2668,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump
@@ -2680,10 +2680,10 @@ num operator&&& (A, B){ return A; }
     (base_type)
     (operator_overload
       (operator)
-      (def_parameter_list
-        (def_parameter
+      (parameter_def_list
+        (parameter_def
           parameter: (identifier))
-        (def_parameter
+        (parameter_def
           parameter: (identifier)))
       (statement_block
         (jump

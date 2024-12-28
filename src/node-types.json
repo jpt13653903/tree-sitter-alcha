@@ -1623,7 +1623,7 @@
           "named": true
         },
         {
-          "type": "def_parameter_list",
+          "type": "parameter_def_list",
           "named": true
         },
         {
@@ -1636,67 +1636,6 @@
         },
         {
           "type": "type_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "def_parameter",
-    "named": true,
-    "fields": {
-      "parameter": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "builtin_const",
-            "named": true
-          },
-          {
-            "type": "builtin_func",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "base_type",
-          "named": true
-        },
-        {
-          "type": "initialiser",
-          "named": true
-        },
-        {
-          "type": "parameter_list",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "def_parameter_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "def_parameter",
           "named": true
         }
       ]
@@ -2601,7 +2540,7 @@
           "named": true
         },
         {
-          "type": "def_parameter_list",
+          "type": "parameter_def_list",
           "named": true
         },
         {
@@ -4159,15 +4098,76 @@
       "required": true,
       "types": [
         {
-          "type": "def_parameter_list",
-          "named": true
-        },
-        {
           "type": "operator",
           "named": true
         },
         {
+          "type": "parameter_def_list",
+          "named": true
+        },
+        {
           "type": "statement_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter_def",
+    "named": true,
+    "fields": {
+      "parameter": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "initialiser",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter_def_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameter_def",
           "named": true
         }
       ]

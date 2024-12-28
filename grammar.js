@@ -82,7 +82,7 @@ module.exports = grammar({
 
             class_definition: $ => seq(
                 'class', optional($.attribute_list), field('name', $._identifier),
-                optional(seq('(', optional($.def_parameter_list), ')')),
+                optional(seq('(', optional($.parameter_def_list), ')')),
                 optional(seq(
                     ':', $._type_identifier, optional($.parameter_list),
                     repeat(seq(',', $._type_identifier, optional($.parameter_list)))
@@ -122,13 +122,13 @@ module.exports = grammar({
 
             function_def: $ => seq(
                 seq(field('name', $._identifier), repeat($.array_definition)),
-                '(', optional($.def_parameter_list), ')',
+                '(', optional($.parameter_def_list), ')',
                 $.statement_block
             ),
 
             operator_overload: $ => seq(
                 seq('operator', $.operator),
-                '(', optional($.def_parameter_list), ')',
+                '(', optional($.parameter_def_list), ')',
                 $.statement_block
             ),
 
@@ -151,11 +151,11 @@ module.exports = grammar({
                 choice('=', ':='), $._expression
             ),
 
-            def_parameter_list: $ => seq(
-                $.def_parameter, repeat(seq(',', $.def_parameter))
+            parameter_def_list: $ => seq(
+                $.parameter_def, repeat(seq(',', $.parameter_def))
             ),
 
-            def_parameter: $ => seq(
+            parameter_def: $ => seq(
                 optional(seq(choice($.base_type, $._type_identifier), optional($.parameter_list))),
                 field('parameter', $._identifier), repeat(seq('[', ']')), optional($.initialiser)
             ),
