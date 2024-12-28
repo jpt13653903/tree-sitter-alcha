@@ -1616,34 +1616,10 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "access_direction_group",
-          "named": true
-        },
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
-          "type": "assert",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "attribute_list",
-          "named": true
-        },
-        {
-          "type": "case",
-          "named": true
-        },
-        {
-          "type": "class_definition",
           "named": true
         },
         {
@@ -1651,99 +1627,15 @@
           "named": true
         },
         {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "emulate",
-          "named": true
-        },
-        {
-          "type": "enum_definition",
-          "named": true
-        },
-        {
-          "type": "for",
-          "named": true
-        },
-        {
-          "type": "fork_join",
-          "named": true
-        },
-        {
-          "type": "fsm",
-          "named": true
-        },
-        {
-          "type": "function_call_statement",
-          "named": true
-        },
-        {
-          "type": "goto",
-          "named": true
-        },
-        {
-          "type": "group_definition",
-          "named": true
-        },
-        {
-          "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "jump",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "namespace_push",
-          "named": true
-        },
-        {
           "type": "parameter_list",
           "named": true
         },
         {
-          "type": "rtl",
-          "named": true
-        },
-        {
-          "type": "stimulus",
-          "named": true
-        },
-        {
-          "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "switch",
+          "type": "statement_block",
           "named": true
         },
         {
           "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "wait",
-          "named": true
-        },
-        {
-          "type": "while",
           "named": true
         }
       ]
@@ -1860,24 +1752,8 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
-        {
-          "type": "access_direction_group",
-          "named": true
-        },
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
-          "type": "assert",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
         {
           "type": "attribute_list",
           "named": true
@@ -1891,79 +1767,7 @@
           "named": true
         },
         {
-          "type": "case",
-          "named": true
-        },
-        {
-          "type": "class_definition",
-          "named": true
-        },
-        {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "emulate",
-          "named": true
-        },
-        {
-          "type": "enum_definition",
-          "named": true
-        },
-        {
-          "type": "for",
-          "named": true
-        },
-        {
-          "type": "fork_join",
-          "named": true
-        },
-        {
-          "type": "fsm",
-          "named": true
-        },
-        {
-          "type": "function_call_statement",
-          "named": true
-        },
-        {
-          "type": "goto",
-          "named": true
-        },
-        {
-          "type": "group_definition",
-          "named": true
-        },
-        {
-          "type": "hdl",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "jump",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "namespace_push",
           "named": true
         },
         {
@@ -1971,27 +1775,7 @@
           "named": true
         },
         {
-          "type": "rtl",
-          "named": true
-        },
-        {
-          "type": "stimulus",
-          "named": true
-        },
-        {
-          "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "switch",
-          "named": true
-        },
-        {
-          "type": "wait",
-          "named": true
-        },
-        {
-          "type": "while",
+          "type": "statement_block",
           "named": true
         }
       ]
@@ -2603,118 +2387,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "access_direction_group",
-          "named": true
-        },
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
-          "type": "assert",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "case",
-          "named": true
-        },
-        {
-          "type": "class_definition",
-          "named": true
-        },
-        {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "emulate",
-          "named": true
-        },
-        {
-          "type": "enum_definition",
-          "named": true
-        },
-        {
-          "type": "for",
-          "named": true
-        },
-        {
-          "type": "fork_join",
-          "named": true
-        },
-        {
-          "type": "fsm",
-          "named": true
-        },
-        {
-          "type": "function_call_statement",
-          "named": true
-        },
-        {
-          "type": "goto",
-          "named": true
-        },
-        {
-          "type": "group_definition",
-          "named": true
-        },
-        {
-          "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "jump",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "namespace_push",
-          "named": true
-        },
-        {
-          "type": "rtl",
-          "named": true
-        },
-        {
-          "type": "stimulus",
-          "named": true
-        },
-        {
-          "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "switch",
-          "named": true
-        },
-        {
-          "type": "wait",
-          "named": true
-        },
-        {
-          "type": "while",
+          "type": "statement_block",
           "named": true
         }
       ]
@@ -2918,34 +2594,10 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "access_direction_group",
-          "named": true
-        },
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
           "type": "array_definition",
-          "named": true
-        },
-        {
-          "type": "assert",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "case",
-          "named": true
-        },
-        {
-          "type": "class_definition",
           "named": true
         },
         {
@@ -2953,91 +2605,7 @@
           "named": true
         },
         {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "emulate",
-          "named": true
-        },
-        {
-          "type": "enum_definition",
-          "named": true
-        },
-        {
-          "type": "for",
-          "named": true
-        },
-        {
-          "type": "fork_join",
-          "named": true
-        },
-        {
-          "type": "fsm",
-          "named": true
-        },
-        {
-          "type": "function_call_statement",
-          "named": true
-        },
-        {
-          "type": "goto",
-          "named": true
-        },
-        {
-          "type": "group_definition",
-          "named": true
-        },
-        {
-          "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "jump",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "namespace_push",
-          "named": true
-        },
-        {
-          "type": "rtl",
-          "named": true
-        },
-        {
-          "type": "stimulus",
-          "named": true
-        },
-        {
-          "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "switch",
-          "named": true
-        },
-        {
-          "type": "wait",
-          "named": true
-        },
-        {
-          "type": "while",
+          "type": "statement_block",
           "named": true
         }
       ]
@@ -3252,11 +2820,7 @@
           "named": true
         },
         {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "direction_specifier",
+          "type": "hdl_body",
           "named": true
         },
         {
@@ -3265,6 +2829,25 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hdl_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "direction_specifier",
           "named": true
         },
         {
@@ -4576,95 +4159,7 @@
       "required": true,
       "types": [
         {
-          "type": "access_direction_group",
-          "named": true
-        },
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
-          "type": "assert",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "case",
-          "named": true
-        },
-        {
-          "type": "class_definition",
-          "named": true
-        },
-        {
           "type": "def_parameter_list",
-          "named": true
-        },
-        {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "emulate",
-          "named": true
-        },
-        {
-          "type": "enum_definition",
-          "named": true
-        },
-        {
-          "type": "for",
-          "named": true
-        },
-        {
-          "type": "fork_join",
-          "named": true
-        },
-        {
-          "type": "fsm",
-          "named": true
-        },
-        {
-          "type": "function_call_statement",
-          "named": true
-        },
-        {
-          "type": "goto",
-          "named": true
-        },
-        {
-          "type": "group_definition",
-          "named": true
-        },
-        {
-          "type": "hdl",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "jump",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "namespace_push",
           "named": true
         },
         {
@@ -4672,27 +4167,7 @@
           "named": true
         },
         {
-          "type": "rtl",
-          "named": true
-        },
-        {
-          "type": "stimulus",
-          "named": true
-        },
-        {
-          "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "switch",
-          "named": true
-        },
-        {
-          "type": "wait",
-          "named": true
-        },
-        {
-          "type": "while",
+          "type": "statement_block",
           "named": true
         }
       ]
@@ -6187,24 +5662,8 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
-        {
-          "type": "access_direction_group",
-          "named": true
-        },
-        {
-          "type": "alias",
-          "named": true
-        },
-        {
-          "type": "assert",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
         {
           "type": "attribute_list",
           "named": true
@@ -6218,79 +5677,7 @@
           "named": true
         },
         {
-          "type": "case",
-          "named": true
-        },
-        {
-          "type": "class_definition",
-          "named": true
-        },
-        {
-          "type": "definition",
-          "named": true
-        },
-        {
-          "type": "emulate",
-          "named": true
-        },
-        {
-          "type": "enum_definition",
-          "named": true
-        },
-        {
-          "type": "for",
-          "named": true
-        },
-        {
-          "type": "fork_join",
-          "named": true
-        },
-        {
-          "type": "fsm",
-          "named": true
-        },
-        {
-          "type": "function_call_statement",
-          "named": true
-        },
-        {
-          "type": "goto",
-          "named": true
-        },
-        {
-          "type": "group_definition",
-          "named": true
-        },
-        {
-          "type": "hdl",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "jump",
-          "named": true
-        },
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "namespace_push",
           "named": true
         },
         {
@@ -6298,27 +5685,7 @@
           "named": true
         },
         {
-          "type": "rtl",
-          "named": true
-        },
-        {
-          "type": "stimulus",
-          "named": true
-        },
-        {
-          "type": "struct_definition",
-          "named": true
-        },
-        {
-          "type": "switch",
-          "named": true
-        },
-        {
-          "type": "wait",
-          "named": true
-        },
-        {
-          "type": "while",
+          "type": "statement_block",
           "named": true
         }
       ]

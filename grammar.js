@@ -86,7 +86,7 @@ module.exports = grammar({
                 optional(seq(
                     ':', $._type_identifier, optional($.parameter_list),
                     repeat(seq(',', $._type_identifier, optional($.parameter_list)))
-                )), '{', repeat($._statement), '}'
+                )), $.statement_block
             ),
 
             access_direction_group: $ => seq(
@@ -94,7 +94,7 @@ module.exports = grammar({
                     $.access_specifier,
                     $.direction_specifier,
                     seq($.access_specifier, $.direction_specifier)
-                ), $.statement_block
+                ), $._statement_block
             ),
 
             access_specifier: $ => choice(
@@ -123,13 +123,13 @@ module.exports = grammar({
             function_def: $ => seq(
                 seq(field('name', $._identifier), repeat($.array_definition)),
                 '(', optional($.def_parameter_list), ')',
-                '{', repeat($._statement), '}'
+                $.statement_block
             ),
 
             operator_overload: $ => seq(
                 seq('operator', $.operator),
                 '(', optional($.def_parameter_list), ')',
-                '{', repeat($._statement), '}'
+                $.statement_block
             ),
 
             operator: $ => choice(
@@ -182,9 +182,13 @@ module.exports = grammar({
             )),
 
         // Statements
-            statement_block: $ => choice(
-                $._statement,
-                seq('{', repeat($._statement), '}')
+            _statement_block: $ => choice(
+                alias($._statement, $.statement_block),
+                $.statement_block
+            ),
+
+            statement_block: $ => seq(
+                '{', repeat($._statement), '}'
             ),
 
             alias: $ => seq(
@@ -204,11 +208,7 @@ module.exports = grammar({
             ),
 
             group_definition: $ => seq(
-                'group', optional($.attribute_list), optional(field('name', $._identifier)), $.group_body
-            ),
-
-            group_body: $ => seq(
-                '{', repeat($._statement), '}'
+                'group', optional($.attribute_list), optional(field('name', $._identifier)), alias($.statement_block, $.group_body)
             ),
 
             function_call_statement: $ => seq(
@@ -233,28 +233,28 @@ module.exports = grammar({
             ),
 
             if_statement: $ => prec.right(seq(
-                'if', '(', $._expression, ')', $.statement_block, optional(seq('else', $.statement_block))
+                'if', '(', $._expression, ')', $._statement_block, optional(seq('else', $._statement_block))
             )),
 
             for: $ => seq(
-                'for', '(', $._identifier, 'in', $._expression, ')', $.statement_block
+                'for', '(', $._identifier, 'in', $._expression, ')', $._statement_block
             ),
 
             while: $ => seq(
-                'while', '(', $._expression, ')', $.statement_block
+                'while', '(', $._expression, ')', $._statement_block
             ),
 
             loop: $ => seq(
-                'loop', optional(seq('(', $._expression, ')')), $.statement_block
+                'loop', optional(seq('(', $._expression, ')')), $._statement_block
             ),
 
             switch: $ => seq(
-                'switch', '(', $._expression, ')', $.statement_block
+                'switch', '(', $._expression, ')', $._statement_block
             ),
 
             case: $ => choice(
-                seq('case', '(', $.expression_list, ')', $.statement_block),
-                seq('default', $.statement_block),
+                seq('case', '(', $.expression_list, ')', $._statement_block),
+                seq('default', $._statement_block),
             ),
 
             jump: $ => seq(
@@ -266,21 +266,25 @@ module.exports = grammar({
             ),
 
             rtl: $ => prec(28, seq(
-                'rtl', optional($.attribute_list), optional($.parameter_list), $.statement_block
+                'rtl', optional($.attribute_list), optional($.parameter_list), $._statement_block
             )),
 
             fsm: $ => prec(28, seq(
-                'fsm', optional($.attribute_list), optional($.parameter_list), $.statement_block
+                'fsm', optional($.attribute_list), optional($.parameter_list), $._statement_block
             )),
 
             hdl: $ => seq(
                 'hdl', optional($.attribute_list), $.hdl_files, $._identifier,
                 optional(seq('(', repeat($.assignment), ')')),
-                '{', repeat(choice(seq(optional($.direction_specifier), $.definition), $.stimulus)), '}'
+                $.hdl_body
             ),
 
             hdl_files: $ => seq(
                 '(', optional(seq(alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))))), ')'
+            ),
+
+            hdl_body: $ => seq(
+                '{', repeat(choice(seq(optional($.direction_specifier), $.definition), $.stimulus)), '}'
             ),
 
         // Expressions
@@ -458,16 +462,16 @@ module.exports = grammar({
         // Verification
             stimulus: $ => seq(
                 'stimulus', optional($.attribute_list), optional($.parameter_list),
-                optional($._identifier), '{', repeat($._statement), '}'
+                optional($._identifier), $.statement_block
             ),
 
             emulate: $ => seq(
                 'emulate', optional($.attribute_list), optional($.parameter_list),
-                optional($._identifier), '{', repeat($._statement), '}'
+                optional($._identifier), $.statement_block
             ),
 
             fork_join: $ => seq(
-                '{', repeat($._statement), '}', repeat1(seq(choice('||', '&&'), '{', repeat($._statement), '}'))
+                $.statement_block, repeat1(seq(choice('||', '&&'), $.statement_block))
             ),
 
             wait: $ => choice(

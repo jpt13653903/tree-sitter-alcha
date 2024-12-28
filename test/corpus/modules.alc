@@ -441,15 +441,16 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
 (module
   (class_definition
     name: (identifier)
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier)))
+    (statement_block
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))))
   (class_definition
     name: (identifier)
     (def_parameter_list
@@ -462,82 +463,16 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
       (def_parameter
         (base_type)
         parameter: (identifier)))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier)))
-  (class_definition
-    (attribute_list
-      (attribute_assignment
+    (statement_block
+      (assignment
         (identifier)
-        (literal
-          (dec_literal)))
-      (attribute_assignment
+        (identifier))
+      (assignment
         (identifier)
-        (literal
-          (dec_literal)))
-      (attribute_assignment
+        (identifier))
+      (assignment
         (identifier)
-        (literal
-          (dec_literal))))
-    name: (identifier)
-    (def_parameter_list
-      (def_parameter
-        (base_type)
-        parameter: (identifier))
-      (def_parameter
-        (base_type)
-        parameter: (identifier))
-      (def_parameter
-        (base_type)
-        parameter: (identifier)))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier)))
-  (class_definition
-    name: (identifier)
-    (def_parameter_list
-      (def_parameter
-        (base_type)
-        parameter: (identifier))
-      (def_parameter
-        (base_type)
-        parameter: (identifier))
-      (def_parameter
-        (base_type)
-        parameter: (identifier)))
-    (type_identifier
-      (identifier))
-    (parameter_list
-      value: (identifier)
-      value: (identifier)
-      value: (identifier))
-    (type_identifier
-      (identifier))
-    (parameter_list
-      value: (identifier)
-      value: (identifier)
-      value: (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier)))
+        (identifier))))
   (class_definition
     (attribute_list
       (attribute_assignment
@@ -563,21 +498,50 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
       (def_parameter
         (base_type)
         parameter: (identifier)))
+    (statement_block
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))))
+  (class_definition
+    name: (identifier)
+    (def_parameter_list
+      (def_parameter
+        (base_type)
+        parameter: (identifier))
+      (def_parameter
+        (base_type)
+        parameter: (identifier))
+      (def_parameter
+        (base_type)
+        parameter: (identifier)))
     (type_identifier
       (identifier))
     (parameter_list
       value: (identifier)
       value: (identifier)
       value: (identifier))
-    (assignment
-      (identifier)
+    (type_identifier
       (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier)))
+    (parameter_list
+      value: (identifier)
+      value: (identifier)
+      value: (identifier))
+    (statement_block
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))))
   (class_definition
     (attribute_list
       (attribute_assignment
@@ -609,21 +573,63 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
       value: (identifier)
       value: (identifier)
       value: (identifier))
+    (statement_block
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))))
+  (class_definition
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal))))
+    name: (identifier)
+    (def_parameter_list
+      (def_parameter
+        (base_type)
+        parameter: (identifier))
+      (def_parameter
+        (base_type)
+        parameter: (identifier))
+      (def_parameter
+        (base_type)
+        parameter: (identifier)))
     (type_identifier
       (identifier))
     (parameter_list
       value: (identifier)
       value: (identifier)
       value: (identifier))
-    (assignment
-      (identifier)
+    (type_identifier
       (identifier))
-    (assignment
-      (identifier)
-      (identifier))
-    (assignment
-      (identifier)
-      (identifier))))
+    (parameter_list
+      value: (identifier)
+      value: (identifier)
+      value: (identifier))
+    (statement_block
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier))
+      (assignment
+        (identifier)
+        (identifier)))))
 
 ================================================================================
 Function Definition
@@ -666,14 +672,15 @@ inline void ABC(A, B, C){
         (def_parameter
           (base_type)
           parameter: (identifier)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))))
+      (statement_block
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal))))))
   (definition
     (base_type)
     (function_def
@@ -699,14 +706,15 @@ inline void ABC(A, B, C){
           (initialiser
             (literal
               (dec_literal)))))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))))
+      (statement_block
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal))))))
   (definition
     (base_type)
     (function_def
@@ -718,14 +726,15 @@ inline void ABC(A, B, C){
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))))
+      (statement_block
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal))))))
   (definition
     (base_type)
     (function_def
@@ -737,14 +746,15 @@ inline void ABC(A, B, C){
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal))))))
+      (statement_block
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)
+          (literal
+            (dec_literal)))))))
 
 ================================================================================
 Enum Definition
@@ -1689,37 +1699,38 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
       (identifier)
       (literal
         (dec_literal)))
-    (direction_specifier)
-    (definition
-      (base_type)
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (direction_specifier)
-    (definition
-      (base_type)
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (direction_specifier)
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))))
-    (definition
-      (base_type)
-      (parameter_list
-        value: (literal
-          (dec_literal))
-        value: (literal
-          (dec_literal)))
-      (identifier_list
-        (variable_def
-          (identifier))))))
+    (hdl_body
+      (direction_specifier)
+      (definition
+        (base_type)
+        (identifier_list
+          (variable_def
+            (identifier))))
+      (direction_specifier)
+      (definition
+        (base_type)
+        (identifier_list
+          (variable_def
+            (identifier))))
+      (direction_specifier)
+      (definition
+        (base_type)
+        (parameter_list
+          value: (literal
+            (dec_literal)))
+        (identifier_list
+          (variable_def
+            (identifier))))
+      (definition
+        (base_type)
+        (parameter_list
+          value: (literal
+            (dec_literal))
+          value: (literal
+            (dec_literal)))
+        (identifier_list
+          (variable_def
+            (identifier)))))))
 
 ================================================================================
 Verification
@@ -1815,14 +1826,15 @@ assert A == B;
       value: (literal
         (dec_literal)))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (stimulus
     (attribute_list
       (attribute_assignment
@@ -1834,14 +1846,15 @@ assert A == B;
         (literal
           (dec_literal))))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (stimulus
     (parameter_list
       value: (literal
@@ -1851,39 +1864,15 @@ assert A == B;
       value: (literal
         (dec_literal)))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
-  (stimulus
-    (attribute_list
-      (attribute_assignment
+    (statement_block
+      (assignment
         (identifier)
         (literal
           (dec_literal)))
-      (attribute_assignment
+      (assignment
         (identifier)
         (literal
-          (dec_literal))))
-    (parameter_list
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+          (dec_literal)))))
   (stimulus
     (attribute_list
       (attribute_assignment
@@ -1901,15 +1890,42 @@ assert A == B;
         (dec_literal))
       value: (literal
         (dec_literal)))
-    (identifier)
-    (assignment
-      (identifier)
-      (literal
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (stimulus
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal))))
+    (parameter_list
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal))
+      value: (literal
         (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+    (identifier)
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (emulate
     (attribute_list
       (attribute_assignment
@@ -1928,14 +1944,15 @@ assert A == B;
       value: (literal
         (dec_literal)))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (emulate
     (attribute_list
       (attribute_assignment
@@ -1947,14 +1964,15 @@ assert A == B;
         (literal
           (dec_literal))))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (emulate
     (parameter_list
       value: (literal
@@ -1964,39 +1982,15 @@ assert A == B;
       value: (literal
         (dec_literal)))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
-  (emulate
-    (attribute_list
-      (attribute_assignment
+    (statement_block
+      (assignment
         (identifier)
         (literal
           (dec_literal)))
-      (attribute_assignment
+      (assignment
         (identifier)
         (literal
-          (dec_literal))))
-    (parameter_list
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+          (dec_literal)))))
   (emulate
     (attribute_list
       (attribute_assignment
@@ -2014,81 +2008,113 @@ assert A == B;
         (dec_literal))
       value: (literal
         (dec_literal)))
-    (identifier)
-    (assignment
-      (identifier)
-      (literal
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (emulate
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal))))
+    (parameter_list
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal))
+      value: (literal
         (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal))))
+    (identifier)
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
   (fork_join
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier))
-    (assignment
-      (identifier)))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier))
+      (assignment
+        (identifier))))
   (fork_join
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier))
-    (assignment
-      (identifier)))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier))
+      (assignment
+        (identifier))))
   (stimulus
     (parameter_list
       value: (literal
         (dec_literal)
         (exponent)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (wait
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (wait
-      (sensitivity_list
-        (identifier)))
-    (wait
-      (sensitivity_list
+    (statement_block
+      (assignment
         (identifier)
-        (identifier)))
-    (wait
-      (sensitivity_list
+        (literal
+          (dec_literal)))
+      (wait
+        (literal
+          (dec_literal)))
+      (assignment
         (identifier)
-        (identifier)))
-    (wait
-      (sequence
-        (equality
+        (literal
+          (dec_literal)))
+      (wait
+        (sensitivity_list
+          (identifier)))
+      (wait
+        (sensitivity_list
           (identifier)
-          (literal
-            (dec_literal)))))
-    (loop
-      (statement_block
-        (wait
-          (literal
-            (dec_literal)))
-        (assignment
-          (identifier)))))
+          (identifier)))
+      (wait
+        (sensitivity_list
+          (identifier)
+          (identifier)))
+      (wait
+        (sequence
+          (equality
+            (identifier)
+            (literal
+              (dec_literal)))))
+      (loop
+        (statement_block
+          (wait
+            (literal
+              (dec_literal)))
+          (assignment
+            (identifier))))))
   (assert
     (sequence
       (equality
@@ -2155,8 +2181,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2166,8 +2193,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2177,8 +2205,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2188,8 +2217,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2199,8 +2229,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2210,8 +2241,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2221,8 +2253,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2232,8 +2265,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2243,8 +2277,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2254,8 +2289,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2265,8 +2301,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2276,8 +2313,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2287,8 +2325,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2298,8 +2337,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2309,8 +2349,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2320,8 +2361,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2331,8 +2373,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2342,8 +2385,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2353,8 +2397,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2364,8 +2409,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2375,8 +2421,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2386,8 +2433,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2397,8 +2445,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2408,8 +2457,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2419,8 +2469,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2430,8 +2481,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2441,8 +2493,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2452,8 +2505,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2463,8 +2517,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2474,8 +2529,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2485,8 +2541,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2496,8 +2553,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2507,8 +2565,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2518,8 +2577,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2529,8 +2589,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2540,8 +2601,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2551,8 +2613,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2562,8 +2625,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2573,8 +2637,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2584,8 +2649,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2595,8 +2661,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2606,8 +2673,9 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier))))
+      (statement_block
+        (jump
+          (identifier)))))
   (definition
     (base_type)
     (operator_overload
@@ -2617,6 +2685,7 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (def_parameter
           parameter: (identifier)))
-      (jump
-        (identifier)))))
+      (statement_block
+        (jump
+          (identifier))))))
 
