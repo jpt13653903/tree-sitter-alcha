@@ -220,11 +220,11 @@ module.exports = grammar({
             ),
 
             namespace_push: $ => prec.left(35, seq(
-                $._postfix, '.{', repeat($._statement), '}'
+                $._accessor, '.{', repeat($._statement), '}'
             )),
 
             assignment: $ => seq(
-                $._postfix,
+                $._accessor,
                 choice(
                     seq(
                         choice('=', ':=', '~=', '+=' , '-=' , '*=' , '/=' , '**=', '%=', '&=', '|=', '^=', '<<=', '>>='),
@@ -382,7 +382,7 @@ module.exports = grammar({
                 repeat1(choice('-', '~', ':', '++', '--')), $._expression
             )),
 
-            _postfix: $ => prec(24, choice(
+            _accessor: $ => prec(24, choice(
                 $._primary,
                 $.cast,
                 $.slice,
@@ -485,8 +485,8 @@ module.exports = grammar({
             ),
 
             sensitivity_list: $ => seq(
-                optional(choice('posedge', 'negedge')), $._expression,
-                repeat(seq(',', optional(choice('posedge', 'negedge')), $._expression))
+                optional(choice('posedge', 'negedge')), $._accessor,
+                repeat(seq(',', optional(choice('posedge', 'negedge')), $._accessor))
             ),
 
             assert: $ => seq(

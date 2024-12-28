@@ -1359,7 +1359,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_postfix"
+            "name": "_accessor"
           },
           {
             "type": "STRING",
@@ -1384,7 +1384,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_postfix"
+          "name": "_accessor"
         },
         {
           "type": "CHOICE",
@@ -2661,7 +2661,7 @@
         ]
       }
     },
-    "_postfix": {
+    "_accessor": {
       "type": "PREC",
       "value": 24,
       "content": {
@@ -3368,7 +3368,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "_accessor"
         },
         {
           "type": "REPEAT",
@@ -3402,7 +3402,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_expression"
+                "name": "_accessor"
               }
             ]
           }
