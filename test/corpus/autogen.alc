@@ -124,7 +124,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
             (identifier)
             (identifier))
           (parameter_list
-            value: (identifier))))
+            value: (builtin_variable))))
       (line_comment)
       (access_direction_group
         (access_specifier)

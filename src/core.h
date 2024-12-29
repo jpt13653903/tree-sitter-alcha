@@ -148,7 +148,12 @@ static void register_functions(TokenTree* token_tree)
     token_tree_insert(token_tree, "fell",       BUILTIN_FUNC);
     token_tree_insert(token_tree, "stable",     BUILTIN_FUNC);
     token_tree_insert(token_tree, "past",       BUILTIN_FUNC);
+}
+//------------------------------------------------------------------------------
 
+static void register_variables(TokenTree* token_tree)
+{
+    token_tree_insert(token_tree, "this", BUILTIN_VARIABLE);
 }
 //------------------------------------------------------------------------------
 
@@ -158,6 +163,7 @@ void register_core(TokenTree* token_tree)
     register_constants(token_tree);
     register_specials (token_tree);
     register_functions(token_tree);
+    register_variables(token_tree);
 }
 //------------------------------------------------------------------------------
 

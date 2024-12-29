@@ -76,6 +76,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -204,6 +208,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -368,6 +376,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -482,6 +494,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -537,6 +553,10 @@
           },
           {
             "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
             "named": true
           },
           {
@@ -680,6 +700,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -808,6 +832,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -957,6 +985,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -1093,6 +1125,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -1224,6 +1260,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -1352,6 +1392,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -1505,6 +1549,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -1608,6 +1656,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -1706,6 +1758,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1737,6 +1793,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         }
@@ -1757,6 +1817,10 @@
           },
           {
             "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
             "named": true
           },
           {
@@ -1823,6 +1887,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -1957,6 +2025,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -2088,6 +2160,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -2216,6 +2292,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -2351,6 +2431,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -2527,6 +2611,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -2645,6 +2733,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -2684,6 +2776,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -2833,6 +2929,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -2876,6 +2976,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -2995,6 +3099,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -3098,6 +3206,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "filename",
           "named": true
         },
@@ -3154,6 +3266,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -3288,6 +3404,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -3384,6 +3504,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -3486,6 +3610,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -3621,6 +3749,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -3879,6 +4011,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -4023,6 +4159,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -4249,6 +4389,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -4347,6 +4491,10 @@
           },
           {
             "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
             "named": true
           },
           {
@@ -4500,6 +4648,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -4628,6 +4780,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -4762,6 +4918,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -4893,6 +5053,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -5021,6 +5185,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -5178,6 +5346,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -5306,6 +5478,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -5440,6 +5616,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -5568,6 +5748,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -5797,6 +5981,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -5857,6 +6045,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -5995,6 +6187,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -6113,6 +6309,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -6180,6 +6380,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -6326,6 +6530,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -6465,6 +6673,10 @@
           },
           {
             "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
             "named": true
           },
           {
@@ -6610,6 +6822,10 @@
             "named": true
           },
           {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -6750,6 +6966,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -6881,6 +7101,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -6984,6 +7208,10 @@
           "named": true
         },
         {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -7055,6 +7283,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -7194,6 +7426,10 @@
         },
         {
           "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
           "named": true
         },
         {
@@ -7565,6 +7801,10 @@
   },
   {
     "type": "builtin_func",
+    "named": true
+  },
+  {
+    "type": "builtin_variable",
     "named": true
   },
   {

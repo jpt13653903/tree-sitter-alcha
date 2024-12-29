@@ -19,6 +19,7 @@ module.exports = grammar({
         $.identifier,
         $.builtin_const,
         $.builtin_func,
+        $.builtin_variable,
 
         $._string_byte,
         $._interpolated_byte,
@@ -511,7 +512,8 @@ module.exports = grammar({
             _identifier: $ => choice(
                 $.identifier,
                 $.builtin_const,
-                $.builtin_func
+                $.builtin_func,
+                $.builtin_variable
             ),
 
             string: $ => choice(

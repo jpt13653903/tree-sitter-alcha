@@ -38,6 +38,8 @@
 (builtin_const) @constant.builtin
 (builtin_func) @function.builtin
 
+(builtin_variable) @variable.builtin
+
 [
   "true"
   "false"
@@ -69,6 +71,13 @@
 ] @keyword.import
 
 [
+  "class"
+  "enum"
+  "struct"
+  "group"
+] @keyword.type
+
+[
   "void"
   "auto"
   "pin"
@@ -76,11 +85,7 @@
   "byte"
   "char"
   "num"
-  "class"
-  "enum"
-  "struct"
-  "group"
-] @keyword.type
+] @type.buildin
 
 [
   "input"

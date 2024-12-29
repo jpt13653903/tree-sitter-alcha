@@ -435,6 +435,12 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
     E = B;
     F = C;
 }
+class myClass{
+    num a;
+    num memberFunc(a, b, c){
+        this.a = a;
+    }
+}
 
 --------------------------------------------------------------------------------
 
@@ -629,7 +635,32 @@ class <A=3, B=1, C=7> MyClass(num D, pin E, byte F): ParentClass1(A, B, C), Pare
         (identifier))
       (assignment
         (identifier)
-        (identifier)))))
+        (identifier))))
+  (class_definition
+    name: (identifier)
+    (statement_block
+      (definition
+        (base_type)
+        (identifier_list
+          (variable_def
+            (identifier))))
+      (definition
+        (base_type)
+        (function_def
+          name: (identifier)
+          (parameter_def_list
+            (parameter_def
+              parameter: (identifier))
+            (parameter_def
+              parameter: (identifier))
+            (parameter_def
+              parameter: (identifier)))
+          (statement_block
+            (assignment
+              (member_reference
+                (builtin_variable)
+                (identifier))
+              (identifier))))))))
 
 ================================================================================
 Function Definition

@@ -3521,6 +3521,10 @@
         {
           "type": "SYMBOL",
           "name": "builtin_func"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "builtin_variable"
         }
       ]
     },
@@ -3690,6 +3694,10 @@
     {
       "type": "SYMBOL",
       "name": "builtin_func"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "builtin_variable"
     },
     {
       "type": "SYMBOL",
