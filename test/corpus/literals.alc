@@ -21,6 +21,8 @@ X = "ABC";
 X = "ABC\nlkjh\rklkjh\123hi\&rightArrow;\xab\uabcdefg\Uabcdef1234567";
 X = $"I have {x} sheep";
 X = $"I have {x+y} sheep";
+X = $"I have {x+y, "03x"} sheep";
+X = $"I have {x+y, format} sheep";
 
 --------------------------------------------------------------------------------
 
@@ -120,5 +122,19 @@ X = $"I have {x+y} sheep";
     (string
       (additive
         (identifier)
-        (identifier)))))
+        (identifier))))
+  (assignment
+    (identifier)
+    (string
+      (additive
+        (identifier)
+        (identifier))
+      (string)))
+  (assignment
+    (identifier)
+    (string
+      (additive
+        (identifier)
+        (identifier))
+      (identifier))))
 

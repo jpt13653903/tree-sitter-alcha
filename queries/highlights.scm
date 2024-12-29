@@ -228,9 +228,7 @@
 
 (string
   "{" @nospell @string.escape
-  .
   (_)* @nospell
-  .
   "}" @nospell @string.escape)
 
 (attribute_list

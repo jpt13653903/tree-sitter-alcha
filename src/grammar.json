@@ -3573,28 +3573,44 @@
                     "name": "_interpolated_byte"
                   },
                   {
-                    "type": "CHOICE",
+                    "type": "SYMBOL",
+                    "name": "escape_sequence"
+                  },
+                  {
+                    "type": "SEQ",
                     "members": [
                       {
-                        "type": "SYMBOL",
-                        "name": "escape_sequence"
+                        "type": "STRING",
+                        "value": "{"
                       },
                       {
-                        "type": "SEQ",
+                        "type": "SYMBOL",
+                        "name": "_expression"
+                      },
+                      {
+                        "type": "CHOICE",
                         "members": [
                           {
-                            "type": "STRING",
-                            "value": "{"
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "STRING",
+                                "value": ","
+                              },
+                              {
+                                "type": "SYMBOL",
+                                "name": "_expression"
+                              }
+                            ]
                           },
                           {
-                            "type": "SYMBOL",
-                            "name": "_expression"
-                          },
-                          {
-                            "type": "STRING",
-                            "value": "}"
+                            "type": "BLANK"
                           }
                         ]
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "}"
                       }
                     ]
                   }

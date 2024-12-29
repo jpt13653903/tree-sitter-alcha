@@ -516,7 +516,11 @@ module.exports = grammar({
 
             string: $ => choice(
                 seq('"',  repeat(choice($._string_byte, $.escape_sequence)), '"'),
-                seq('$"', repeat(choice($._interpolated_byte, choice($.escape_sequence, seq('{', $._expression, '}')))), '"'),
+                seq('$"', repeat(choice(
+                    $._interpolated_byte,
+                    $.escape_sequence,
+                    seq('{', $._expression, optional(seq(',', $._expression)), '}')
+                )), '"'),
             ),
     }
 });
