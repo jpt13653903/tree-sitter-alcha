@@ -1520,6 +1520,8 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
 
     pin(16, 5) AnotherPin;
 }
+ABC() abc;
+myClass.Data.hdl_map(abc.Data);
 
 --------------------------------------------------------------------------------
 
@@ -1730,7 +1732,25 @@ hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
             (dec_literal)))
         (identifier_list
           (variable_def
-            (identifier)))))))
+            (identifier))))))
+  (definition
+    (type_identifier
+      (identifier))
+    (parameter_list)
+    (identifier_list
+      (variable_def
+        (identifier))))
+  (function_call_statement
+    (function_call
+      (member_reference
+        (member_reference
+          (identifier)
+          (identifier))
+        (builtin_func))
+      (parameter_list
+        value: (member_reference
+          (identifier)
+          (identifier))))))
 
 ================================================================================
 Verification

@@ -139,6 +139,7 @@ static void register_functions(TokenTree* token_tree)
     token_tree_insert(token_tree, "print",      BUILTIN_FUNC);
 
     token_tree_insert(token_tree, "finally",    BUILTIN_FUNC);
+    token_tree_insert(token_tree, "hdl_map",    BUILTIN_FUNC);
 
     token_tree_insert(token_tree, "eval",       BUILTIN_FUNC);
     token_tree_insert(token_tree, "shell",      BUILTIN_FUNC);
@@ -147,6 +148,7 @@ static void register_functions(TokenTree* token_tree)
     token_tree_insert(token_tree, "fell",       BUILTIN_FUNC);
     token_tree_insert(token_tree, "stable",     BUILTIN_FUNC);
     token_tree_insert(token_tree, "past",       BUILTIN_FUNC);
+
 }
 //------------------------------------------------------------------------------
 
