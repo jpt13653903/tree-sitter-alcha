@@ -21,6 +21,7 @@ module.exports = grammar({
         $.builtin_func,
 
         $._string_byte,
+        $._interpolated_byte,
         $.escape_sequence,
 
         $.bin_prefix,
@@ -513,6 +514,9 @@ module.exports = grammar({
                 $.builtin_func
             ),
 
-            string: $ => seq('"', repeat(choice($._string_byte, $.escape_sequence)), '"'),
+            string: $ => choice(
+                seq('"',  repeat(choice($._string_byte, $.escape_sequence)), '"'),
+                seq('$"', repeat(choice($._interpolated_byte, choice($.escape_sequence, seq('{', $._expression, '}')))), '"'),
+            ),
     }
 });

@@ -19,6 +19,8 @@ X = 8.9j;
 X = "A";
 X = "ABC";
 X = "ABC\nlkjh\rklkjh\123hi\&rightArrow;\xab\uabcdefg\Uabcdef1234567";
+X = $"I have {x} sheep";
+X = $"I have {x+y} sheep";
 
 --------------------------------------------------------------------------------
 
@@ -108,5 +110,15 @@ X = "ABC\nlkjh\rklkjh\123hi\&rightArrow;\xab\uabcdefg\Uabcdef1234567";
       (escape_sequence)
       (escape_sequence)
       (escape_sequence)
-      (escape_sequence))))
+      (escape_sequence)))
+  (assignment
+    (identifier)
+    (string
+      (identifier)))
+  (assignment
+    (identifier)
+    (string
+      (additive
+        (identifier)
+        (identifier)))))
 

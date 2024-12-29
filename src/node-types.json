@@ -2179,7 +2179,127 @@
       "required": false,
       "types": [
         {
+          "type": "additive",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "attribute_reference",
+          "named": true
+        },
+        {
+          "type": "bitwise_and",
+          "named": true
+        },
+        {
+          "type": "bitwise_or",
+          "named": true
+        },
+        {
+          "type": "bitwise_xor",
+          "named": true
+        },
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "cast",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
           "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "exponential",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_reference",
+          "named": true
+        },
+        {
+          "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "postfix",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "reduction",
+          "named": true
+        },
+        {
+          "type": "relational",
+          "named": true
+        },
+        {
+          "type": "replication",
+          "named": true
+        },
+        {
+          "type": "shift",
+          "named": true
+        },
+        {
+          "type": "slice",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "ternary",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "vector_concat",
           "named": true
         }
       ]
@@ -5700,7 +5820,127 @@
       "required": false,
       "types": [
         {
+          "type": "additive",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "attribute_reference",
+          "named": true
+        },
+        {
+          "type": "bitwise_and",
+          "named": true
+        },
+        {
+          "type": "bitwise_or",
+          "named": true
+        },
+        {
+          "type": "bitwise_xor",
+          "named": true
+        },
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "cast",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
           "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "exponential",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_reference",
+          "named": true
+        },
+        {
+          "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "postfix",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "reduction",
+          "named": true
+        },
+        {
+          "type": "relational",
+          "named": true
+        },
+        {
+          "type": "replication",
+          "named": true
+        },
+        {
+          "type": "shift",
+          "named": true
+        },
+        {
+          "type": "slice",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "ternary",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "vector_concat",
           "named": true
         }
       ]
@@ -7065,6 +7305,10 @@
   },
   {
     "type": "$",
+    "named": false
+  },
+  {
+    "type": "$\"",
     "named": false
   },
   {
