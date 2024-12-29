@@ -30,7 +30,7 @@
 
 (imag_suffix) @attribute.builtin
 
-(filename) @string
+(filename) @string.special.path
 (filename
   (escape_sequence) @string.escape)
 
@@ -98,10 +98,13 @@
 
 [
   "for"
-  "in"
   "while"
   "loop"
 ] @keyword.repeat
+
+[
+  "in"
+] @keyword.operator
 
 [
   "return"
@@ -186,6 +189,12 @@
   "&&&"
 ] @operator
 
+(ternary
+  "?" @keyword.conditional.ternary
+  ":" @keyword.conditional.ternary)
+(ternary
+  "?:" @keyword.conditional.ternary)
+
 [
   "."
   "'"
@@ -232,9 +241,12 @@
   .)
 
 (string
-  "{" @nospell @string.escape
+  "{" @nospell @punctuation.special
   (_)* @nospell
-  "}" @nospell @string.escape)
+  "}" @nospell @punctuation.special)
+(filename
+  "{" @punctuation.special
+  "}" @punctuation.special)
 
 (attribute_list
   "<" @punctuation.bracket
@@ -251,6 +263,11 @@
 (type_identifier
   (identifier)* @module
   (identifier) @type .)
+(definition
+  (type_identifier
+    (identifier)* @module
+    (identifier) @constructor .)
+  (parameter_list))
 (class_definition
   name: (identifier) @type.definition)
 (struct_definition
@@ -268,10 +285,8 @@
   parameter: (_) @variable.parameter)
 
 (attribute_reference
-  (_)
-  (identifier) @attribute)
-(attribute_reference
-  . (identifier) @attribute .)
+  (_)*
+  (identifier) @attribute .)
 
 (import
   (identifier) @module)
