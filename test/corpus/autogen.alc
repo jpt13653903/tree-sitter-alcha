@@ -3,101 +3,101 @@ Autogen
 ================================================================================
 
 class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
-  Bus.Attach(this);
-  //----------------------------------------------------------------------------
+    Bus.Attach(this);
+    //----------------------------------------------------------------------------
 
-  private{
-    'RdRegisters   = [];
-    'WrRegisters   = [];
-    'LiveRegisters = [];
-    num Count = 0;
-  }
-  //----------------------------------------------------------------------------
-
-  public{
-    // Register direction as seen by the controller
-    void ReadOnly(Register){
-      Register'Address = Count++;
-      'RdRegisters.append(Register);
+    private{
+        'RdRegisters   = [];
+        'WrRegisters   = [];
+        'LiveRegisters = [];
+        num Count = 0;
     }
-    void Writeable(Register){
-      Register'Address = Count++;
-      'WrRegisters.append(Register);
-    }
-    void Live(RdRegister, WrRegister, WrStrobe){
-      RdRegister'Address = Count;
-      WrRegister'Address = Count;
-      WrStrobe  'Address = Count;
-      'LiveRegisters.append(< Read   = RdRegister,
-                              Write  = WrRegister,
-                              Strobe = WrStrobe >);
-      Count++;
-    }
-    //--------------------------------------------------------------------------
+    //----------------------------------------------------------------------------
 
-    net(32) Resize(x){
-      result := x; // Raw-assign the bits
-      num N = x'width;
-      if((x'fullscale < 0) & (N < 31)) // Sign-extend
-        result(31..(N+1)) := (x(N))`(31-N);
-    }
-    //--------------------------------------------------------------------------
-
-    void GenerateRegs(){
-      rtl(Bus.Clock, Bus.Reset){
-        WaitRequest = 0;
-
-        switch(Address){
-          for(Register in 'RdRegisters){
-            case(Register'Address) ReadData = Resize(Register);
-          }
-          for(Register in 'WrRegisters){
-            case(Register'Address) ReadData = Resize(Register);
-          }
-          for(Register in 'LiveRegisters){
-            case(Register'Read'Address) ReadData = Resize(Register'Read);
-          }
+    public{
+        // Register direction as seen by the controller
+        void ReadOnly(Register){
+            Register'Address = Count++;
+            'RdRegisters.append(Register);
         }
-        ReadValid = Read;
-
-        if(Write){
-          switch(Address){
-            for(Register in 'WrRegisters){
-              case(Register'Address) Register := WriteData;
-            }
-            for(Register in 'LiveRegisters){
-              case(Register'Write'Address) Register'Write := WriteData;
-            }
-          }
-          for(Register in 'LiveRegisters){
-            Register'Strobe = ((Address == Register'Strobe'Address) & Write);
-          }
+        void Writeable(Register){
+            Register'Address = Count++;
+            'WrRegisters.append(Register);
         }
-      }
-    }
-    //--------------------------------------------------------------------------
+        void Live(RdRegister, WrRegister, WrStrobe){
+            RdRegister'Address = Count;
+            WrRegister'Address = Count;
+            WrStrobe  'Address = Count;
+            'LiveRegisters.append(< Read   = RdRegister,
+                                    Write  = WrRegister,
+                                    Strobe = WrStrobe >);
+            Count++;
+        }
+        //--------------------------------------------------------------------------
 
-    void GenerateCpp(string Filename){
-      !! Generate the C++ source and header files
-      !! Base the structure on the Register'identifier attribute, which is the
-      !! full name of the object (including the full name-space path)
-    }
-    //--------------------------------------------------------------------------
+        net(32) Resize(x){
+            result := x; // Raw-assign the bits
+            num N = x'width;
+            if((x'fullscale < 0) & (N < 31)) // Sign-extend
+                result[31..(N+1)] := (x(N))`(31-N);
+        }
+        //--------------------------------------------------------------------------
 
-    void GenerateLaTeX(string Filename){
-      !! Generate the LaTeX documentation files
-    }
-    //--------------------------------------------------------------------------
+        void GenerateRegs(){
+            rtl(Bus.Clock, Bus.Reset){
+                WaitRequest = 0;
 
-    string CppFilename   = "";
-    string LaTeXFilename = "";
+                switch(Address){
+                    for(Register in 'RdRegisters){
+                        case(Register'Address) ReadData = Resize(Register);
+                    }
+                    for(Register in 'WrRegisters){
+                        case(Register'Address) ReadData = Resize(Register);
+                    }
+                    for(Register in 'LiveRegisters){
+                        case(Register'Read'Address) ReadData = Resize(Register'Read);
+                    }
+                }
+                ReadValid = Read;
 
-    void finally(){
-      GenerateRegs();
-      if(CppFilename  'length) GenerateCpp  (CppFilename  );
-      if(LaTeXFilename'langth) GenerateLaTeX(LaTeXFilename);
+                if(Write){
+                    switch(Address){
+                        for(Register in 'WrRegisters){
+                            case(Register'Address) Register := WriteData;
+                        }
+                        for(Register in 'LiveRegisters){
+                            case(Register'Write'Address) Register'Write := WriteData;
+                        }
+                    }
+                    for(Register in 'LiveRegisters){
+                        Register'Strobe = ((Address == Register'Strobe'Address) & Write);
+                    }
+                }
+            }
+        }
+        //--------------------------------------------------------------------------
+
+        void GenerateCpp(string Filename){
+            !! Generate the C++ source and header files
+            !! Base the structure on the Register'identifier attribute, which is the
+            !! full name of the object (including the full name-space path)
+        }
+        //--------------------------------------------------------------------------
+
+        void GenerateLaTeX(string Filename){
+            !! Generate the LaTeX documentation files
+        }
+        //--------------------------------------------------------------------------
+
+        string CppFilename   = "";
+        string LaTeXFilename = "";
+
+        void finally(){
+            GenerateRegs();
+            if(CppFilename  'length) GenerateCpp  (CppFilename  );
+            if(LaTeXFilename'langth) GenerateLaTeX(LaTeXFilename);
+        }
     }
-  }
 }
 //------------------------------------------------------------------------------
 
@@ -257,7 +257,7 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                   parameter: (identifier)))
               (statement_block
                 (assignment
-                  (identifier)
+                  (builtin_variable)
                   (identifier))
                 (line_comment)
                 (definition
@@ -282,27 +282,27 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                       (literal
                         (dec_literal))))
                   (line_comment)
-                  (statement_block
-                    (assignment
-                      (function_call
-                        (identifier)
-                        (parameter_list
-                          value: (range
+                  (assignment
+                    (slice
+                      (builtin_variable)
+                      (array
+                        (expression_list
+                          (range
                             (literal
                               (dec_literal))
                             (additive
                               (identifier)
                               (literal
-                                (dec_literal))))))
-                      (replication
-                        (function_call
-                          (identifier)
-                          (parameter_list
-                            value: (identifier)))
-                        (additive
-                          (literal
-                            (dec_literal))
-                          (identifier)))))))))
+                                (dec_literal)))))))
+                    (replication
+                      (function_call
+                        (identifier)
+                        (parameter_list
+                          value: (identifier)))
+                      (additive
+                        (literal
+                          (dec_literal))
+                        (identifier))))))))
           (line_comment)
           (definition
             (base_type)
@@ -335,13 +335,12 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                                 (attribute_reference
                                   (identifier)
                                   (identifier)))
-                              (statement_block
-                                (assignment
+                              (assignment
+                                (identifier)
+                                (function_call
                                   (identifier)
-                                  (function_call
-                                    (identifier)
-                                    (parameter_list
-                                      value: (identifier))))))))
+                                  (parameter_list
+                                    value: (identifier)))))))
                         (for
                           (identifier)
                           (attribute_reference
@@ -352,13 +351,12 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                                 (attribute_reference
                                   (identifier)
                                   (identifier)))
-                              (statement_block
-                                (assignment
+                              (assignment
+                                (identifier)
+                                (function_call
                                   (identifier)
-                                  (function_call
-                                    (identifier)
-                                    (parameter_list
-                                      value: (identifier))))))))
+                                  (parameter_list
+                                    value: (identifier)))))))
                         (for
                           (identifier)
                           (attribute_reference
@@ -371,15 +369,14 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                                     (identifier)
                                     (identifier))
                                   (identifier)))
-                              (statement_block
-                                (assignment
+                              (assignment
+                                (identifier)
+                                (function_call
                                   (identifier)
-                                  (function_call
-                                    (identifier)
-                                    (parameter_list
-                                      value: (attribute_reference
-                                        (identifier)
-                                        (identifier)))))))))))
+                                  (parameter_list
+                                    value: (attribute_reference
+                                      (identifier)
+                                      (identifier))))))))))
                     (assignment
                       (identifier)
                       (identifier))
@@ -399,10 +396,9 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                                     (attribute_reference
                                       (identifier)
                                       (identifier)))
-                                  (statement_block
-                                    (assignment
-                                      (identifier)
-                                      (identifier))))))
+                                  (assignment
+                                    (identifier)
+                                    (identifier)))))
                             (for
                               (identifier)
                               (attribute_reference
@@ -415,12 +411,11 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                                         (identifier)
                                         (identifier))
                                       (identifier)))
-                                  (statement_block
-                                    (assignment
-                                      (attribute_reference
-                                        (identifier)
-                                        (identifier))
-                                      (identifier))))))))
+                                  (assignment
+                                    (attribute_reference
+                                      (identifier)
+                                      (identifier))
+                                    (identifier)))))))
                         (for
                           (identifier)
                           (attribute_reference
@@ -495,21 +490,19 @@ class RegistersDecoder(Bus): AvalonInterface(32, 0x1000){
                   (attribute_reference
                     (identifier)
                     (identifier))
-                  (statement_block
-                    (function_call_statement
-                      (function_call
-                        (identifier)
-                        (parameter_list
-                          value: (identifier))))))
+                  (function_call_statement
+                    (function_call
+                      (identifier)
+                      (parameter_list
+                        value: (identifier)))))
                 (if_statement
                   (attribute_reference
                     (identifier)
                     (identifier))
-                  (statement_block
-                    (function_call_statement
-                      (function_call
-                        (identifier)
-                        (parameter_list
-                          value: (identifier)))))))))))))
+                  (function_call_statement
+                    (function_call
+                      (identifier)
+                      (parameter_list
+                        value: (identifier))))))))))))
   (line_comment))
 

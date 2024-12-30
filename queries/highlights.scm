@@ -213,16 +213,16 @@
 ] @punctuation.bracket
 
 (vector_concat
-  .
   ":(" @operator
-  ")"  @operator
-  .)
+  ")"  @operator)
 
 (array_concat
-  .
   ":[" @operator
-  "]"  @operator
-  .)
+  "]"  @operator)
+
+(repetition
+  [ "[*" "[->" "[=" ] @operator
+  "]"  @operator)
 
 (wait
   .

@@ -1,0 +1,693 @@
+================================================================================
+Sequences
+================================================================================
+
+a = b + c + d + e;
+
+wait(a ##1 b ##2 c ##3 d ##50 1);
+
+assert a ##[1..4] b;
+
+assert s1 ##2 s2;
+
+assert s1 ##2 s2 [*4 ] ##5 s3;
+assert s1 ##2 s2 [->4] ##5 s3;
+assert s1 ##2 s2 [=4 ] ##5 s3;
+
+assert s1 ##2 s2 [* 4..8] ##5 s3;
+assert s1 ##2 s2 [->4..8] ##5 s3;
+assert s1 ##2 s2 [= 4..8] ##5 s3;
+
+assert s1 [*2..3];
+
+--------------------------------------------------------------------------------
+
+(module
+  (assignment
+    (identifier)
+    (additive
+      (additive
+        (additive
+          (identifier)
+          (identifier))
+        (identifier))
+      (builtin_const)))
+  (wait
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (cycle_delay
+                left: (sequence
+                  (cycle_delay
+                    left: (sequence
+                      (identifier))
+                    delay: (literal
+                      (dec_literal))
+                    right: (sequence
+                      (identifier))))
+                delay: (literal
+                  (dec_literal))
+                right: (sequence
+                  (identifier))))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (identifier))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (literal
+            (dec_literal))))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (identifier))
+        delay: (array
+          (expression_list
+            (range
+              (literal
+                (dec_literal))
+              (literal
+                (dec_literal)))))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (identifier))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (identifier))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (repetition
+                (sequence
+                  (identifier))
+                (literal
+                  (dec_literal))))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (identifier))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (repetition
+                (sequence
+                  (identifier))
+                (literal
+                  (dec_literal))))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (identifier))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (repetition
+                (sequence
+                  (identifier))
+                (literal
+                  (dec_literal))))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (identifier))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (repetition
+                (sequence
+                  (identifier))
+                (range
+                  (literal
+                    (dec_literal))
+                  (literal
+                    (dec_literal)))))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (identifier))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (repetition
+                (sequence
+                  (identifier))
+                (range
+                  (literal
+                    (dec_literal))
+                  (literal
+                    (dec_literal)))))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (identifier))
+            delay: (literal
+              (dec_literal))
+            right: (sequence
+              (repetition
+                (sequence
+                  (identifier))
+                (range
+                  (literal
+                    (dec_literal))
+                  (literal
+                    (dec_literal)))))))
+        delay: (literal
+          (dec_literal))
+        right: (sequence
+          (identifier)))))
+  (assert
+    (sequence
+      (repetition
+        (sequence
+          (identifier))
+        (range
+          (literal
+            (dec_literal))
+          (literal
+            (dec_literal)))))))
+
+================================================================================
+Assert Blocks
+================================================================================
+
+net(8) Adder(net(8) A, net(8) B, net C){
+  :(C, Adder) = A + B;
+}
+net    c;
+net(8) a, b, y = Adder(a, b, c);
+
+stimulus(1e-9){
+    #1 a = 0x00; b = 0x00; assert{y == 0x00; c == 0; };
+    #1 a = 0xFF; b = 0x01; assert{y == 0x00; c == 1; };
+    #1 a = 0x01; b = 0xFF; assert{y == 0x00; c == 1; };
+    #1 a = 0xFF; b = 0xFF; assert{y == 0xFE; c == 1; };
+    #1 a = 0x7F; b = 0x80; assert{y == 0xFF; c == 0; };
+}
+
+assert{
+    a == 0x00 && b == 0x00 |-> y == 0x00 && c == 0;
+    a == 0xFF && b == 0x01 |-> y == 0x00 && c == 1;
+    a == 0x01 && b == 0xFF |-> y == 0x00 && c == 1;
+    a == 0xFF && b == 0xFF |-> y == 0xFE && c == 1;
+    a == 0x7F && b == 0x80 |-> y == 0xFF && c == 0;
+}
+
+// A simple sequence:
+sequence Handshake{
+    Go ##[1..5] Busy ##[1.. 10] !Go ##[1..100] !Busy;
+}
+
+// A sequence-based assert:
+assert(1e-9, Clk){
+    if(~Reset){
+             Go      |->  Handshake;
+        rose(Go  )   |-> !Busy;
+        fell(Busy)   |-> !Go;
+        (Go & !Busy) |=>  stable(Data);
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(module
+  (definition
+    (base_type)
+    (parameter_list
+      value: (literal
+        (dec_literal)))
+    (function_def
+      name: (identifier)
+      (parameter_def_list
+        (parameter_def
+          (base_type)
+          (parameter_list
+            value: (literal
+              (dec_literal)))
+          parameter: (identifier))
+        (parameter_def
+          (base_type)
+          (parameter_list
+            value: (literal
+              (dec_literal)))
+          parameter: (identifier))
+        (parameter_def
+          (base_type)
+          parameter: (identifier)))
+      (statement_block
+        (assignment
+          (vector_concat
+            (expression_list
+              (identifier)
+              (identifier)))
+          (additive
+            (identifier)
+            (identifier))))))
+  (definition
+    (base_type)
+    (identifier_list
+      (variable_def
+        (identifier))))
+  (definition
+    (base_type)
+    (parameter_list
+      value: (literal
+        (dec_literal)))
+    (identifier_list
+      (variable_def
+        (identifier))
+      (variable_def
+        (identifier))
+      (variable_def
+        (identifier)
+        (initialiser
+          (function_call
+            (identifier)
+            (parameter_list
+              value: (identifier)
+              value: (identifier)
+              value: (identifier)))))))
+  (stimulus
+    (parameter_list
+      value: (literal
+        (dec_literal)
+        (exponent)))
+    (statement_block
+      (wait
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assert
+        (assert_block
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (hex_prefix)
+                (hex_literal))))
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (dec_literal))))))
+      (wait
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assert
+        (assert_block
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (hex_prefix)
+                (hex_literal))))
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (dec_literal))))))
+      (wait
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assert
+        (assert_block
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (hex_prefix)
+                (hex_literal))))
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (dec_literal))))))
+      (wait
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assert
+        (assert_block
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (hex_prefix)
+                (hex_literal))))
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (dec_literal))))))
+      (wait
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (hex_prefix)
+          (hex_literal)))
+      (assert
+        (assert_block
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (hex_prefix)
+                (hex_literal))))
+          (sequence
+            (equality
+              (identifier)
+              (literal
+                (dec_literal))))))))
+  (assert
+    (assert_block
+      (sequence
+        (implies
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))))
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (dec_literal))))))))
+      (sequence
+        (implies
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))))
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (dec_literal))))))))
+      (sequence
+        (implies
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))))
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (dec_literal))))))))
+      (sequence
+        (implies
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))))
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (dec_literal))))))))
+      (sequence
+        (implies
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))))
+          (sequence
+            (match_and
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (hex_prefix)
+                    (hex_literal))))
+              (sequence
+                (equality
+                  (identifier)
+                  (literal
+                    (dec_literal))))))))))
+  (line_comment)
+  (sequence_def
+    (identifier)
+    (sequence
+      (cycle_delay
+        left: (sequence
+          (cycle_delay
+            left: (sequence
+              (cycle_delay
+                left: (sequence
+                  (identifier))
+                delay: (array
+                  (expression_list
+                    (range
+                      (literal
+                        (dec_literal))
+                      (literal
+                        (dec_literal)))))
+                right: (sequence
+                  (identifier))))
+            delay: (array
+              (expression_list
+                (range
+                  (literal
+                    (dec_literal))
+                  (literal
+                    (dec_literal)))))
+            right: (sequence
+              (reduction
+                (identifier)))))
+        delay: (array
+          (expression_list
+            (range
+              (literal
+                (dec_literal))
+              (literal
+                (dec_literal)))))
+        right: (sequence
+          (reduction
+            (identifier))))))
+  (line_comment)
+  (assert
+    (parameter_list
+      value: (literal
+        (dec_literal)
+        (exponent))
+      value: (identifier))
+    (assert_block
+      (if
+        (unary
+          (identifier))
+        (assert_block
+          (sequence
+            (implies
+              (sequence
+                (identifier))
+              (sequence
+                (identifier))))
+          (sequence
+            (implies
+              (sequence
+                (function_call
+                  (builtin_func)
+                  (parameter_list
+                    value: (identifier))))
+              (sequence
+                (reduction
+                  (identifier)))))
+          (sequence
+            (implies
+              (sequence
+                (function_call
+                  (builtin_func)
+                  (parameter_list
+                    value: (identifier))))
+              (sequence
+                (reduction
+                  (identifier)))))
+          (sequence
+            (implies
+              (sequence
+                (bitwise_and
+                  (identifier)
+                  (reduction
+                    (identifier))))
+              (sequence
+                (function_call
+                  (builtin_func)
+                  (parameter_list
+                    value: (identifier)))))))))))
+

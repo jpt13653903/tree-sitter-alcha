@@ -1255,71 +1255,57 @@ goto Label;
     (equality
       (identifier)
       (identifier))
-    (statement_block
-      (assignment
-        (identifier)
-        (identifier)))
-    (statement_block
-      (assignment
-        (identifier)
-        (identifier))))
+    (assignment
+      (identifier)
+      (identifier))
+    (assignment
+      (identifier)
+      (identifier)))
   (if_statement
     (equality
       (identifier)
       (identifier))
-    (statement_block
+    (assignment
+      (identifier)
+      (identifier))
+    (if_statement
+      (equality
+        (identifier)
+        (identifier))
       (assignment
         (identifier)
-        (identifier)))
-    (statement_block
+        (identifier))
       (if_statement
         (equality
           (identifier)
           (identifier))
-        (statement_block
+        (assignment
+          (identifier)
+          (identifier))
+        (if_statement
+          (equality
+            (identifier)
+            (identifier))
           (assignment
             (identifier)
-            (identifier)))
-        (statement_block
+            (identifier))
           (if_statement
             (equality
               (identifier)
               (identifier))
-            (statement_block
+            (assignment
+              (identifier)
+              (identifier))
+            (if_statement
+              (equality
+                (identifier)
+                (identifier))
               (assignment
                 (identifier)
-                (identifier)))
-            (statement_block
-              (if_statement
-                (equality
-                  (identifier)
-                  (identifier))
-                (statement_block
-                  (assignment
-                    (identifier)
-                    (identifier)))
-                (statement_block
-                  (if_statement
-                    (equality
-                      (identifier)
-                      (identifier))
-                    (statement_block
-                      (assignment
-                        (identifier)
-                        (identifier)))
-                    (statement_block
-                      (if_statement
-                        (equality
-                          (identifier)
-                          (identifier))
-                        (statement_block
-                          (assignment
-                            (identifier)
-                            (identifier)))
-                        (statement_block
-                          (assignment
-                            (identifier)
-                            (identifier))))))))))))))
+                (identifier))
+              (assignment
+                (identifier)
+                (identifier))))))))
   (if_statement
     (equality
       (identifier)
@@ -1336,63 +1322,51 @@ goto Label;
     (equality
       (identifier)
       (identifier))
-    (statement_block
-      (assignment
-        (identifier)
-        (identifier))))
+    (assignment
+      (identifier)
+      (identifier)))
   (if_statement
     (equality
       (identifier)
       (identifier))
-    (statement_block
+    (assignment
+      (identifier)
+      (identifier))
+    (if_statement
+      (equality
+        (identifier)
+        (identifier))
       (assignment
         (identifier)
-        (identifier)))
-    (statement_block
+        (identifier))
       (if_statement
         (equality
           (identifier)
           (identifier))
-        (statement_block
+        (assignment
+          (identifier)
+          (identifier))
+        (if_statement
+          (equality
+            (identifier)
+            (identifier))
           (assignment
             (identifier)
-            (identifier)))
-        (statement_block
+            (identifier))
           (if_statement
             (equality
               (identifier)
               (identifier))
-            (statement_block
+            (assignment
+              (identifier)
+              (identifier))
+            (if_statement
+              (equality
+                (identifier)
+                (identifier))
               (assignment
                 (identifier)
-                (identifier)))
-            (statement_block
-              (if_statement
-                (equality
-                  (identifier)
-                  (identifier))
-                (statement_block
-                  (assignment
-                    (identifier)
-                    (identifier)))
-                (statement_block
-                  (if_statement
-                    (equality
-                      (identifier)
-                      (identifier))
-                    (statement_block
-                      (assignment
-                        (identifier)
-                        (identifier)))
-                    (statement_block
-                      (if_statement
-                        (equality
-                          (identifier)
-                          (identifier))
-                        (statement_block
-                          (assignment
-                            (identifier)
-                            (identifier))))))))))))))
+                (identifier))))))))
   (if_statement
     (equality
       (identifier)
@@ -1408,33 +1382,28 @@ goto Label;
         (dec_literal))
       (literal
         (dec_literal)))
-    (statement_block
-      (assignment
-        (identifier))))
+    (assignment
+      (identifier)))
   (for
     (identifier)
     (identifier)
-    (statement_block
-      (assignment
-        (identifier))))
+    (assignment
+      (identifier)))
   (while
     (relational
       (identifier)
       (literal
         (dec_literal)))
-    (statement_block
-      (assignment
-        (identifier))))
+    (assignment
+      (identifier)))
   (loop
     (literal
       (dec_literal))
-    (statement_block
-      (assignment
-        (identifier))))
+    (assignment
+      (identifier)))
   (loop
-    (statement_block
-      (assignment
-        (identifier))))
+    (assignment
+      (identifier)))
   (enum_definition
     name: (identifier)
     (enum_body
@@ -1450,39 +1419,39 @@ goto Label;
         (identifier))))
   (switch
     (identifier)
-      (statement_block
-        (case
-          (expression_list
-            (identifier))
-          (statement_block
-            (line_comment)
-            (assignment
-              (identifier)
-              (identifier))))
-        (case
-          (expression_list
-            (identifier))
-          (statement_block
-            (line_comment)
-            (assignment
-              (identifier)
-              (identifier))))
-        (case
-          (expression_list
-            (identifier))
-          (statement_block
-            (line_comment)
-            (assignment
-              (identifier)
-              (identifier))))
-        (case
-          (statement_block
-            (line_comment)
-            (function_call_statement
-              (function_call
-                (builtin_func)
-                (parameter_list
-                  value: (string))))))))
+    (statement_block
+      (case
+        (expression_list
+          (identifier))
+        (statement_block
+          (line_comment)
+          (assignment
+            (identifier)
+            (identifier))))
+      (case
+        (expression_list
+          (identifier))
+        (statement_block
+          (line_comment)
+          (assignment
+            (identifier)
+            (identifier))))
+      (case
+        (expression_list
+          (identifier))
+        (statement_block
+          (line_comment)
+          (assignment
+            (identifier)
+            (identifier))))
+      (case
+        (statement_block
+          (line_comment)
+          (function_call_statement
+            (function_call
+              (builtin_func)
+              (parameter_list
+                value: (string))))))))
   (jump)
   (jump)
   (jump)
@@ -2160,12 +2129,11 @@ assert A == B;
             (literal
               (dec_literal)))))
       (loop
-        (statement_block
-          (wait
-            (literal
-              (dec_literal)))
-          (assignment
-            (identifier))))))
+        (wait
+          (literal
+            (dec_literal)))
+        (assignment
+          (identifier)))))
   (assert
     (sequence
       (equality

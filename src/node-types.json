@@ -8,7 +8,35 @@
       "required": true,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
           "type": "access_specifier",
+          "named": true
+        },
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "case",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
           "named": true
         },
         {
@@ -16,7 +44,95 @@
           "named": true
         },
         {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
+          "named": true
+        },
+        {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
+          "named": true
+        },
+        {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "statement_block",
+          "named": true
+        },
+        {
+          "type": "stimulus",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -467,9 +583,40 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "assert_block",
+          "named": true
+        },
+        {
+          "type": "if",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assert_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "if",
+          "named": true
+        },
         {
           "type": "sequence",
           "named": true
@@ -1487,14 +1634,130 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "case",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
+          "named": true
+        },
         {
           "type": "expression_list",
           "named": true
         },
         {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
+          "named": true
+        },
+        {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "statement_block",
+          "named": true
+        },
+        {
+          "type": "stimulus",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -1691,6 +1954,178 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "cycle_delay",
+    "named": true,
+    "fields": {
+      "delay": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "additive",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "array_concat",
+            "named": true
+          },
+          {
+            "type": "attribute_list",
+            "named": true
+          },
+          {
+            "type": "attribute_reference",
+            "named": true
+          },
+          {
+            "type": "bitwise_and",
+            "named": true
+          },
+          {
+            "type": "bitwise_or",
+            "named": true
+          },
+          {
+            "type": "bitwise_xor",
+            "named": true
+          },
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "equality",
+            "named": true
+          },
+          {
+            "type": "exponential",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_reference",
+            "named": true
+          },
+          {
+            "type": "multiplicative",
+            "named": true
+          },
+          {
+            "type": "postfix",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "reduction",
+            "named": true
+          },
+          {
+            "type": "relational",
+            "named": true
+          },
+          {
+            "type": "replication",
+            "named": true
+          },
+          {
+            "type": "shift",
+            "named": true
+          },
+          {
+            "type": "slice",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "stringification",
+            "named": true
+          },
+          {
+            "type": "ternary",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary",
+            "named": true
+          },
+          {
+            "type": "vector_concat",
+            "named": true
+          }
+        ]
+      },
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "sequence",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "sequence",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2394,7 +2829,15 @@
       "required": true,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
           "type": "additive",
+          "named": true
+        },
+        {
+          "type": "alias",
           "named": true
         },
         {
@@ -2403,6 +2846,14 @@
         },
         {
           "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -2438,7 +2889,27 @@
           "named": true
         },
         {
+          "type": "case",
+          "named": true
+        },
+        {
           "type": "cast",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
           "named": true
         },
         {
@@ -2450,7 +2921,35 @@
           "named": true
         },
         {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
           "named": true
         },
         {
@@ -2458,7 +2957,27 @@
           "named": true
         },
         {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "loop",
           "named": true
         },
         {
@@ -2467,6 +2986,10 @@
         },
         {
           "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
           "named": true
         },
         {
@@ -2490,6 +3013,14 @@
           "named": true
         },
         {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "shift",
           "named": true
         },
@@ -2502,11 +3033,23 @@
           "named": true
         },
         {
+          "type": "stimulus",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
         {
           "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
           "named": true
         },
         {
@@ -2519,6 +3062,14 @@
         },
         {
           "type": "vector_concat",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -2545,10 +3096,98 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "case",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
+          "named": true
+        },
+        {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
           "named": true
         },
         {
@@ -2556,7 +3195,35 @@
           "named": true
         },
         {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "statement_block",
+          "named": true
+        },
+        {
+          "type": "stimulus",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -2890,6 +3557,10 @@
           "named": true
         },
         {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "stimulus",
           "named": true
         },
@@ -3051,7 +3722,7 @@
     }
   },
   {
-    "type": "if_statement",
+    "type": "if",
     "named": true,
     "fields": {},
     "children": {
@@ -3068,6 +3739,10 @@
         },
         {
           "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "assert_block",
           "named": true
         },
         {
@@ -3123,6 +3798,10 @@
           "named": true
         },
         {
+          "type": "if",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -3155,15 +3834,15 @@
           "named": true
         },
         {
+          "type": "sequence",
+          "named": true
+        },
+        {
           "type": "shift",
           "named": true
         },
         {
           "type": "slice",
-          "named": true
-        },
-        {
-          "type": "statement_block",
           "named": true
         },
         {
@@ -3184,6 +3863,276 @@
         },
         {
           "type": "vector_concat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
+          "type": "additive",
+          "named": true
+        },
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "attribute_reference",
+          "named": true
+        },
+        {
+          "type": "bitwise_and",
+          "named": true
+        },
+        {
+          "type": "bitwise_or",
+          "named": true
+        },
+        {
+          "type": "bitwise_xor",
+          "named": true
+        },
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "case",
+          "named": true
+        },
+        {
+          "type": "cast",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
+          "type": "exponential",
+          "named": true
+        },
+        {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "member_reference",
+          "named": true
+        },
+        {
+          "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
+          "named": true
+        },
+        {
+          "type": "postfix",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "reduction",
+          "named": true
+        },
+        {
+          "type": "relational",
+          "named": true
+        },
+        {
+          "type": "replication",
+          "named": true
+        },
+        {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
+          "type": "shift",
+          "named": true
+        },
+        {
+          "type": "slice",
+          "named": true
+        },
+        {
+          "type": "statement_block",
+          "named": true
+        },
+        {
+          "type": "stimulus",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
+          "named": true
+        },
+        {
+          "type": "ternary",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "vector_concat",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "implies",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence",
           "named": true
         }
       ]
@@ -3570,10 +4519,18 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
           "type": "additive",
+          "named": true
+        },
+        {
+          "type": "alias",
           "named": true
         },
         {
@@ -3582,6 +4539,14 @@
         },
         {
           "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -3617,7 +4582,27 @@
           "named": true
         },
         {
+          "type": "case",
+          "named": true
+        },
+        {
           "type": "cast",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
           "named": true
         },
         {
@@ -3629,7 +4614,35 @@
           "named": true
         },
         {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
           "named": true
         },
         {
@@ -3637,7 +4650,27 @@
           "named": true
         },
         {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "loop",
           "named": true
         },
         {
@@ -3646,6 +4679,10 @@
         },
         {
           "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
           "named": true
         },
         {
@@ -3669,6 +4706,14 @@
           "named": true
         },
         {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "shift",
           "named": true
         },
@@ -3681,11 +4726,23 @@
           "named": true
         },
         {
+          "type": "stimulus",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
         {
           "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
           "named": true
         },
         {
@@ -3698,6 +4755,44 @@
         },
         {
           "type": "vector_concat",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_and",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_or",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sequence",
           "named": true
         }
       ]
@@ -3937,6 +5032,10 @@
         },
         {
           "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
           "named": true
         },
         {
@@ -4291,6 +5390,10 @@
         },
         {
           "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
           "named": true
         },
         {
@@ -5140,6 +6243,145 @@
     }
   },
   {
+    "type": "repetition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "additive",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "attribute_reference",
+          "named": true
+        },
+        {
+          "type": "bitwise_and",
+          "named": true
+        },
+        {
+          "type": "bitwise_or",
+          "named": true
+        },
+        {
+          "type": "bitwise_xor",
+          "named": true
+        },
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "cast",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
+          "type": "exponential",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_reference",
+          "named": true
+        },
+        {
+          "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "postfix",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "reduction",
+          "named": true
+        },
+        {
+          "type": "relational",
+          "named": true
+        },
+        {
+          "type": "replication",
+          "named": true
+        },
+        {
+          "type": "sequence",
+          "named": true
+        },
+        {
+          "type": "shift",
+          "named": true
+        },
+        {
+          "type": "slice",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "ternary",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "vector_concat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "replication",
     "named": true,
     "fields": {},
@@ -5280,10 +6522,98 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
+          "type": "alias",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "case",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
+          "named": true
+        },
+        {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
           "named": true
         },
         {
@@ -5291,7 +6621,35 @@
           "named": true
         },
         {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "statement_block",
+          "named": true
+        },
+        {
+          "type": "stimulus",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -5489,6 +6847,10 @@
           "named": true
         },
         {
+          "type": "cycle_delay",
+          "named": true
+        },
+        {
           "type": "equality",
           "named": true
         },
@@ -5505,7 +6867,19 @@
           "named": true
         },
         {
+          "type": "implies",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "match_and",
+          "named": true
+        },
+        {
+          "type": "match_or",
           "named": true
         },
         {
@@ -5530,6 +6904,10 @@
         },
         {
           "type": "relational",
+          "named": true
+        },
+        {
+          "type": "repetition",
           "named": true
         },
         {
@@ -5562,6 +6940,37 @@
         },
         {
           "type": "vector_concat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sequence_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "sequence",
           "named": true
         }
       ]
@@ -5935,6 +7344,10 @@
         },
         {
           "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
           "named": true
         },
         {
@@ -6340,10 +7753,18 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
           "type": "additive",
+          "named": true
+        },
+        {
+          "type": "alias",
           "named": true
         },
         {
@@ -6352,6 +7773,14 @@
         },
         {
           "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -6387,7 +7816,27 @@
           "named": true
         },
         {
+          "type": "case",
+          "named": true
+        },
+        {
           "type": "cast",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
           "named": true
         },
         {
@@ -6399,7 +7848,35 @@
           "named": true
         },
         {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
           "named": true
         },
         {
@@ -6407,7 +7884,27 @@
           "named": true
         },
         {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "loop",
           "named": true
         },
         {
@@ -6416,6 +7913,10 @@
         },
         {
           "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
           "named": true
         },
         {
@@ -6439,6 +7940,14 @@
           "named": true
         },
         {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "shift",
           "named": true
         },
@@ -6451,11 +7960,23 @@
           "named": true
         },
         {
+          "type": "stimulus",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
         {
           "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
           "named": true
         },
         {
@@ -6468,6 +7989,14 @@
         },
         {
           "type": "vector_concat",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -7386,10 +8915,18 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
+          "type": "access_direction_group",
+          "named": true
+        },
+        {
           "type": "additive",
+          "named": true
+        },
+        {
+          "type": "alias",
           "named": true
         },
         {
@@ -7398,6 +8935,14 @@
         },
         {
           "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "assert",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -7433,7 +8978,27 @@
           "named": true
         },
         {
+          "type": "case",
+          "named": true
+        },
+        {
           "type": "cast",
+          "named": true
+        },
+        {
+          "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "definition",
+          "named": true
+        },
+        {
+          "type": "emulate",
+          "named": true
+        },
+        {
+          "type": "enum_definition",
           "named": true
         },
         {
@@ -7445,7 +9010,35 @@
           "named": true
         },
         {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "fork_join",
+          "named": true
+        },
+        {
+          "type": "fsm",
+          "named": true
+        },
+        {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "function_call_statement",
+          "named": true
+        },
+        {
+          "type": "goto",
+          "named": true
+        },
+        {
+          "type": "group_definition",
+          "named": true
+        },
+        {
+          "type": "hdl",
           "named": true
         },
         {
@@ -7453,7 +9046,27 @@
           "named": true
         },
         {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "jump",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "loop",
           "named": true
         },
         {
@@ -7462,6 +9075,10 @@
         },
         {
           "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "namespace_push",
           "named": true
         },
         {
@@ -7485,6 +9102,14 @@
           "named": true
         },
         {
+          "type": "rtl",
+          "named": true
+        },
+        {
+          "type": "sequence_def",
+          "named": true
+        },
+        {
           "type": "shift",
           "named": true
         },
@@ -7497,11 +9122,23 @@
           "named": true
         },
         {
+          "type": "stimulus",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
         {
           "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "struct_definition",
+          "named": true
+        },
+        {
+          "type": "switch",
           "named": true
         },
         {
@@ -7514,6 +9151,14 @@
         },
         {
           "type": "vector_concat",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        },
+        {
+          "type": "while",
           "named": true
         }
       ]
@@ -7985,6 +9630,10 @@
   },
   {
     "type": "rtl",
+    "named": false
+  },
+  {
+    "type": "sequence",
     "named": false
   },
   {

@@ -8,7 +8,7 @@
 // @ts-check
 
 module.exports = grammar({
-    name: "alcha",
+    name: 'alcha',
 
     externals: $ => [
         $.line_comment,
@@ -66,7 +66,7 @@ module.exports = grammar({
                 $.if_statement, $.for, $.while , $.loop, $.switch, $.case, $.jump, $.goto,
                 $.function_call_statement, $.namespace_push, $.assignment,
                 $.rtl, $.fsm, $.hdl,
-                $.stimulus, $.emulate, $.fork_join, $.assert,
+                $.stimulus, $.emulate, $.fork_join, $.sequence_def, $.assert,
                 ';'
             )),
 
@@ -135,17 +135,17 @@ module.exports = grammar({
             ),
 
             operator: $ => choice(
-                "?:",
-                "|", "~|", "^", "~^", "&", "~&",
-                "==", "!=", "<", ">", "<=", ">=",
-                "<<", ">>",
-                "+", "-", "*", "/", "%", "**", "!",
-                "`", "$",
-                "..",
-                "~", ":", "++", "--",
-                "@",
-                "=", ":=", "~=", "+=", "-=", "*=", "/=", "**=", "%=", "&=", "|=", "^=", "<<=", ">>=",
-                "[*", "[->", "[=", "|->", "|=>", "||", "&&", "&&&"
+                '?:',
+                '|', '~|', '^', '~^', '&', '~&',
+                '==', '!=', '<', '>', '<=', '>=',
+                '<<', '>>',
+                '+', '-', '*', '/', '%', '**', '!',
+                '`', '$',
+                '..',
+                '~', ':', '++', '--',
+                '@',
+                '=', ':=', '~=', '+=', '-=', '*=', '/=', '**=', '%=', '&=', '|=', '^=', '<<=', '>>=',
+                '[*', '[->', '[=', '|->', '|=>', '||', '&&', '&&&'
             ),
 
 
@@ -189,7 +189,7 @@ module.exports = grammar({
 
         // Statements
             _statement_block: $ => choice(
-                alias($._statement, $.statement_block),
+                $._statement,
                 $.statement_block
             ),
 
@@ -376,12 +376,18 @@ module.exports = grammar({
                 choice('&', '~&', '|', '~|', '^', '~^', '!'), $._expression
             )),
 
+            _range: $ => prec(22, choice(
+                $.range,
+                $.unary,
+                $._accessor
+            )),
+
             range: $ => prec.left(22, seq(
                 $._expression, '..', $._expression, optional(seq(':', $._expression))
             )),
 
             unary: $ => prec(23, seq(
-                repeat1(choice('-', '~', ':', '++', '--')), $._expression
+                choice('-', '~', ':', '++', '--'), $._expression
             )),
 
             _accessor: $ => prec(24, choice(
@@ -491,11 +497,60 @@ module.exports = grammar({
                 repeat(seq(',', optional(choice('posedge', 'negedge')), $._accessor))
             ),
 
-            assert: $ => seq(
-                'assert', $.sequence, ';'
+            sequence_def: $ => seq(
+                'sequence', $._identifier, '{', $.sequence, ';', '}'
             ),
 
-            sequence: $ => $._expression,
+            assert: $ => seq(
+                'assert', optional($.parameter_list), $._assert_block
+            ),
+
+            _assert_block: $ => choice(
+                $._assert_statement,
+                $.assert_block
+            ),
+
+            assert_block: $ => seq(
+                '{', repeat($._assert_statement), '}'
+            ),
+
+            _assert_statement: $ => choice(
+                alias($.assert_if, $.if),
+                seq($.sequence, ';')
+            ),
+
+            assert_if: $ => prec.right(seq(
+                'if', '(', $._expression, ')', $._assert_block, optional(seq('else', $._assert_block))
+            )),
+
+            sequence: $ => prec(2, choice(
+                $.implies,
+                $.match_or,
+                $.match_and,
+                $.cycle_delay,
+                $.repetition,
+                $._expression,
+            )),
+
+            implies: $ => prec.right(3, seq(
+                $.sequence, choice('|->', '|=>'), $.sequence
+            )),
+
+            match_or: $ => prec.left(4, seq(
+                $.sequence, '||', $.sequence
+            )),
+
+            match_and: $ => prec.left(5, seq(
+                $.sequence, choice('&&', '&&&'), $.sequence
+            )),
+
+            cycle_delay: $ => prec.left(6, seq(
+                field('left', $.sequence), choice('#', '##'), field('delay', $._primary), field('right', $.sequence)
+            )),
+
+            repetition: $ => prec.left(7, seq(
+                $.sequence, choice('[*', '[->', '[='), $._range, ']'
+            )),
 
         // Scanner
             literal: $ => seq(
