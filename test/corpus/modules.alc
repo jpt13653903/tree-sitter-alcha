@@ -2229,6 +2229,8 @@ num operator||  (A, B){ return A; }
 num operator&&  (A, B){ return A; }
 num operator&&& (A, B){ return A; }
 
+num operator++  (A, _){ return A; }
+
 --------------------------------------------------------------------------------
 
 (module
@@ -2853,6 +2855,18 @@ num operator&&& (A, B){ return A; }
           parameter: (identifier))
         (parameter_def
           parameter: (identifier)))
+      (statement_block
+        (jump
+          (identifier)))))
+  (definition
+    (base_type)
+    (operator_overload
+      (operator)
+      (parameter_def_list
+        (parameter_def
+          parameter: (identifier))
+        (parameter_def
+          parameter: (builtin_variable)))
       (statement_block
         (jump
           (identifier))))))

@@ -153,6 +153,7 @@ static void register_functions(TokenTree* token_tree)
 
 static void register_variables(TokenTree* token_tree)
 {
+    token_tree_insert(token_tree, "_",    BUILTIN_VARIABLE);
     token_tree_insert(token_tree, "this", BUILTIN_VARIABLE);
 }
 //------------------------------------------------------------------------------
