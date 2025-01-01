@@ -53,7 +53,9 @@ module.exports = grammar({
     conflicts: $ => [
         [$.access_direction_group],
         [$._type_identifier, $._expression],
-        [$._type_identifier, $._primary]
+        [$._type_identifier, $._primary],
+        [$._cover_bins_identifier, $._expression],
+        [$._cover_bins_identifier, $._primary]
     ],
 
     rules: {
@@ -67,6 +69,7 @@ module.exports = grammar({
                 $.function_call_statement, $.namespace_push, $.assignment,
                 $.rtl, $.fsm, $.hdl,
                 $.stimulus, $.emulate, $.fork_join, $.sequence_def, $.assert,
+                $.cover_bins, $.cover_group,
                 ';'
             )),
 
@@ -551,6 +554,35 @@ module.exports = grammar({
 
             repetition: $ => prec.left(7, seq(
                 $.sequence, choice('[*', '[->', '[='), $._range, ']'
+            )),
+
+            cover_bins: $ => seq(
+                'coverbins', $._identifier, '(', $.parameter_def_list, ')', $.cover_bins_body
+            ),
+
+            cover_bins_body: $ => seq(
+                '{', repeat($.cover_bin), '}'
+            ),
+
+            cover_bin: $ => seq(
+                $._identifier, '=', $.sequence, ';'
+            ),
+
+            cover_group: $ => seq(
+                'covergroup', optional($.parameter_list), $._identifier, $.cover_group_body,
+            ),
+
+            cover_group_body: $ => seq(
+                '{', repeat($.cover_group_item), '}'
+            ),
+
+            cover_group_item: $ => seq(
+                $._cover_bins_identifier, $.parameter_list, ';'
+            ),
+
+            _cover_bins_identifier: $ => prec(8, choice(
+                prec(27, alias($._identifier, $.cover_bins_identifier)),
+                alias($.member_reference, $.cover_bins_identifier),
             )),
 
         // Scanner

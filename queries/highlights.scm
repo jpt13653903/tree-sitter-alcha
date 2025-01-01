@@ -116,6 +116,8 @@
   "stimulus"
   "emulate"
   "assert"
+  "coverbins"
+  "covergroup"
 ] @keyword.debug
 
 [
@@ -289,4 +291,8 @@
 
 (import
   (identifier) @module)
+
+(cover_bins_identifier
+  (identifier)* @module
+  (identifier) @variable.member .)
 

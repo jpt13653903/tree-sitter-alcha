@@ -132,6 +132,14 @@
               "name": "assert"
             },
             {
+              "type": "SYMBOL",
+              "name": "cover_bins"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "cover_group"
+            },
+            {
               "type": "STRING",
               "value": ";"
             }
@@ -3804,6 +3812,173 @@
         ]
       }
     },
+    "cover_bins": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "coverbins"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parameter_def_list"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cover_bins_body"
+        }
+      ]
+    },
+    "cover_bins_body": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "cover_bin"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "cover_bin": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sequence"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "cover_group": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "covergroup"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "parameter_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cover_group_body"
+        }
+      ]
+    },
+    "cover_group_body": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "cover_group_item"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "cover_group_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_cover_bins_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parameter_list"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "_cover_bins_identifier": {
+      "type": "PREC",
+      "value": 8,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PREC",
+            "value": 27,
+            "content": {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_identifier"
+              },
+              "named": true,
+              "value": "cover_bins_identifier"
+            }
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "member_reference"
+            },
+            "named": true,
+            "value": "cover_bins_identifier"
+          }
+        ]
+      }
+    },
     "literal": {
       "type": "SEQ",
       "members": [
@@ -4036,6 +4211,14 @@
     ],
     [
       "_type_identifier",
+      "_primary"
+    ],
+    [
+      "_cover_bins_identifier",
+      "_expression"
+    ],
+    [
+      "_cover_bins_identifier",
       "_primary"
     ]
   ],

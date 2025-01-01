@@ -36,6 +36,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -1653,6 +1661,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -1935,6 +1951,291 @@
         },
         {
           "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_bin",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_bins",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "cover_bins_body",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "parameter_def_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_bins_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "cover_bin",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_bins_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "additive",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "array_concat",
+          "named": true
+        },
+        {
+          "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "attribute_reference",
+          "named": true
+        },
+        {
+          "type": "bitwise_and",
+          "named": true
+        },
+        {
+          "type": "bitwise_or",
+          "named": true
+        },
+        {
+          "type": "bitwise_xor",
+          "named": true
+        },
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "cast",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
+          "type": "exponential",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_reference",
+          "named": true
+        },
+        {
+          "type": "multiplicative",
+          "named": true
+        },
+        {
+          "type": "postfix",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "reduction",
+          "named": true
+        },
+        {
+          "type": "relational",
+          "named": true
+        },
+        {
+          "type": "replication",
+          "named": true
+        },
+        {
+          "type": "shift",
+          "named": true
+        },
+        {
+          "type": "slice",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "stringification",
+          "named": true
+        },
+        {
+          "type": "ternary",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "vector_concat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "builtin_const",
+          "named": true
+        },
+        {
+          "type": "builtin_func",
+          "named": true
+        },
+        {
+          "type": "builtin_variable",
+          "named": true
+        },
+        {
+          "type": "cover_group_body",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_group_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "cover_group_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cover_group_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cover_bins_identifier",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
           "named": true
         }
       ]
@@ -3074,6 +3375,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -3289,6 +3598,14 @@
         },
         {
           "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
           "named": true
         },
         {
@@ -3616,6 +3933,14 @@
         },
         {
           "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
           "named": true
         },
         {
@@ -4068,6 +4393,14 @@
         },
         {
           "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
           "named": true
         },
         {
@@ -4681,6 +5014,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -5046,6 +5387,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -5345,6 +5694,14 @@
         },
         {
           "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
           "named": true
         },
         {
@@ -6616,6 +6973,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -7334,6 +7699,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -7872,6 +8245,14 @@
         },
         {
           "type": "class_definition",
+          "named": true
+        },
+        {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
           "named": true
         },
         {
@@ -9029,6 +9410,14 @@
           "named": true
         },
         {
+          "type": "cover_bins",
+          "named": true
+        },
+        {
+          "type": "cover_group",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -9501,6 +9890,14 @@
   },
   {
     "type": "continue",
+    "named": false
+  },
+  {
+    "type": "coverbins",
+    "named": false
+  },
+  {
+    "type": "covergroup",
     "named": false
   },
   {
