@@ -273,15 +273,15 @@ module.exports = grammar({
             ),
 
             rtl: $ => prec(28, seq(
-                'rtl', optional($.attribute_list), optional($.parameter_list), $._statement_block
+                'rtl', optional($.parameter_list), optional($.attribute_list), $._statement_block
             )),
 
             fsm: $ => prec(28, seq(
-                'fsm', optional($.attribute_list), optional($.parameter_list), $._statement_block
+                'fsm', optional($.parameter_list), optional($.attribute_list), $._statement_block
             )),
 
             hdl: $ => seq(
-                'hdl', optional($.attribute_list), $.hdl_files, $._identifier,
+                'hdl', $.hdl_files, optional($.attribute_list), $._identifier,
                 optional(seq('(', repeat($.assignment), ')')),
                 $.hdl_body
             ),
@@ -474,12 +474,12 @@ module.exports = grammar({
 
         // Verification
             stimulus: $ => seq(
-                'stimulus', optional($.attribute_list), optional($.parameter_list),
+                'stimulus', optional($.parameter_list), optional($.attribute_list),
                 optional($._identifier), $.statement_block
             ),
 
             emulate: $ => seq(
-                'emulate', optional($.attribute_list), optional($.parameter_list),
+                'emulate', optional($.parameter_list), optional($.attribute_list),
                 optional($._identifier), $.statement_block
             ),
 

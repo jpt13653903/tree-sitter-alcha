@@ -1524,7 +1524,7 @@ continue 7;
 Constructs
 ================================================================================
 
-rtl<A = 3, B = "Hello">(Clk, Reset){
+rtl(Clk, Reset)<A = 3, B = "Hello">{
     A = 5;
     B = C + 3;
 }
@@ -1545,7 +1545,7 @@ rtl{
     B = C + 3;
 }
 
-fsm<A = 3, B = "Hello">(Clk, Reset){
+fsm(Clk, Reset)<A = 3, B = "Hello">{
     A = 5;
     B = C + 3;
 }
@@ -1562,7 +1562,7 @@ fsm{
     B = C + 3;
 }
 
-hdl<A = 3, B = "Hello">("whatnot.v", "thingy.vhd") ABC(
+hdl("whatnot.v", "thingy.vhd")<A = 3, B = "Hello"> ABC(
     A = 3;
     B = 5;
 ){
@@ -1580,6 +1580,9 @@ myClass.Data.hdl_map(abc.Data);
 
 (module
   (rtl
+    (parameter_list
+      value: (identifier)
+      value: (identifier))
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -1588,9 +1591,6 @@ myClass.Data.hdl_map(abc.Data);
       (attribute_assignment
         (identifier)
         (string)))
-    (parameter_list
-      value: (identifier)
-      value: (identifier))
     (statement_block
       (assignment
         (identifier)
@@ -1664,6 +1664,9 @@ myClass.Data.hdl_map(abc.Data);
           (literal
             (dec_literal))))))
   (fsm
+    (parameter_list
+      value: (identifier)
+      value: (identifier))
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -1672,9 +1675,6 @@ myClass.Data.hdl_map(abc.Data);
       (attribute_assignment
         (identifier)
         (string)))
-    (parameter_list
-      value: (identifier)
-      value: (identifier))
     (statement_block
       (assignment
         (identifier)
@@ -1734,6 +1734,9 @@ myClass.Data.hdl_map(abc.Data);
           (literal
             (dec_literal))))))
   (hdl
+    (hdl_files
+      (filename)
+      (filename))
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -1742,9 +1745,6 @@ myClass.Data.hdl_map(abc.Data);
       (attribute_assignment
         (identifier)
         (string)))
-    (hdl_files
-      (filename)
-      (filename))
     (identifier)
     (assignment
       (identifier)
@@ -1809,7 +1809,7 @@ myClass.Data.hdl_map(abc.Data);
 Verification
 ================================================================================
 
-stimulus <A = 3, B = 5>(1, 2, 3) ABC {
+stimulus(1, 2, 3) <A = 3, B = 5> ABC {
     A = 3;
     B = 5;
 }
@@ -1817,20 +1817,20 @@ stimulus <A = 3, B = 5> ABC {
     A = 3;
     B = 5;
 }
-stimulus (1, 2, 3) ABC {
+stimulus(1, 2, 3) ABC {
     A = 3;
     B = 5;
 }
-stimulus <A = 3, B = 5>(1, 2, 3) {
+stimulus(1, 2, 3) <A = 3, B = 5>{
     A = 3;
     B = 5;
 }
-stimulus <A = 3, B = 5>(1, 2, 3) ABC {
+stimulus(1, 2, 3) <A = 3, B = 5> ABC {
     A = 3;
     B = 5;
 }
 
-emulate <A = 3, B = 5>(1, 2, 3) ABC {
+emulate(1, 2, 3) <A = 3, B = 5> ABC {
     A = 3;
     B = 5;
 }
@@ -1838,15 +1838,15 @@ emulate <A = 3, B = 5> ABC {
     A = 3;
     B = 5;
 }
-emulate (1, 2, 3) ABC {
+emulate(1, 2, 3) ABC {
     A = 3;
     B = 5;
 }
-emulate <A = 3, B = 5>(1, 2, 3) {
+emulate(1, 2, 3) <A = 3, B = 5> {
     A = 3;
     B = 5;
 }
-emulate <A = 3, B = 5>(1, 2, 3) ABC {
+emulate(1, 2, 3) <A = 3, B = 5> ABC {
     A = 3;
     B = 5;
 }
@@ -1882,15 +1882,6 @@ assert A == B;
 
 (module
   (stimulus
-    (attribute_list
-      (attribute_assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (attribute_assignment
-        (identifier)
-        (literal
-          (dec_literal))))
     (parameter_list
       value: (literal
         (dec_literal))
@@ -1898,17 +1889,6 @@ assert A == B;
         (dec_literal))
       value: (literal
         (dec_literal)))
-    (identifier)
-    (statement_block
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))))
-  (stimulus
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -1929,6 +1909,26 @@ assert A == B;
         (literal
           (dec_literal)))))
   (stimulus
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal))))
+    (identifier)
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (stimulus
     (parameter_list
       value: (literal
         (dec_literal))
@@ -1947,6 +1947,13 @@ assert A == B;
         (literal
           (dec_literal)))))
   (stimulus
+    (parameter_list
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal)))
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -1956,13 +1963,6 @@ assert A == B;
         (identifier)
         (literal
           (dec_literal))))
-    (parameter_list
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal)))
     (statement_block
       (assignment
         (identifier)
@@ -1973,15 +1973,6 @@ assert A == B;
         (literal
           (dec_literal)))))
   (stimulus
-    (attribute_list
-      (attribute_assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (attribute_assignment
-        (identifier)
-        (literal
-          (dec_literal))))
     (parameter_list
       value: (literal
         (dec_literal))
@@ -1989,44 +1980,6 @@ assert A == B;
         (dec_literal))
       value: (literal
         (dec_literal)))
-    (identifier)
-    (statement_block
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))))
-  (emulate
-    (attribute_list
-      (attribute_assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (attribute_assignment
-        (identifier)
-        (literal
-          (dec_literal))))
-    (parameter_list
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal)))
-    (identifier)
-    (statement_block
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))
-      (assignment
-        (identifier)
-        (literal
-          (dec_literal)))))
-  (emulate
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -2054,6 +2007,15 @@ assert A == B;
         (dec_literal))
       value: (literal
         (dec_literal)))
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal))))
     (identifier)
     (statement_block
       (assignment
@@ -2074,13 +2036,7 @@ assert A == B;
         (identifier)
         (literal
           (dec_literal))))
-    (parameter_list
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal))
-      value: (literal
-        (dec_literal)))
+    (identifier)
     (statement_block
       (assignment
         (identifier)
@@ -2091,6 +2047,31 @@ assert A == B;
         (literal
           (dec_literal)))))
   (emulate
+    (parameter_list
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal)))
+    (identifier)
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (emulate
+    (parameter_list
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal))
+      value: (literal
+        (dec_literal)))
     (attribute_list
       (attribute_assignment
         (identifier)
@@ -2100,6 +2081,16 @@ assert A == B;
         (identifier)
         (literal
           (dec_literal))))
+    (statement_block
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (assignment
+        (identifier)
+        (literal
+          (dec_literal)))))
+  (emulate
     (parameter_list
       value: (literal
         (dec_literal))
@@ -2107,6 +2098,15 @@ assert A == B;
         (dec_literal))
       value: (literal
         (dec_literal)))
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal)))
+      (attribute_assignment
+        (identifier)
+        (literal
+          (dec_literal))))
     (identifier)
     (statement_block
       (assignment
