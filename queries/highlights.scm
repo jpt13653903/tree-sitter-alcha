@@ -110,7 +110,6 @@
   "return"
   "break"
   "continue"
-  "goto"
 ] @keyword.return
 
 [
@@ -290,9 +289,4 @@
 
 (import
   (identifier) @module)
-
-(label
-  (identifier) @label)
-(goto
-  (identifier) @label)
 

@@ -2,8 +2,6 @@
 Definitions
 ================================================================================
 
-ABC:
-
 pin A;
 net A;
 void A;
@@ -40,8 +38,6 @@ ABC.DEF(7, Y:= 9, X=10) <A = a, B = b>A, B, C;
 --------------------------------------------------------------------------------
 
 (module
-  (label
-    (identifier))
   (definition
     (base_type)
     (identifier_list
@@ -1307,8 +1303,6 @@ return 5;
 break 6;
 continue 7;
 
-goto Label;
-
 --------------------------------------------------------------------------------
 
 (module
@@ -1524,9 +1518,7 @@ goto Label;
       (dec_literal)))
   (jump
     (literal
-      (dec_literal)))
-  (goto
-    (identifier)))
+      (dec_literal))))
 
 ================================================================================
 Constructs

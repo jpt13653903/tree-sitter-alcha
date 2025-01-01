@@ -61,18 +61,14 @@ module.exports = grammar({
             module: $ => repeat($._statement),
 
             _statement: $ => seq(optional($.wait), choice(
-                $.label, $.definition, $.class_definition, $.enum_definition,
+                $.definition, $.class_definition, $.enum_definition,
                 $.alias, $.import, $.struct_definition, $.group_definition, $.access_direction_group,
-                $.if_statement, $.for, $.while , $.loop, $.switch, $.case, $.jump, $.goto,
+                $.if_statement, $.for, $.while , $.loop, $.switch, $.case, $.jump,
                 $.function_call_statement, $.namespace_push, $.assignment,
                 $.rtl, $.fsm, $.hdl,
                 $.stimulus, $.emulate, $.fork_join, $.sequence_def, $.assert,
                 ';'
             )),
-
-            label: $ => seq(
-                $._identifier, ':'
-            ),
 
             definition: $ => prec(25, seq(
                 optional('inline'),
@@ -274,10 +270,6 @@ module.exports = grammar({
 
             jump: $ => seq(
                 choice('return', 'break', 'continue'), optional($._expression), ';'
-            ),
-
-            goto: $ => seq(
-                'goto', $._identifier, ';'
             ),
 
             rtl: $ => prec(28, seq(

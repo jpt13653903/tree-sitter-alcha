@@ -29,10 +29,6 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "label"
-            },
-            {
-              "type": "SYMBOL",
               "name": "definition"
             },
             {
@@ -93,10 +89,6 @@
             },
             {
               "type": "SYMBOL",
-              "name": "goto"
-            },
-            {
-              "type": "SYMBOL",
               "name": "function_call_statement"
             },
             {
@@ -144,19 +136,6 @@
               "value": ";"
             }
           ]
-        }
-      ]
-    },
-    "label": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
         }
       ]
     },
@@ -1782,23 +1761,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "STRING",
-          "value": ";"
-        }
-      ]
-    },
-    "goto": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "goto"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_identifier"
         },
         {
           "type": "STRING",

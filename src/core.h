@@ -50,7 +50,6 @@ static void register_keywords(TokenTree* token_tree)
     token_tree_insert(token_tree, "return",    KEYWORD);
     token_tree_insert(token_tree, "break",     KEYWORD);
     token_tree_insert(token_tree, "continue",  KEYWORD);
-    token_tree_insert(token_tree, "goto",      KEYWORD);
 
     token_tree_insert(token_tree, "func",      KEYWORD);
     token_tree_insert(token_tree, "inline",    KEYWORD);
