@@ -794,19 +794,80 @@ Enum Definition
 enum ABC { A }
 enum ABC { A, B, C }
 
+enum ABC { A = 0b00, B = 0b01, C = 0b11, D = 0b10 }
+enum ABC { A = 0b0001, B = 0b0010, C = 0b0100, D = 0b1000 }
+
+enum <encoding = "Johnson"> ABC { A, B, C }
+
 --------------------------------------------------------------------------------
 
 (module
   (enum_definition
     name: (identifier)
     (enum_body
-      (identifier)))
+      element: (identifier)))
   (enum_definition
     name: (identifier)
     (enum_body
-      (identifier)
-      (identifier)
-      (identifier))))
+      element: (identifier)
+      element: (identifier)
+      element: (identifier)))
+  (enum_definition
+    name: (identifier)
+    (enum_body
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))))
+  (enum_definition
+    name: (identifier)
+    (enum_body
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))
+      (enum_member_def
+        element: (identifier)
+        initialiser: (literal
+          (bin_prefix)
+          (bin_literal)))))
+  (enum_definition
+    (attribute_list
+      (attribute_assignment
+        (identifier)
+        (string)))
+    name: (identifier)
+    (enum_body
+      element: (identifier)
+      element: (identifier)
+      element: (identifier))))
 
 ================================================================================
 Alias, Import, Struct, Group and AccessDirectionGroup
@@ -1407,10 +1468,10 @@ goto Label;
   (enum_definition
     name: (identifier)
     (enum_body
-      (identifier)
-      (identifier)
-      (identifier)
-      (identifier)))
+      element: (identifier)
+      element: (identifier)
+      element: (identifier)
+      element: (identifier)))
   (definition
     (type_identifier
       (identifier))

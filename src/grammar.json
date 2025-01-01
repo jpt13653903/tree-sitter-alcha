@@ -1034,6 +1034,18 @@
           "value": "enum"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "attribute_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "name",
           "content": {
@@ -1056,7 +1068,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_identifier"
+          "name": "_enum_member_def"
         },
         {
           "type": "REPEAT",
@@ -1069,7 +1081,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_identifier"
+                "name": "_enum_member_def"
               }
             ]
           }
@@ -1077,6 +1089,48 @@
         {
           "type": "STRING",
           "value": "}"
+        }
+      ]
+    },
+    "_enum_member_def": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "element",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "enum_member_def"
+        }
+      ]
+    },
+    "enum_member_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "element",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "initialiser",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
         }
       ]
     },

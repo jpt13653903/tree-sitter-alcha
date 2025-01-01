@@ -175,11 +175,20 @@ module.exports = grammar({
             ),
 
             enum_definition: $ => seq(
-                'enum', field('name', $._identifier), $.enum_body
+                'enum', optional($.attribute_list), field('name', $._identifier), $.enum_body
             ),
 
             enum_body: $ => seq(
-                '{', $._identifier, repeat(seq(',', $._identifier)), '}'
+                '{', $._enum_member_def, repeat(seq(',', $._enum_member_def)), '}'
+            ),
+
+            _enum_member_def: $ => choice(
+                field('element', $._identifier),
+                $.enum_member_def
+            ),
+
+            enum_member_def: $ => seq(
+                field('element', $._identifier), '=', field('initialiser', $._expression)
             ),
 
             _type_identifier: $ => prec(8, choice(
