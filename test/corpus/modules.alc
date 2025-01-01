@@ -1746,14 +1746,15 @@ myClass.Data.hdl_map(abc.Data);
         (identifier)
         (string)))
     (identifier)
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
-    (assignment
-      (identifier)
-      (literal
-        (dec_literal)))
+    (hdl_parameter_list
+      (hdl_parameter
+        name: (identifier)
+        value: (literal
+          (dec_literal)))
+      (hdl_parameter
+        name: (identifier)
+        value: (literal
+          (dec_literal))))
     (hdl_body
       (direction_specifier)
       (definition

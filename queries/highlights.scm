@@ -284,6 +284,11 @@
   name: (identifier) @function)
 (parameter_def
   parameter: (_) @variable.parameter)
+(assigned_param
+  parameter: (_) @variable.parameter)
+
+(hdl_parameter
+  name: (_) @variable.parameter)
 
 (attribute_reference
   (_)*

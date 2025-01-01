@@ -285,12 +285,20 @@ module.exports = grammar({
 
             hdl: $ => seq(
                 'hdl', $.hdl_files, optional($.attribute_list), $._identifier,
-                optional(seq('(', repeat($.assignment), ')')),
+                optional($.hdl_parameter_list),
                 $.hdl_body
             ),
 
             hdl_files: $ => seq(
                 '(', optional(seq(alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))))), ')'
+            ),
+
+            hdl_parameter_list: $ => seq(
+                '(', repeat($.hdl_parameter), ')',
+            ),
+
+            hdl_parameter: $ => seq(
+                field('name', $._identifier), choice('=', ':='), field('value', $._expression), ';'
             ),
 
             hdl_body: $ => seq(

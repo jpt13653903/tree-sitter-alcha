@@ -4081,10 +4081,6 @@
       "required": true,
       "types": [
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "attribute_list",
           "named": true
         },
@@ -4106,6 +4102,10 @@
         },
         {
           "type": "hdl_files",
+          "named": true
+        },
+        {
+          "type": "hdl_parameter_list",
           "named": true
         },
         {
@@ -4148,6 +4148,195 @@
       "types": [
         {
           "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hdl_parameter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "additive",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "array_concat",
+            "named": true
+          },
+          {
+            "type": "attribute_list",
+            "named": true
+          },
+          {
+            "type": "attribute_reference",
+            "named": true
+          },
+          {
+            "type": "bitwise_and",
+            "named": true
+          },
+          {
+            "type": "bitwise_or",
+            "named": true
+          },
+          {
+            "type": "bitwise_xor",
+            "named": true
+          },
+          {
+            "type": "builtin_const",
+            "named": true
+          },
+          {
+            "type": "builtin_func",
+            "named": true
+          },
+          {
+            "type": "builtin_variable",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "equality",
+            "named": true
+          },
+          {
+            "type": "exponential",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": false
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_reference",
+            "named": true
+          },
+          {
+            "type": "multiplicative",
+            "named": true
+          },
+          {
+            "type": "postfix",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "reduction",
+            "named": true
+          },
+          {
+            "type": "relational",
+            "named": true
+          },
+          {
+            "type": "replication",
+            "named": true
+          },
+          {
+            "type": "shift",
+            "named": true
+          },
+          {
+            "type": "slice",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "stringification",
+            "named": true
+          },
+          {
+            "type": "ternary",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": false
+          },
+          {
+            "type": "unary",
+            "named": true
+          },
+          {
+            "type": "vector_concat",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "hdl_parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "hdl_parameter",
           "named": true
         }
       ]
