@@ -41,8 +41,9 @@ treesitter.setup {
 }
 ```
 
-Then copy the `queries` folder to your `after` configuration folder, typically
-`~/.config/nvim/after` on Linux and `~/AppData/Local/nvim/after` on Windows.
+Then copy the contents of the `queries` folder to your `after/queries/alcha`
+configuration folder, typically `~/.config/nvim/after/queries/alcha` on Linux
+and `~/AppData/Local/nvim/after/queries/alcha/` on Windows.
 
 Finally, run `:TSUpdate`.
 
