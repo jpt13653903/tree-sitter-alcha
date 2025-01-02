@@ -155,7 +155,7 @@ module.exports = grammar({
             ),
 
             parameter_def_list: $ => seq(
-                $.parameter_def, repeat(seq(',', $.parameter_def))
+                $.parameter_def, repeat(seq(',', $.parameter_def)), optional(',')
             ),
 
             parameter_def: $ => seq(
@@ -468,11 +468,11 @@ module.exports = grammar({
             )),
 
             expression_list: $ => prec.left(31, seq(
-                $._expression, repeat(seq(',', $._expression))
+                $._expression, repeat(seq(',', $._expression)), optional(',')
             )),
 
             parameter_list: $ => seq(
-                '(', optional(seq($._parameter, repeat(seq(',', $._parameter)))), ')'
+                '(', optional(seq($._parameter, repeat(seq(',', $._parameter)), optional(','))), ')'
             ),
 
             _parameter: $ => prec(28, choice(
