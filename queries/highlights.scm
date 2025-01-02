@@ -241,6 +241,16 @@
   ")" @string
   .)
 
+(import
+  (stringification
+    "$" @string.special.path))
+(import
+  (stringification
+    .
+    "$(" @string.special.path
+    ")" @string.special.path
+    .))
+
 (string
   "{" @nospell @punctuation.special
   (_)* @nospell

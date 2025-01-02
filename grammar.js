@@ -208,7 +208,10 @@ module.exports = grammar({
             ),
 
             import: $ => seq(
-                'import', alias($.string, $.filename), optional(seq('as', $._identifier)), ';'
+                'import', choice(
+                    alias($.string, $.filename),
+                    $.stringification,
+                ), optional(seq('as', $._identifier)), ';'
             ),
 
             struct_definition: $ => seq(

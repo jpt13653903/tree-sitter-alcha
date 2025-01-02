@@ -1252,13 +1252,22 @@
           "value": "import"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "string"
-          },
-          "named": true,
-          "value": "filename"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "string"
+              },
+              "named": true,
+              "value": "filename"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "stringification"
+            }
+          ]
         },
         {
           "type": "CHOICE",

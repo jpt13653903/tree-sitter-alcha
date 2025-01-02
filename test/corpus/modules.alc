@@ -873,8 +873,19 @@ Alias, Import, Struct, Group and AccessDirectionGroup
 ================================================================================
 
 alias A = B.C * D;
+
 import "../whatnot/thingy";
 import "../whatnot/thingy" as whatnot;
+
+import $"../{whatnot}/thingy";
+import $"../{whatnot}/thingy" as whatnot;
+
+import $filename;
+import $filename as whatnot;
+
+import $(filename);
+import $(filename) as whatnot;
+
 struct<A = 3, B = 7> ABC{
     pin(15, 8) A;
     net(17) B, C;
@@ -926,6 +937,27 @@ group< voltage            = 3.3,
     (filename))
   (import
     (filename)
+    (identifier))
+  (import
+    (filename
+      (identifier)))
+  (import
+    (filename
+      (identifier))
+    (identifier))
+  (import
+    (stringification
+      (identifier)))
+  (import
+    (stringification
+      (identifier))
+    (identifier))
+  (import
+    (stringification
+      (identifier)))
+  (import
+    (stringification
+      (identifier))
     (identifier))
   (struct_definition
     (attribute_list

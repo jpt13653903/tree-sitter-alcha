@@ -4697,6 +4697,10 @@
         {
           "type": "identifier",
           "named": true
+        },
+        {
+          "type": "stringification",
+          "named": true
         }
       ]
     }
