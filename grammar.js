@@ -52,10 +52,8 @@ module.exports = grammar({
 
     conflicts: $ => [
         [$.access_direction_group],
-        [$._type_identifier, $._expression],
-        [$._type_identifier, $._primary],
-        [$._cover_bins_identifier, $._expression],
-        [$._cover_bins_identifier, $._primary]
+        [$._scoped_identifier, $._expression],
+        [$._scoped_identifier, $._primary]
     ],
 
     rules: {
@@ -75,7 +73,7 @@ module.exports = grammar({
 
             definition: $ => prec(25, seq(
                 optional('inline'),
-                choice($.base_type, $._type_identifier),
+                choice($.base_type, alias($._scoped_identifier, $.type_identifier)),
                 optional($.parameter_list),
                 optional($.attribute_list),
                 choice($.identifier_list, $.function_def, $.operator_overload)
@@ -85,8 +83,8 @@ module.exports = grammar({
                 'class', optional($.attribute_list), field('name', $._identifier),
                 optional(seq('(', optional($.parameter_def_list), ')')),
                 optional(seq(
-                    ':', $._type_identifier, optional($.parameter_list),
-                    repeat(seq(',', $._type_identifier, optional($.parameter_list)))
+                    ':', alias($._scoped_identifier, $.type_identifier), optional($.parameter_list),
+                    repeat(seq(',', alias($._scoped_identifier, $.type_identifier), optional($.parameter_list)))
                 )), $.statement_block
             ),
 
@@ -161,12 +159,12 @@ module.exports = grammar({
             ),
 
             parameter_def: $ => seq(
-                optional(seq(choice($.base_type, $._type_identifier), optional($.parameter_list))),
+                optional(seq(choice($.base_type, alias($._scoped_identifier, $.type_identifier)), optional($.parameter_list))),
                 field('parameter', $._identifier), repeat(seq('[', ']')), optional($.initialiser)
             ),
 
             attribute_list: $ => seq(
-                '<', $.attribute_assignment, repeat(seq(',', $.attribute_assignment)), '>'
+                '<', $.attribute_assignment, repeat(seq(',', $.attribute_assignment)), optional(','), '>'
             ),
 
             attribute_assignment: $ => seq(
@@ -178,7 +176,7 @@ module.exports = grammar({
             ),
 
             enum_body: $ => seq(
-                '{', $._enum_member_def, repeat(seq(',', $._enum_member_def)), '}'
+                '{', $._enum_member_def, repeat(seq(',', $._enum_member_def)), optional(','), '}'
             ),
 
             _enum_member_def: $ => choice(
@@ -190,9 +188,9 @@ module.exports = grammar({
                 field('element', $._identifier), '=', field('initialiser', $._expression)
             ),
 
-            _type_identifier: $ => prec(8, choice(
-                prec(27, alias($._identifier, $.type_identifier)),
-                alias($.member_reference, $.type_identifier),
+            _scoped_identifier: $ => prec(8, choice(
+                prec(27, $._identifier),
+                $.member_reference,
             )),
 
         // Statements
@@ -290,15 +288,15 @@ module.exports = grammar({
             ),
 
             hdl_files: $ => seq(
-                '(', optional(seq(alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))))), ')'
+                '(', optional(seq(alias($.string, $.filename), repeat(seq(',', alias($.string, $.filename))), optional(','))), ')'
             ),
 
             hdl_parameter_list: $ => seq(
-                '(', repeat($.hdl_parameter), ')',
+                '(', optional(seq($.hdl_parameter, repeat(seq(',', $.hdl_parameter)), optional(','))), ')',
             ),
 
             hdl_parameter: $ => seq(
-                field('name', $._identifier), choice('=', ':='), field('value', $._expression), ';'
+                field('name', $._identifier), choice('=', ':='), field('value', $._expression)
             ),
 
             hdl_body: $ => seq(
@@ -585,13 +583,8 @@ module.exports = grammar({
             ),
 
             cover_group_item: $ => seq(
-                $._cover_bins_identifier, $.parameter_list, ';'
+                alias($._scoped_identifier, $.cover_bins_identifier), $.parameter_list, ';'
             ),
-
-            _cover_bins_identifier: $ => prec(8, choice(
-                prec(27, alias($._identifier, $.cover_bins_identifier)),
-                alias($.member_reference, $.cover_bins_identifier),
-            )),
 
         // Scanner
             literal: $ => seq(

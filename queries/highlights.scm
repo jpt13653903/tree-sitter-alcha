@@ -262,13 +262,23 @@
   (identifier) @variable.member)
 
 (type_identifier
-  (identifier)* @module
   (identifier) @type .)
+(type_identifier
+  (member_reference
+    (_)* @module
+    (identifier) @type .))
+
 (definition
   (type_identifier
-    (identifier)* @module
     (identifier) @constructor .)
   (parameter_list))
+(definition
+  (type_identifier
+    (member_reference
+      (_)* @module
+      (identifier) @constructor .))
+  (parameter_list))
+
 (class_definition
   name: (identifier) @type.definition)
 (struct_definition
@@ -298,6 +308,9 @@
   (identifier) @module)
 
 (cover_bins_identifier
-  (identifier)* @module
-  (identifier) @variable.member .)
+  (identifier) @type .)
+(cover_bins_identifier
+  (member_reference
+    (_)* @module
+    (identifier) @variable.member .))
 

@@ -919,25 +919,28 @@ covergroup(Clk) MyHandshakeCoverage{
       (cover_group_item
         (cover_bins_identifier
           (member_reference
-            (identifier)
-            (identifier))
-          (identifier))
+            (member_reference
+              (identifier)
+              (identifier))
+            (identifier)))
         (parameter_list
           value: (identifier)))
       (cover_group_item
         (cover_bins_identifier
           (member_reference
-            (identifier)
-            (identifier))
-          (identifier))
+            (member_reference
+              (identifier)
+              (identifier))
+            (identifier)))
         (parameter_list
           value: (identifier)))
       (cover_group_item
         (cover_bins_identifier
           (member_reference
-            (identifier)
-            (identifier))
-          (identifier))
+          (member_reference
+              (identifier)
+              (identifier))
+            (identifier)))
         (parameter_list
           value: (identifier))))))
 
