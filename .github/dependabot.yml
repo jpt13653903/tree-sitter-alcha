@@ -4,7 +4,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: saturday
+      day: sunday
     commit-message:
       prefix: ci
     labels:
@@ -15,19 +15,19 @@ updates:
 
   # NOTE: uncomment the ecosystems you want to keep up-to-date
 
-  # - package-ecosystem: npm
-  #   versioning-strategy: increase
-  #   directory: /
-  #   schedule:
-  #     interval: weekly
-  #     day: sunday
-  #   commit-message:
-  #     prefix: build(deps)
-  #   labels:
-  #     - dependencies
-  #   groups:
-  #     npm:
-  #       patterns: ["*"]
+  - package-ecosystem: npm
+    versioning-strategy: increase
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+    commit-message:
+      prefix: build(deps)
+    labels:
+      - dependencies
+    groups:
+      npm:
+        patterns: ["*"]
 
   # - package-ecosystem: cargo
   #   directory: /
