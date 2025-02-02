@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-alcha"
 description = "Alcha grammar for tree-sitter"
-version = "0.1.0"
+version = "0.1.1"
 keywords = ["incremental", "parsing", "tree-sitter", "alcha"]
 classifiers = [
   "Intended Audience :: Developers",
@@ -14,7 +14,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 authors = [{ name = "John-Philip Taylor" }]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license.text = "MIT"
 readme = "README.md"
 
@@ -22,8 +22,8 @@ readme = "README.md"
 Homepage = "https://github.com/jpt13653903/tree-sitter-alcha"
 
 [project.optional-dependencies]
-core = ["tree-sitter~=0.22"]
+core = ["tree-sitter~=0.24"]
 
 [tool.cibuildwheel]
-build = "cp39-*"
+build = "cp310-*"
 build-frontend = "build"

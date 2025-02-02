@@ -9839,7 +9839,8 @@
   },
   {
     "type": "block_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "break",
@@ -9975,7 +9976,8 @@
   },
   {
     "type": "line_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "loop",
@@ -9987,7 +9989,8 @@
   },
   {
     "type": "nested_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "net",
@@ -10059,7 +10062,8 @@
   },
   {
     "type": "todo_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "true",
