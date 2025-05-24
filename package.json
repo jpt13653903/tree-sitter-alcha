@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-alcha",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "ALCHA grammar for tree-sitter",
   "repository": "https://github.com/jpt13653903/tree-sitter-alcha",
   "author": "John-Philip Taylor",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
-    "tree-sitter-cli": "^0.25.3"
+    "tree-sitter-cli": "^0.25.4"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.1"
