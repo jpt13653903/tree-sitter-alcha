@@ -12,6 +12,46 @@ A Tree-sitter parser for ALCHA files.
 
 ## Setup Process
 
+Setup depends on the version of nvim-treesitter:
+
+### nvim-treesitter on `main`
+
+Configure your `treesitter.lua` (or equivalent) as follows:
+
+```lua
+vim.api.nvim_create_autocmd('User', { pattern = 'TSUpdate',
+callback = function()
+  require('nvim-treesitter.parsers').alcha = {
+    install_info = {
+      url     = "https://github.com/jpt13653903/tree-sitter-alcha.git",
+      files   = { 'src/parser.c', 'src/scanner.c' },
+      branch  = 'master',
+      queries = 'queries',
+    },
+  }
+end})
+
+vim.filetype.add({extension = {
+  alc       = 'alcha',
+  ah        = 'alcha',
+}})
+
+languages = {
+  -- Some list of languages...
+  'alcha',
+  -- Some more languages...
+}
+local treesitter = require('nvim-treesitter')
+treesitter.install(languages)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern  = languages,
+  callback = function() vim.treesitter.start() end,
+})
+```
+
+### nvim-treesitter on `master` (legacy)
+
 Configure your `treesitter.lua` (or equivalent) as follows:
 
 ```lua
