@@ -2,6 +2,7 @@
   "name": "tree-sitter-alcha",
   "version": "0.2.0",
   "description": "ALCHA grammar for tree-sitter",
+  "type": "module",
   "repository": "https://github.com/jpt13653903/tree-sitter-alcha",
   "author": "John-Philip Taylor",
   "license": "MIT",
