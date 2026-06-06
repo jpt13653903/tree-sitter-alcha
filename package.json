@@ -56,5 +56,8 @@
       ],
       "highlights": "queries/highlights.scm"
     }
-  ]
+  ],
+  "allowScripts": {
+    "tree-sitter-cli@0.26.9": true
+  }
 }
