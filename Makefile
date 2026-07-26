@@ -1,6 +1,7 @@
 LANGUAGE_NAME := tree-sitter-alcha
 HOMEPAGE_URL := https://github.com/jpt13653903/tree-sitter-alcha
 VERSION := 0.2.0
+DESCRIPTION := Alcha grammar for tree-sitter
 
 # repository
 SRC_DIR := src
